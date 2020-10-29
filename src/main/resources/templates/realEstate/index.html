@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+
+<div class="container">
+    <p>This is details</p>
+    <table style="width:100%">
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Desc</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td th:text="${realEstate.getName()}" />
+            <td th:text="${realEstate.getAddress()}" />
+            <td th:text="${realEstate.getDescription()}" />
+            <td th:text="${realEstate.getPrice()}" />
+        </tr>
+    </table>
+</div>
+</body>
+</html>
