@@ -21,9 +21,7 @@ public class RealEstate {
     @Column
     private long price;
 
-    public RealEstate() {
-
-    }
+    public RealEstate() {   }
 
     public RealEstate(String name, String address, String description, long price) {
         this.name = name;

@@ -2,6 +2,7 @@ package hu.IB153I16.ingatlan.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,11 +11,15 @@ import java.util.List;
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(nullable = false)
     private String username;
+
+    @Column(unique = true)
+    @NotEmpty
+    private String email;
 
     @Column(nullable = false)
     private String password;
@@ -34,6 +39,38 @@ public class User {
     }
 
     protected User(){}
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
+    public void setPermissions(String permissions) {
+        this.permissions = permissions;
+    }
 
     public long getId() {
         return id;
