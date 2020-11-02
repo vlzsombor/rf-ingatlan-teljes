@@ -8,21 +8,30 @@
     <meta charset="UTF-8"/>
     <link th:href="@{~/bootstrap.min.css}" rel="stylesheet">
     <link th:href="@{~/fontawesome/css/all.css}" rel="stylesheet">
+    <link th:href="@{~/google.fonts.css}" rel="stylesheet">
+    <link th:href="@{~/mdb.min.css}"  rel="stylesheet">
 </head>
 <body>
 
 <!-- Fragment #2 : Navbar contains nav links -->
-<div th:fragment="nav">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Boot Security</a>
+<div th:fragment="nav"  >
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+            <img alt="" height="48" th:src="@{~/logo.png}" class="animated flipInX">
+        </a>
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="basicExampleNav">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{~/}"><i class="fa fa-home"></i>Home</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" th:href="@{~/}">Főoldal</a>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{~/profile/index}">Profile</a>
+                    <a class="nav-link" href="#" th:href="@{~/profile/index}">Profil</a>
                 </li>
                 <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
                     <a class="nav-link" href="#" th:href="@{~/admin/index}">Admin</a>
@@ -30,19 +39,67 @@
                 <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
                     <a class="nav-link" href="#" th:href="@{~/management/index}">Management</a>
                 </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item">
-                    <a class="nav-link" href="#"
-                       th:href="@{{baseURL}{upload}(upload=${T(hu.IB153I16.ingatlan.utils.constant.URLPATH).REALESTATE_UPLOAD},baseURL=${T(hu.IB153I16.ingatlan.utils.constant.URLPATH).REALESTATE_ROOT})}"
-                    ><i class="fas fa-file-upload"></i> Upload your own ad</a>
-                </li>
 
             </ul>
+            <!-- biztos a navbarban akarjuk a searchot?? <ul class="nav justify-content-center">
+                <li>
+                    <form class="form-inline">
+                        <div class="active-cyan-3 active-cyan-4 mb-4">
+                            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                        </div>
+                    </form>
+                </li>
+            </ul>
+            -->
+            <ul class="navbar-nav ml-auto">
+                <li sec:authorize="isAuthenticated()" class="nav-item">
+                    <a class="nav-link" href="#"
+                    th:href="@{{baseURL}{upload}(upload=${T(hu.IB153I16.ingatlan.utils.constant.URLPATH).REALESTATE_UPLOAD},baseURL=${T(hu.IB153I16.ingatlan.utils.constant.URLPATH).REALESTATE_ROOT})}"
+                    ><i class="fas fa-file-upload"></i>Hirdetés feltöltése</a>
+                </li>
+            </ul>
             <form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{/logout}">
-                <button sec:authorize="isAuthenticated()" class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="submit">Logout</button>
-                <button sec:authorize="isAnonymous()" th:href="@{~/login}" class="btn btn-outline-info my-2 my-sm-0 btn-sm" type="submit">Login</button>
+                <button sec:authorize="isAuthenticated()" class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="submit">Kijelentkezés</button>
+                <button sec:authorize="isAnonymous( )" th:href="@{~/login}" class="btn btn-outline-info my-2 my-sm-0 btn-sm" type="submit">Bejelentkezés</button>
             </form>
         </div>
     </nav>
 </div>
+
+<div th:fragment="search">
+    <div class="d-flex justify-content-center bg-warning">
+        <h1><p class="-font-awesome -mars-stroke mt-3">Találja meg álmai otthonát!</p></h1>
+    </div>
+    <div class="bg-warning d-flex justify-content-center clearfix">
+
+        <div class="p-2 mt-4">
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
+                <label class="custom-control-label" for="defaultUnchecked">Kiadó</label>
+            </div>
+
+            <!-- Default checked -->
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="defaultChecked" name="defaultExampleRadios" checked>
+                <label class="custom-control-label" for="defaultChecked">Eladó</label>
+            </div>
+        </div>
+        <div class="p-2 mt-4">
+            <form class="form-inline">
+                <div class="active-cyan-3 active-cyan-4 w-100">
+                    <input class="form-control" type="text" placeholder="Város" aria-label="Search">
+                </div>
+            </form>
+        </div>
+        <div class="p-2 mt-4">
+            <form class="form-inline">
+                <div class="active-cyan-3 active-cyan-4 mb-4">
+                    <input class="form-control" type="text" placeholder="Utca" aria-label="Search">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
