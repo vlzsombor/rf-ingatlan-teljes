@@ -16,7 +16,7 @@ public class IngatlanApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(IngatlanApplication.class, args);
 	}
-
+/*
 	@Bean
 	public ServletWebServerFactory servletContainer() {
 		// Enable SSL Trafic
@@ -33,17 +33,19 @@ public class IngatlanApplication {
 		};
 
 		// Add HTTP to HTTPS redirect
-		tomcat.addAdditionalTomcatConnectors(httpToHttpsRedirectConnector());
+		//tomcat.addAdditionalTomcatConnectors(httpToHttpsRedirectConnector());
 
 		return tomcat;
 	}
-
+/*
 	private Connector httpToHttpsRedirectConnector() {
-		Connector connector = new Connector(TomcatServletWebServerFactory.DEFAULT_PROTOCOL);
-		connector.setScheme("http");
-		connector.setPort(8080);
-		connector.setSecure(false);
-		connector.setRedirectPort(8081);
-		return connector;
+		//Connector connector = new Connector(TomcatServletWebServerFactory.DEFAULT_PROTOCOL);
+		//connector.setScheme("http");
+		//connector.setPort(8080);
+		//connector.setSecure(false);
+		//connector.setRedirectPort(8081);
+		//return connector;
 	}
+ */
+
 }
