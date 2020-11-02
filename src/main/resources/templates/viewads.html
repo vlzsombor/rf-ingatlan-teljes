@@ -9,17 +9,12 @@
         <h1><p class="-font-awesome -mars-stroke mt-3">Találja meg álmai otthonát!</p></h1>
     </div>
     <header th:insert="fragments.html :: search"></header>
-
-<!-- ezt kiszervezni kulon html be ??? -->
-
-    <table style="width:100%">
-        <tr>
-            <th>Title</th>
-            <th>Street</th>
-            <th>Details</th>
+<!-- ezt kiszervezni kulon html be ???-->
+    <table>
+        <tr th:fragment="contactRow(stat)" th:each="realEstate: ${stat}">
+            <td th:text="${realEstate.getName()}" />
         </tr>
-        <tr th:each="realEstate: ${realEstates}">
-            <th:block th:replace="viewads :: contactRow((${realEstates}))">row</th:block>
+
         </tr>
     </table>
 
