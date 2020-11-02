@@ -34,18 +34,18 @@ public class DbInit implements CommandLineRunner {
         this.userRepository.deleteAll();
 
         // Crete users
-        User dan = new User("dan",passwordEncoder.encode("dan123"),"USER","");
-        User admin = new User("admin",passwordEncoder.encode("admin123"),"ADMIN","ACCESS_TEST1,ACCESS_TEST2");
-        User manager = new User("manager",passwordEncoder.encode("manager123"),"MANAGER","ACCESS_TEST1");
+        //User dan = new User("dan",passwordEncoder.encode("dan123"),"USER","");
+        //User admin = new User("admin",passwordEncoder.encode("admin123"),"ADMIN","ACCESS_TEST1,ACCESS_TEST2");
+        //User manager = new User("manager",passwordEncoder.encode("manager123"),"MANAGER","ACCESS_TEST1");
 
         RealEstate re = new RealEstate("Balatoni nyaralo","Balaton utca 54","nagyon jo nyaralo pls buy", 124545);
         RealEstate re1 = new RealEstate("Szentes","szentes utca 54","pls buy", 45);
 
-        List<User> users = Arrays.asList(dan,admin,manager);
+        //List<User> users = Arrays.asList(dan,admin,manager);
         List<RealEstate> realEstates = Arrays.asList(re,re1);
 
         // Save to db
-        this.userRepository.saveAll(users);
+        //this.userRepository.saveAll(users);
         this.realEstateRepository.saveAll(realEstates);
     }
 }
