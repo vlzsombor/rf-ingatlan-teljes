@@ -10,18 +10,11 @@
     </div>
     <header th:insert="fragments.html :: search"></header>
 <!-- ezt kiszervezni kulon html be ???-->
-    <table style="width:100%">
-        <tr>
-            <th>Title</th>
-            <th>Street</th>
-            <th>Details</th>
-        </tr>
-        <tr th:each="realEstate: ${realEstates}">
+    <table>
+        <tr th:fragment="contactRow(stat)" th:each="realEstate: ${stat}">
             <td th:text="${realEstate.getName()}" />
-            <td th:text="${realEstate.getAddress()}" />
-            <td><a th:href="@{{baseURL}{id}(id=${realEstate.id},baseURL=${T(hu.IB153I16.ingatlan.utils.constant.URLPATH).REALESTATE_ROOT})}"
-                   class="btn btn-primary"> <i class="fas fa-angle-double-right"></i>
-            </a></td>
+        </tr>
+
         </tr>
     </table>
 
