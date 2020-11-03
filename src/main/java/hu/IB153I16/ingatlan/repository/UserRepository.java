@@ -1,4 +1,4 @@
-package hu.IB153I16.ingatlan.Repository;
+package hu.IB153I16.ingatlan.repository;
 
 
 import hu.IB153I16.ingatlan.model.User;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     User findByUsername(String username);
+
     User findByEmail(String email);
 
 

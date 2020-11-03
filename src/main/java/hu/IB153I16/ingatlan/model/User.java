@@ -2,10 +2,7 @@ package hu.IB153I16.ingatlan.model;
 
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 
 @Entity
@@ -44,12 +41,14 @@ public class User {
     @Column(nullable = false)
     private String permissions = "";
 
-    public User(String username, String password, Collection<Role> roles, String permissions){
+    public User(String username, String firstName, String lastName, String email, String password, Collection<Role> roles, String permissions) {
         this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
         this.password = password;
         this.roles = roles;
         this.permissions = permissions;
-        this.active = 1;
     }
 
     public User(){}
@@ -125,5 +124,36 @@ public class User {
 
     public void setRoles(Collection<Role> roles) {
         this.roles = roles;
+    }
+
+
+    public Collection<Role> getRoleList(){
+        if(this.roles != null){
+            return roles;
+        }
+        return new ArrayList<>();
+    }
+
+    public List<String> getPermissionList(){
+        if(this.permissions.length() > 0){
+            return Arrays.asList(this.permissions.split(","));
+        }
+        return new ArrayList<>();
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", active=" + active +
+                ", roles=" + roles +
+
+                ", permissions='" + permissions + '\'' +
+                '}';
     }
 }

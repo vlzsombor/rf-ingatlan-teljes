@@ -42,7 +42,7 @@ public class RegistrationController {
         }
 
         if (result.hasErrors()){
-            return "registration";
+            return "registration/index";
         }
 
         userService.save(userDto);
