@@ -25,6 +25,11 @@ public class HomeController {
     @GetMapping("login")
     public String login(){ return "login"; }
 
+    @GetMapping("viewads")
+    public String viewAds(Model model){
+        model.addAttribute("realEstates",realEstateRepository.findAll());
+        return "viewads";
 
+    }
 
 }

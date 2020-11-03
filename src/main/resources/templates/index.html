@@ -11,17 +11,7 @@
     <header th:insert="fragments.html :: search"></header>
 
 <!-- ezt kiszervezni kulon html be ??? -->
-<h1>sas</h1>
-    <table style="width:100%">
-        <tr>
-            <th>Title</th>
-            <th>Street</th>
-            <th>Details</th>
-        </tr>
-        <tr th:each="realEstate: ${realEstates}">
-            <th:block th:replace="viewads :: contactRow((${realEstates}))">row</th:block>
-        </tr>
-    </table>
+
 
 
 </div>

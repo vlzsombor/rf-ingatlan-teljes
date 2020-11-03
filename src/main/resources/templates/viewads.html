@@ -11,14 +11,22 @@
     <header th:insert="fragments.html :: search"></header>
 <!-- ezt kiszervezni kulon html be ???-->
     <table>
-        <tr th:fragment="contactRow(stat)" th:each="realEstate: ${stat}">
+        <tr th:each="realEstate: ${realEstates}">
             <td th:text="${realEstate.getName()}" />
         </tr>
 
         </tr>
     </table>
+<!--
+    <table style="width:100%">
+        <tr>
+            <th>Title</th>
+            <th>Street</th>
+            <th>Details</th>
+        </tr>
 
-
+    </table>
+    -->
 </div>
 </body>
 </html>
