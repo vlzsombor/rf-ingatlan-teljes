@@ -28,7 +28,7 @@
         <div class="collapse navbar-collapse" id="basicExampleNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/' ? '-active':''}">
-                    <a class="nav-link" href="#" th:href="@{~/}" th:utext="#{label.form.loginTitle}"></a>
+                    <a class="nav-link" href="#" th:href="@{~/}">Főoldal</a>
                 </li>
                 <li class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/viewads' ? '-active':''}">
                     <a class="nav-link" href="#" th:href="@{~/viewads}">View ads</a>
@@ -37,7 +37,7 @@
                     <a class="nav-link" href="#" th:href="@{~/profile/index}">Profil</a>
                 </li>
                 <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/admin/index' ? 'active':''}">
-                    <a class="nav-link" href="#" th:href="@{~/admin/index}" th:utext="#{label.pages.admin}"></a>
+                    <a class="nav-link" href="#" th:href="@{~/admin/index}">Admin</a>
                 </li>
                 <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/management/index' ? 'active':''}">
                     <a class="nav-link" href="#" th:href="@{~/management/index}">Management</a>
@@ -104,24 +104,6 @@
 <div th:fragment="premium">
     <div class="container mt-5">
         <div class="row row-cols-3">
-            <div class="col"><div class="card">
-
-                <!-- Card image -->
-                <img class="card-img-top w-100 h-25 img-thumbnail" th:src="@{~/hirdetes.png}" alt="Card image cap">
-
-                <!-- Card content -->
-                <div class="card-body">
-
-                    <!-- Title -->
-                    <h4 class="card-title"><a>Hirdetes</a></h4>
-                    <!-- Text -->
-                    <p class="card-text">Hirdetés leírás példa Hirdetés leírás példa </p>
-                    <!-- Button -->
-                    <a href="#" class="btn btn-primary">Button</a>
-
-                </div>
-
-            </div></div>
             <div class="col"><div class="card">
 
                 <!-- Card image -->
