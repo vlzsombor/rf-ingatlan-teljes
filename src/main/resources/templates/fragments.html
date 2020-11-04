@@ -35,6 +35,10 @@
                        th:href="@{{baseURL}{upload}(upload=${T(hu.IB153I16.ingatlan.utils.constant.URLPATH).REALESTATE_UPLOAD},baseURL=${T(hu.IB153I16.ingatlan.utils.constant.URLPATH).REALESTATE_ROOT})}"
                     ><i class="fas fa-file-upload"></i> Upload your own ad</a>
                 </li>
+                <li sec:authorize="isAuthenticated()" class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{~/realestates/managemyads}"
+                    ><i class="far fa-edit"></i></i> Manage my ads</a>
+                </li>
 
             </ul>
             <form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{/logout}">
