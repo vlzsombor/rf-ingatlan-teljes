@@ -3,8 +3,18 @@
 <head th:insert="fragments.html :: headerfiles"></head>
 <body>
 <header th:insert="fragments.html :: nav"></header>
-<div>
-</div>
+<table style="width:100%">
+    <tr>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+    </tr>
+    <tr th:each="user: ${users}">
+        <td th:text="${user.getFirstName()}" />
+        <td th:text="${user.getLastName()}" />
+        <td th:text="${user.getEmail()}" />
+    </tr>
+</table>
 
 </body>
 </html>
