@@ -63,6 +63,7 @@ public class RealEstateController {
         //(realEstateRepository.findAll().stream().filter( x -> x.getUser().getEmail().equals("dan@a.hu"))
         var realEstates = realEstateRepository.findAll().stream().filter(
                 x -> x.getUser().getEmail().equals(currentPrincipalName)).collect(Collectors.toList());
+        model.addAttribute("myRealEstates",realEstates);
         return "realEstate/managemyads";
     }
 }
