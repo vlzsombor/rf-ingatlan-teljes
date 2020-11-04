@@ -174,11 +174,14 @@
 
             <!-- Call to action -->
             <ul class="list-unstyled list-inline text-center py-2">
-                <li class="list-inline-item">
+                <li sec:authorize="isAnonymous( )" class="list-inline-item">
                     <h5 class="mb-1">Register for free</h5>
                 </li>
-                <li class="list-inline-item">
-                    <a href="#!" class="btn btn-outline-white btn-rounded">Sign up!</a>
+                <li sec:authorize="isAnonymous( )" class="list-inline-item">
+                    <a href="#"   class="btn btn-outline-white btn-rounded">Sign up!</a>
+                </li>
+                <li sec:authorize="isAuthenticated()" class="list-inline-item">
+                    <h5 class="mb-1">ringatlan.com</h5>
                 </li>
             </ul>
             <!-- Call to action -->
