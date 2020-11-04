@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.sql.SQLOutput;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping(URLPATH.REALESTATE_ROOT)
@@ -56,8 +57,12 @@ public class RealEstateController {
     }
 
     @GetMapping("/managemyads")
-    public String editmyadsRealEstate(){
-        realEstateRepository.findAll();
+    public String editmyadsRealEstate(Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = auth.getName();
+        //(realEstateRepository.findAll().stream().filter( x -> x.getUser().getEmail().equals("dan@a.hu"))
+        var realEstates = realEstateRepository.findAll().stream().filter(
+                x -> x.getUser().getEmail().equals(currentPrincipalName)).collect(Collectors.toList());
         return "realEstate/managemyads";
     }
 }
