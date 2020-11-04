@@ -54,5 +54,11 @@ public class RealEstateController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/managemyads")
+    public String editmyadsRealEstate(){
+        realEstateRepository.findAll();
+        return "realEstate/managemyads";
+    }
 }
 
