@@ -13,8 +13,7 @@
             <h5 class="card-title " th:text="${realEstate.getName()}">Panel title</h5>
             <h6 class="card-subtitle mb-2 text-muted" th:text="${realEstate.getPrice()}">Panel subtitle</h6>
             <p class="card-text " th:text="${realEstate.getDescription()}">Some quick example text to build on the panel title and make up the bulk of the panel's content.</p>
-            <a href="#!" class="card-link">Card link</a>
-            <a href="#!" class="card-link">Another link</a>
+            <a class="card-link" th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}">MEGTEKINTEM</a>
         </div>
     </div>
 </div>
