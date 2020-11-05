@@ -5,7 +5,7 @@
 <body>
 <header th:insert="fragments.html :: nav"></header>
 <header th:insert="fragments.html :: search"></header>
-<div class="container justify-content-center mt-5">
+<div class="container mt-5">
 
 <!--
     <div class="card">
@@ -18,18 +18,22 @@
     </div>
 
    -->
-    <ul class="list-unstyled" th:each="realEstate : ${realEstates}">
-        <li class="media mt-5">
-            <div class="col-sm-2">
-            <img class="d-flex mr-3 img-fluid content-box" th:src="@{~/hirdetes.png}" th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}"  alt="Generic placeholder image">
+
+    <ul class="list-unstyled border border-left-0 border-dark border-top-0 border-bottom-0 hoverable" th:each="realEstate : ${realEstates}">
+        <a th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}">
+        <li class="media mt-4 ">
+            <div class="col-sm-3">
+            <img class="img-fluid content-box " th:src="@{~/hirdetes.png}" th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}"  alt="Generic placeholder image">
             </div>
-                <div class="media-body">
-                    <a th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}">
-                <h5 class=" mb-1 font-weight-bold mt-1" th:text="${realEstate.getName()}">List-based media object</h5>
-                    </a>
-                <p th:text="${realEstate.getDescription()}" class="mt-4" th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}"></p>
+                <div class="media-body ">
+
+                <h5 class="mb-1 mt-1"   style="color:darkslategray" th:text="${realEstate.getName()}">List-based media object</h5>
+
+                <p th:text="${realEstate.getDescription()}" style="color:darkslategray" class="mt-4" th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}"></p>
+                <p th:text="${realEstate.getPrice()}" style="color:darkslategray" class="mt-5 font-weight-light font-small"></p>
             </div>
         </li>
+        </a>
     </ul>
 </div>
 
