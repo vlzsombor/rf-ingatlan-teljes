@@ -6,7 +6,8 @@
 <body>
 <header th:insert="fragments.html :: nav"></header>
 
-<div class="container">
+<div class="container mt-5">
+    <!--
     <p>This is details</p>
     <table style="width:100%">
         <tr>
@@ -22,6 +23,19 @@
             <td th:text="${realEstate.getPrice()}" />
         </tr>
     </table>
+    -->
+    <h1 th:text="${realEstate.getName()}" class="mt-5"></h1>
+    <div class="justify-content-center">
+        <div class="col-md-4 bg-info "><img th:src="@{~/hirdetes.png}" class="img-re" alt="asd"></div>
+        <div class="col-md-8 bg-info justify-content-center">
+            .col-md-8
+            <div class="row justify-content-center">
+                <div class="col-md-6 bg-info justify-content-center">.col-md-7</div>
+                <div class="col-md-6 bg-info justify-content-center">.col-md-6</div>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <footer th:insert="fragments.html :: foot"></footer>
