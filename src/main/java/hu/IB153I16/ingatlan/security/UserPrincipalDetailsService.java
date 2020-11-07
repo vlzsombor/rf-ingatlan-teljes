@@ -1,12 +1,6 @@
 package hu.IB153I16.ingatlan.security;
 
-import hu.IB153I16.ingatlan.Repository.UserRepository;
-import hu.IB153I16.ingatlan.model.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
-
+/*
 @Service
 public class UserPrincipalDetailsService implements UserDetailsService {
     private UserRepository userRepository;
@@ -24,3 +18,4 @@ public class UserPrincipalDetailsService implements UserDetailsService {
         return userPrincipal;
     }
 }
+*/

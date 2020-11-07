@@ -1,8 +1,9 @@
 package hu.IB153I16.ingatlan.db;
 
-import hu.IB153I16.ingatlan.Repository.RealEstateRepository;
-import hu.IB153I16.ingatlan.Repository.UserRepository;
+import hu.IB153I16.ingatlan.repository.RealEstateRepository;
+import hu.IB153I16.ingatlan.repository.UserRepository;
 import hu.IB153I16.ingatlan.model.RealEstate;
+import hu.IB153I16.ingatlan.model.Role;
 import hu.IB153I16.ingatlan.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -34,18 +35,23 @@ public class DbInit implements CommandLineRunner {
         this.userRepository.deleteAll();
 
         // Crete users
-        User dan = new User("dan",passwordEncoder.encode("dan123"),"USER","");
-        User admin = new User("admin",passwordEncoder.encode("admin123"),"ADMIN","ACCESS_TEST1,ACCESS_TEST2");
-        User manager = new User("manager",passwordEncoder.encode("manager123"),"MANAGER","ACCESS_TEST1");
+        //User dan = new User("dan",passwordEncoder.encode("dan123"),"USER","");
+        //User admin = new User("admin",passwordEncoder.encode("admin123"),"ADMIN","ACCESS_TEST1,ACCESS_TEST2");
+        //User manager = new User("manager",passwordEncoder.encode("manager123"),"MANAGER","ACCESS_TEST1");
 
-        RealEstate re = new RealEstate("Balatoni nyaralo","Balaton utca 54","nagyon jo nyaralo pls buy", 124545);
+        //    public User(String username, String firstName, String lastName, String email, String password, Collection<Role> roles, String permissions) {
+        User dan = new User("dan","dan","dan","dan@a.hu",passwordEncoder.encode("dan123"),Arrays.asList(new Role("ROLE_USER")),"");
+        User manager = new User("manager","manager","manager","manager@a.hu",passwordEncoder.encode("manager123"),Arrays.asList(new Role("ROLE_MANAGER")),"");
+        User admin = new User("admin","admin","admin","admin@a.hu",passwordEncoder.encode("admin123"),Arrays.asList(new Role("ROLE_ADMIN")),"");
+
+       /* RealEstate re = new RealEstate("Balatoni nyaralo","Balaton utca 54","nagyon jo nyaralo pls buy", 124545);
         RealEstate re1 = new RealEstate("Szentes","szentes utca 54","pls buy", 45);
-
+*/
         List<User> users = Arrays.asList(dan,admin,manager);
-        List<RealEstate> realEstates = Arrays.asList(re,re1);
+        //List<RealEstate> realEstates = Arrays.asList(re,re1);
 
         // Save to db
         this.userRepository.saveAll(users);
-        this.realEstateRepository.saveAll(realEstates);
+        //this.realEstateRepository.saveAll(realEstates);
     }
 }

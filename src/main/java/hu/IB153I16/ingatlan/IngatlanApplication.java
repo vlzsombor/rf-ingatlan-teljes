@@ -16,7 +16,8 @@ public class IngatlanApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(IngatlanApplication.class, args);
 	}
-
+/*
+??? ssh
 	@Bean
 	public ServletWebServerFactory servletContainer() {
 		// Enable SSL Trafic
@@ -46,4 +47,5 @@ public class IngatlanApplication {
 		connector.setRedirectPort(8081);
 		return connector;
 	}
+*/
 }
