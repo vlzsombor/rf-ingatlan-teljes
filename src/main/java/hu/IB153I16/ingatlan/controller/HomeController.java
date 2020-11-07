@@ -19,7 +19,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Model model){
-//        System.out.println(realEstateRepository.findAll().stream().filter( x -> x.getUser().getEmail().equals("dan@a.hu")).collect(Collectors.toList()));
+
         model.addAttribute("realEstates",realEstateRepository.findAll());
         return "index";
     }
@@ -27,6 +27,11 @@ public class HomeController {
     @GetMapping("login")
     public String login(){ return "login"; }
 
+    @GetMapping("viewads")
+    public String viewAds(Model model){
+        model.addAttribute("realEstates",realEstateRepository.findAll());
+        return "viewads";
 
+    }
 
 }

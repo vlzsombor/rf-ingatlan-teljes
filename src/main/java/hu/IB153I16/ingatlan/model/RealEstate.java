@@ -26,9 +26,7 @@ public class RealEstate {
     @Column
     private Long price;
 
-    public RealEstate() {
-
-    }
+    public RealEstate() {   }
 
     public User getUser() {
         return user;
