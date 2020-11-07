@@ -10,10 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLOutput;
 import java.util.stream.Collectors;
@@ -60,10 +57,15 @@ public class RealEstateController {
     public String editmyadsRealEstate(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = auth.getName();
-        //(realEstateRepository.findAll().stream().filter( x -> x.getUser().getEmail().equals("dan@a.hu"))
         var realEstates = realEstateRepository.findAll().stream().filter(
                 x -> x.getUser().getEmail().equals(currentPrincipalName)).collect(Collectors.toList());
         model.addAttribute("myRealEstates",realEstates);
+        return "realEstate/managemyads";
+    }
+
+    @RequestMapping(value="/doDelete", method = RequestMethod.POST)
+        public String deleteAd (Model model, @RequestParam long id) {
+        realEstateRepository.deleteById(id);
         return "realEstate/managemyads";
     }
 }
