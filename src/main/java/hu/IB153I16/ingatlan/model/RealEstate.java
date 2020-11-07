@@ -7,10 +7,15 @@ public class RealEstate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @Column(nullable = false)
     private String name;
+
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Column
     private String address;
@@ -19,11 +24,19 @@ public class RealEstate {
     private String description;
 
     @Column
-    private long price;
+    private Long price;
 
     public RealEstate() {   }
 
-    public RealEstate(String name, String address, String description, long price) {
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public RealEstate(String name, String userName, String address, String description, long price) {
         this.name = name;
         this.address = address;
         this.description = description;
@@ -54,19 +67,19 @@ public class RealEstate {
         this.description = description;
     }
 
-    public long getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(long price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -75,6 +88,7 @@ public class RealEstate {
         return "RealEstate{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", user=" + user +
                 ", address='" + address + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
