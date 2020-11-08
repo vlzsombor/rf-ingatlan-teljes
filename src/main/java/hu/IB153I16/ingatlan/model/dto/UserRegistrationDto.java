@@ -4,8 +4,8 @@ import hu.IB153I16.ingatlan.constraint.FieldMatch;
 
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import org.apache.commons.beanutils.BeanUtils;
 
 @FieldMatch.List({
         @FieldMatch(first = "password", second = "confirmPassword", message = "The password fields must match"),
@@ -13,8 +13,8 @@ import org.apache.commons.beanutils.BeanUtils;
 })
 public class UserRegistrationDto {
 
-
     @NotEmpty
+    @NotBlank
     private String firstName;
 
     @NotEmpty
@@ -36,7 +36,6 @@ public class UserRegistrationDto {
 
     @AssertTrue
     private Boolean terms;
-
 
     public String getFirstName() {
         return firstName;

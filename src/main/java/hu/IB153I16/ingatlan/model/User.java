@@ -6,20 +6,17 @@ import java.util.*;
 
 
 @Entity
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     private String firstName;
     private String lastName;
-
-    @Column(nullable = false)
     private String email;
-    @Column(nullable = false)
     private String password;
-    @Column(nullable = false)
-    private int active;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
@@ -30,47 +27,31 @@ public class User {
                     name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
 
+    public User() {
+    }
 
-    /*@Column(nullable = false)
-    private String roles = "";
-    */
+    public User(String firstName, String lastName, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+    }
 
-    @Column(nullable = false)
-    private String permissions = "";
-
-    public User(String firstName, String lastName, String email, String password, Collection<Role> roles, String permissions) {
-
+    public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.roles = roles;
-        this.permissions = permissions;
     }
 
-    public User(){}
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setActive(int active) {
-        this.active = active;
-    }
-
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-
-
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -88,27 +69,20 @@ public class User {
         this.lastName = lastName;
     }
 
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getPassword() {
         return password;
     }
 
-
-
-    public int getActive() {
-        return active;
-    }
-
-
-
-
-    public String getPermissions() {
-        return permissions;
-    }
-
-    public void setPermissions(String permissions) {
-        this.permissions = permissions;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Collection<Role> getRoles() {
@@ -119,21 +93,6 @@ public class User {
         this.roles = roles;
     }
 
-
-    public Collection<Role> getRoleList(){
-        if(this.roles != null){
-            return roles;
-        }
-        return new ArrayList<>();
-    }
-
-    public List<String> getPermissionList(){
-        if(this.permissions.length() > 0){
-            return Arrays.asList(this.permissions.split(","));
-        }
-        return new ArrayList<>();
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -141,19 +100,8 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", active=" + active +
+                ", password='" + "*********" + '\'' +
                 ", roles=" + roles +
-
-                ", permissions='" + permissions + '\'' +
                 '}';
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 }

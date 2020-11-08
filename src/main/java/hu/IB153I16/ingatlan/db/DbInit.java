@@ -39,10 +39,11 @@ public class DbInit implements CommandLineRunner {
         //User admin = new User("admin",passwordEncoder.encode("admin123"),"ADMIN","ACCESS_TEST1,ACCESS_TEST2");
         //User manager = new User("manager",passwordEncoder.encode("manager123"),"MANAGER","ACCESS_TEST1");
 
-        //    public User(String username, String firstName, String lastName, String email, String password, Collection<Role> roles, String permissions) {
-        User dan = new User("dan","dan","dan@a.hu",passwordEncoder.encode("dan123"),Arrays.asList(new Role("ROLE_USER")),"");
-        User manager = new User("manager","manager","manager@a.hu",passwordEncoder.encode("manager123"),Arrays.asList(new Role("ROLE_MANAGER")),"");
-        User admin = new User("admin","admin","admin@a.hu",passwordEncoder.encode("admin123"),Arrays.asList(new Role("ROLE_ADMIN")),"");
+        // public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
+        //
+        User dan = new User("dan","dan","dan@a.hu",passwordEncoder.encode("dan123"),Arrays.asList(new Role("ROLE_USER")));
+        User manager = new User("manager","manager","manager@a.hu",passwordEncoder.encode("manager123"),Arrays.asList(new Role("ROLE_MANAGER")));
+        User admin = new User("admin","admin","admin@a.hu",passwordEncoder.encode("admin123"),Arrays.asList(new Role("ROLE_ADMIN")));
 
        /* RealEstate re = new RealEstate("Balatoni nyaralo","Balaton utca 54","nagyon jo nyaralo pls buy", 124545);
         RealEstate re1 = new RealEstate("Szentes","szentes utca 54","pls buy", 45);

@@ -1,7 +1,7 @@
 package hu.IB153I16.ingatlan.security;
 
 import hu.IB153I16.ingatlan.service.UserService;
-import hu.IB153I16.ingatlan.service.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -17,11 +17,12 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private UserService userPrincipalDetailsService;
+    @Autowired
+    private UserService userService;
 
 
-    public SecurityConfiguration(UserService userPrincipalDetailsService) {
-        this.userPrincipalDetailsService = userPrincipalDetailsService;
+    public SecurityConfiguration(UserService userService) {
+        this.userService = userService;
     }
 
     @Override
@@ -38,7 +39,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public DaoAuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
-        daoAuthenticationProvider.setUserDetailsService(this.userPrincipalDetailsService);
+        daoAuthenticationProvider.setUserDetailsService(this.userService);
         return daoAuthenticationProvider;
     }
 

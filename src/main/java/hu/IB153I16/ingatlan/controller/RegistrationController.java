@@ -21,19 +21,18 @@ public class RegistrationController {
     @Autowired
     private UserService userService;
 
-    @ModelAttribute("user")
+    @ModelAttribute("userRegistrationDto")
     public UserRegistrationDto userRegistrationDto() {
         return new UserRegistrationDto();
     }
 
     @GetMapping
     public String showRegistrationForm(Model model) {
-
         return "registration/index";
     }
 
     @PostMapping
-    public String registerUserAccount(@ModelAttribute("user") @Valid UserRegistrationDto userDto,
+    public String registerUserAccount(@ModelAttribute("userRegistrationDto") @Valid UserRegistrationDto userDto,
                                       BindingResult result){
 
         User existing = userService.findByEmail(userDto.getEmail());
@@ -48,6 +47,4 @@ public class RegistrationController {
         userService.save(userDto);
         return "redirect:/registration?success";
     }
-
-
 }
