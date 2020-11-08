@@ -14,7 +14,6 @@ import javax.validation.constraints.NotEmpty;
 public class UserRegistrationDto {
 
     @NotEmpty
-    @NotBlank
     private String firstName;
 
     @NotEmpty

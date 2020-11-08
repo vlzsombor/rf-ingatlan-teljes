@@ -36,6 +36,7 @@
             <form th:action="@{/registration}"
                   th:object="${userRegistrationDto}"
                   method="post">
+
                 <p class="error-message" th:if="${#fields.hasGlobalErrors()}"
                    th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation
                     error</p>
@@ -106,7 +107,6 @@
                     <span>Already registered? <a href="/" th:href="@{/login}">Login
 								here</a></span>
                 </div>
-
             </form>
         </div>
     </div>
