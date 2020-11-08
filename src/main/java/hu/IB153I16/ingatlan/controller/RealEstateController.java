@@ -49,8 +49,6 @@ public class RealEstateController {
 
         realEstate.setUser(userRepository.findByEmail(currentPrincipalName));
 
-        System.out.println(realEstate);
-        System.out.println("user  :\t" + userRepository.findAll());
         realEstateRepository.save(realEstate);
 
         return "redirect:/";
@@ -61,7 +59,7 @@ public class RealEstateController {
 
         RealEstate realEstate = realEstateRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid student Id:" + id));
-        System.out.println(realEstate);
+
         realEstateRepository.delete(realEstate);
         model.addAttribute("students", realEstateRepository.findAll());
         return "redirect:/profile";
