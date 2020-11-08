@@ -63,9 +63,10 @@ public class RealEstateController {
         return "realEstate/managemyads";
     }
 
-    @RequestMapping(value="/doDelete", method = RequestMethod.POST)
-        public String deleteAd (Model model, @RequestParam long id) {
-        realEstateRepository.deleteById(id);
+    @RequestMapping(method = RequestMethod.POST)
+
+        public String removeByName (@RequestParam String name) {
+        realEstateRepository.removeByName(name);
         return "realEstate/managemyads";
     }
 }

@@ -7,5 +7,7 @@ public class URLPATH {
     //KONVENCIO: / jellel kezdjuk, de a vegsot nem rakjuk ki
     public final static String REALESTATE_ROOT = "/realestates/";
     public final static String REALESTATE_UPLOAD = "upload";
+    public final static String REALESTATE_DELETE = "/realestates/removeByName/";
+
 
 }
