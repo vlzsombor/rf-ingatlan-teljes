@@ -48,6 +48,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/index.html").permitAll()
+                .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/profile/**").authenticated()
                 .antMatchers("/realestates/**").authenticated()
                 .antMatchers("/admin/**").hasRole("ADMIN")
@@ -62,5 +63,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login")
                 .and()
                 .rememberMe().tokenValiditySeconds(2592000).key("mySecret!").rememberMeParameter("checkRememberMe");
+
+                http.authorizeRequests().antMatchers("/").permitAll().and()
+                .authorizeRequests().antMatchers("/console/**").permitAll();
+
+                http.csrf().disable();
+                http.headers().frameOptions().disable();
+
     }
 }
