@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.sql.SQLOutput;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping(URLPATH.REALESTATE_ROOT)
@@ -54,5 +55,8 @@ public class RealEstateController {
 
         return "redirect:/";
     }
+
+
+
 }
 
