@@ -18,7 +18,30 @@
             <td><span sec:authentication="principal.authorities"></span></td>
         </tr>
     </table>
+    <h1>My ads:</h1>
+    <table style="width:100%">
+        <tr>
+            <th>Title</th>
+            <th>Street</th>
+            <th>Details</th>
+            <th>Remove</th>
+
+
+        </tr>
+        <tr th:each="realEstate: ${myRealEstates}">
+            <td th:text="${realEstate.getName()}" />
+            <td th:text="${realEstate.getAddress()}" />
+            <td><a th:href="@{{baseURL}{id}(id=${realEstate.id},baseURL=${T(hu.IB153I16.ingatlan.utils.constant.URLPATH).REALESTATE_ROOT})}"
+                   class="btn btn-primary"> <i class="fas fa-angle-double-right"></i>
+            </a></td>
+            <td><a th:href="@{/realestates/delete/{id}(id=${realEstate.getId()})}" class="btn btn-danger" ><i class="fas fa-trash"></i></i></a>
+            </td>
+
+        </tr>
+    </table>
+
 </div>
+
 
 
 

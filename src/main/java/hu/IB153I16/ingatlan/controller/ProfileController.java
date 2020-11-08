@@ -18,7 +18,7 @@ public class ProfileController {
     @Autowired
     private RealEstateRepository realEstateRepository;
 
-    @GetMapping("index")
+    @GetMapping
     public String index(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = auth.getName();

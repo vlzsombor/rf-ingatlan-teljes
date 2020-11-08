@@ -36,8 +36,9 @@ public class RealEstate {
         this.user = user;
     }
 
-    public RealEstate(String name, String userName, String address, String description, long price) {
+    public RealEstate(String name, User user, String address, String description, Long price) {
         this.name = name;
+        this.user = user;
         this.address = address;
         this.description = description;
         this.price = price;

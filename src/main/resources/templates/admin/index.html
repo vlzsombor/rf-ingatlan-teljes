@@ -8,5 +8,19 @@
     <p>This is Admin\Index. Only people with role_admin can see this.</p>
 </div>
 <footer th:insert="fragments.html :: foot"></footer>
+
+
+<table style="width:100%">
+    <tr>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+    </tr>
+    <tr th:each="user: ${users}">
+        <td th:text="${user.getFirstName()}" />
+        <td th:text="${user.getLastName()}" />
+        <td th:text="${user.getEmail()}" />
+    </tr>
+</table>
 </body>
 </html>

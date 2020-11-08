@@ -33,8 +33,8 @@
                 <li class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/viewads' ? '-active':''}">
                     <a class="nav-link" href="#" th:utext="#{label.pages.home.viewads}" th:href="@{~/viewads}"></a>
                 </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/profile/index' ? 'active':''}">
-                    <a class="nav-link" href="#" th:href="@{~/profile/index}">Profil</a>
+                <li sec:authorize="isAuthenticated()" class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/profile' ? 'active':''}">
+                    <a class="nav-link" href="#" th:href="@{~/profile}">Profil</a>
                 </li>
                 <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/admin/index' ? 'active':''}">
                     <a class="nav-link" href="#" th:href="@{~/admin/index}" th:utext="#{label.pages.admin}">Admin</a>

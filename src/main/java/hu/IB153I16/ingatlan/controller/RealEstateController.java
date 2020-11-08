@@ -56,6 +56,16 @@ public class RealEstateController {
         return "redirect:/";
     }
 
+    @GetMapping("delete/{id}")
+    public String deleteRealEstate(@PathVariable("id") long id, Model model) {
+
+        RealEstate realEstate = realEstateRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid student Id:" + id));
+        System.out.println(realEstate);
+        realEstateRepository.delete(realEstate);
+        model.addAttribute("students", realEstateRepository.findAll());
+        return "redirect:/profile";
+    }
 
 
 }
