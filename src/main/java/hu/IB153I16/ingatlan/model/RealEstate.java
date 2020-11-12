@@ -14,7 +14,7 @@ public class RealEstate {
 
     @Column(nullable = false)
     @NotBlank
-    private String name;
+    private String cim;
 
 
     @ManyToOne
@@ -33,6 +33,17 @@ public class RealEstate {
     @NotNull
     private Long price;
 
+    @Column
+    @NotNull
+    private Long hazszam;
+
+    @Column
+    @NotBlank
+    private String megye;
+
+    @Column
+    @NotBlank
+    private String telepulesNev;
 
 
     public RealEstate() {   }
@@ -45,21 +56,48 @@ public class RealEstate {
         this.user = user;
     }
 
-    public RealEstate(String name, User user, String address, String description, Long price) {
-        this.name = name;
+    public RealEstate(Long id, @NotBlank String cim, User user,  @NotNull Long price, @NotBlank String megye, @NotBlank String telepulesNev, @NotBlank String address, @NotNull Long hazszam, @NotBlank String description) {
+        this.id = id;
+        this.cim = cim;
         this.user = user;
         this.address = address;
         this.description = description;
         this.price = price;
-
+        this.hazszam = hazszam;
+        this.megye = megye;
+        this.telepulesNev = telepulesNev;
     }
 
-    public String getName() {
-        return name;
+    public void setHazszam(Long hazszam) {
+        this.hazszam = hazszam;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMegye(String megye) {
+        this.megye = megye;
+    }
+
+    public void setTelepulesNev(String telepulesNev) {
+        this.telepulesNev = telepulesNev;
+    }
+
+    public Long getHazszam() {
+        return hazszam;
+    }
+
+    public String getMegye() {
+        return megye;
+    }
+
+    public String getTelepulesNev() {
+        return telepulesNev;
+    }
+
+    public String getCim() {
+        return cim;
+    }
+
+    public void setCim(String cim) {
+        this.cim = cim;
     }
 
     public String getAddress() {
@@ -98,11 +136,14 @@ public class RealEstate {
     public String toString() {
         return "RealEstate{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", cim='" + cim + '\'' +
                 ", user=" + user +
                 ", address='" + address + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
+                ", hazszam=" + hazszam +
+                ", megye='" + megye + '\'' +
+                ", telepulesNev='" + telepulesNev + '\'' +
                 '}';
     }
 }
