@@ -107,59 +107,31 @@
 </div>
 <div th:fragment="premium">
 
+
+
     <div class="container mt-5">
         <div class="row row-cols-3">
-            <a href="#">
-            <div class="col"><div class="card hoverable">
+<!--///EZ A 10 EZ MAJD 3 CSAK ROSSZ A SZAMOZAS -->
+            <div class="col"  th:each="realEstate : ${realEstates}" th:if="${realEstate.id} <10">
+                <a th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}">
+
+                <div class="card hoverable">
 
                 <!-- Card image -->
-                <img class="card-img-top w-100 h-25 img-thumbnail" th:src="@{~/hirdetes.png}" alt="Card image cap">
+                <img class="card-img-top w-100 h-25 img-thumbnail" th:src="@{~/hirdetes.png}" th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}"  alt="Generic placeholder image">
 
                 <!-- Card content -->
                 <div class="card-body">
 
                     <!-- Title -->
-                    <h4 class="card-title"><a>Hirdetes</a></h4>
+                    <h4 class="card-title" th:text="|${realEstate.getPrice()} Ft|"><a>Hirdetes</a></h4>
                     <!-- Text -->
-                    <a href="#"><p class="card-text font-weight-light   " style="color:darkslategray">Hirdetés leírás példa Hirdetés leírás példa</p></a>
+                    <a href="#"><p class="card-text font-weight-light   " style="color:darkslategray"  th:text="${realEstate.getDescription()}">Hirdetés leírás példa Hirdetés leírás példa</p></a>
                 </div>
 
             </div></div>
             </a>
-            <a href="#">
-                <div class="col"><div class="card hoverable">
 
-                    <!-- Card image -->
-                    <img class="card-img-top w-100 h-25 img-thumbnail" th:src="@{~/hirdetes.png}" alt="Card image cap">
-
-                    <!-- Card content -->
-                    <div class="card-body">
-
-                        <!-- Title -->
-                        <h4 class="card-title"><a>Hirdetes</a></h4>
-                        <!-- Text -->
-                        <a href="#"><p class="card-text font-weight-light   " style="color:darkslategray">Hirdetés leírás példa Hirdetés leírás példa</p></a>
-                    </div>
-
-                </div></div>
-            </a>
-            <a href="#">
-                <div class="col"><div class="card hoverable">
-
-                    <!-- Card image -->
-                    <img class="card-img-top w-100 h-25 img-thumbnail" th:src="@{~/hirdetes.png}" alt="Card image cap">
-
-                    <!-- Card content -->
-                    <div class="card-body">
-
-                        <!-- Title -->
-                        <h4 class="card-title"><a>Hirdetes</a></h4>
-                        <!-- Text -->
-                        <a href="#"><p class="card-text font-weight-light   " style="color:darkslategray">Hirdetés leírás példa Hirdetés leírás példa</p></a>
-                    </div>
-
-                </div></div>
-            </a>
         </div>
     </div>
 </div>
