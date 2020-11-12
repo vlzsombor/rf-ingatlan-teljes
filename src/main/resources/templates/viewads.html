@@ -29,8 +29,8 @@
 
                 <h5 class="mb-1 mt-1"   style="color:darkslategray" th:text="|${realEstate.getPrice()} Ft|">List-based media object</h5>
 
-                <p  th:text="${realEstate.getCim()}" style="color:darkslategray" class="mt-4" th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}"></p>
-                <p th:text="${realEstate.getDescription()}" style="color:darkslategray" class="mt-5 font-weight-light font-small"></p>
+                <p  th:text="| ${realEstate.getCim()}|" style="color:darkslategray" class="mt-4" th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}"></p>
+                <p th:text="|Varos: ${realEstate.getTelepulesNev()}|" style="color:darkslategray" class="mt-5 font-weight-light font-small"></p>
                 <p th:text="${realEstate.getUser().getEmail()}"></p>
 
                 </div>

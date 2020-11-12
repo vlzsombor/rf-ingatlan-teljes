@@ -13,7 +13,7 @@ public class RealEstate {
     private Long id;
 
     @Column(nullable = false)
-    @NotBlank
+    //@NotBlank
     private String cim;
 
 
@@ -22,28 +22,39 @@ public class RealEstate {
     private User user;
 
     @Column
-    @NotBlank
+    // @NotBlank
     private String address;
 
     @Column
-    @NotBlank
+    // @NotBlank
     private String description;
 
     @Column
-    @NotNull
+    // @NotNull
     private Long price;
 
     @Column
-    @NotNull
+    // @NotNull
     private Long hazszam;
 
     @Column
-    @NotBlank
+    //@NotBlank
     private String megye;
 
     @Column
-    @NotBlank
+    //@NotBlank
     private String telepulesNev;
+
+    @Column
+    //@NotNull
+    private Long iranyitoSzam;
+
+    @Column
+    //@NotBlank
+    private String ingatlanTipus;
+    @Column
+    //@NotBlank
+    private String hirdetesTipus;
 
 
     public RealEstate() {   }
@@ -56,10 +67,13 @@ public class RealEstate {
         this.user = user;
     }
 
-    public RealEstate(Long id, @NotBlank String cim, User user,  @NotNull Long price, @NotBlank String megye, @NotBlank String telepulesNev, @NotBlank String address, @NotNull Long hazszam, @NotBlank String description) {
+    public RealEstate(Long id, @NotBlank String cim, User user, @NotBlank String hirdetesTipus, @NotBlank String ingatlanTipus,  @NotNull Long price, @NotBlank String megye,@NotNull Long iranyitoSzam, @NotBlank String telepulesNev, @NotBlank String address, @NotNull Long hazszam, @NotBlank String description) {
         this.id = id;
         this.cim = cim;
+        this.ingatlanTipus = ingatlanTipus;
+        this.hirdetesTipus = hirdetesTipus;
         this.user = user;
+        this.iranyitoSzam=iranyitoSzam;
         this.address = address;
         this.description = description;
         this.price = price;
@@ -74,6 +88,30 @@ public class RealEstate {
 
     public void setMegye(String megye) {
         this.megye = megye;
+    }
+
+    public String getIngatlanTipus() {
+        return ingatlanTipus;
+    }
+
+    public void setIngatlanTipus(String ingatlanTipus) {
+        this.ingatlanTipus = ingatlanTipus;
+    }
+
+    public String getHirdetesTipus() {
+        return hirdetesTipus;
+    }
+
+    public void setHirdetesTipus(String hirdetesTipus) {
+        this.hirdetesTipus = hirdetesTipus;
+    }
+
+    public Long getIranyitoSzam() {
+        return iranyitoSzam;
+    }
+
+    public void setIranyitoSzam(Long iranyitoSzam) {
+        this.iranyitoSzam = iranyitoSzam;
     }
 
     public void setTelepulesNev(String telepulesNev) {
@@ -144,6 +182,9 @@ public class RealEstate {
                 ", hazszam=" + hazszam +
                 ", megye='" + megye + '\'' +
                 ", telepulesNev='" + telepulesNev + '\'' +
+                ", iranyitoSzam=" + iranyitoSzam +
+                ", ingatlanTipus='" + ingatlanTipus + '\'' +
+                ", hirdetesTipus='" + hirdetesTipus + '\'' +
                 '}';
     }
 }
