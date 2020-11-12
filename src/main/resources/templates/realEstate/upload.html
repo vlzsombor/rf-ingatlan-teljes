@@ -28,9 +28,13 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6"th:classappend="${#fields.hasErrors('name')}? 'has-error':''">
+
                             <label for="name">Name</label>
                             <input type="text"  th:field="*{name}" class="form-control" id="name" placeholder="Name">
+                            <p class="error-message"
+                               th:each="error: ${#fields.errors('name')}"
+                               th:text="${error}">Validation error</p>
                         </div>
 
                     </div>

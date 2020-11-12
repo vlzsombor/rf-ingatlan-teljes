@@ -33,8 +33,8 @@
                 <li class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/viewads' ? '-active':''}">
                     <a class="nav-link" href="#" th:utext="#{label.pages.home.viewads}" th:href="@{~/viewads}"></a>
                 </li>
-                <li class="nav-item" sec:authorize="isAnonymous( )" th:classappend="${#httpServletRequest.getRequestURI() == '/' ? '-active':''}">
-                    <a class="nav-link" href="#"  th:utext="#{label.pages.home.register}"  th:href="@{~/}"></a>
+                <li class="nav-item" sec:authorize="isAnonymous( )" th:classappend="${#httpServletRequest.getRequestURI() == '/registration' ? '-active':''}">
+                    <a class="nav-link" href="#"  th:href="@{~/registration}" th:utext="#{label.pages.home.register}"></a>
                 </li>
 
                 <li sec:authorize="isAuthenticated()" class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/profile' ? 'active':''}">
@@ -151,8 +151,9 @@
                 <li sec:authorize="isAnonymous( )" class="list-inline-item">
                     <h5 class="mb-1">Register for free</h5>
                 </li>
-                <li sec:authorize="isAnonymous( )" class="list-inline-item">
-                    <a href="#"   class="btn btn-outline-white btn-rounded">Sign up!</a>
+
+                <li sec:authorize="isAnonymous( )" class="list-inline-item" th:classappend="${#httpServletRequest.getRequestURI() == '/registration' ? '-active':''}">
+                    <a href="#"   class="btn btn-outline-white btn-rounded" th:href="@{~/registration}">Sign up!</a>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="list-inline-item">
                     <h5 class="mb-1">ringatlan.com</h5>
