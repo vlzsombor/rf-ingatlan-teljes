@@ -76,15 +76,12 @@ public class RealEstateController {
     public String addActorPut(@PathVariable("id") Long id,Model model,RealEstate realEstate) {
 
         realEstate.setId(id);
-        System.out.println(id + "id");
-
-        model.addAttribute("realEstate", realEstate);
 
         RealEstate realEstateRep = realEstateRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid movie id:" + id));
         realEstate.setUser(realEstateRep.getUser());
         realEstateRepository.save(realEstate);
-        System.out.println(realEstate);
+        model.addAttribute("realEstate", realEstate);
         return "redirect:/";
     }
 
@@ -93,9 +90,6 @@ public class RealEstateController {
         RealEstate realEstate = realEstateRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid movie id:" + id));
         model.addAttribute("realEstate", realEstate);
-        System.out.println(id + "id");
-
-
         return "realEstate/update";
     }
     @GetMapping("delete/{id}")
