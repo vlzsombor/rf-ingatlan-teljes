@@ -7,17 +7,7 @@
 <header th:insert="fragments.html :: nav"></header>
 <!-- Page content goes here -->
 <div class="container">
-    <p>This is User Profile\Index. Only authenticated people can see this</p>
-    <table>
-        <tr>
-            <td>Username</td>
-            <td><span sec:authentication="name"></span></td>
-        </tr>
-        <tr>
-            <td>Authorities</td>
-            <td><span sec:authentication="principal.authorities"></span></td>
-        </tr>
-    </table>
+
     <h1>My ads:</h1>
     <table style="width:100%">
         <tr>
