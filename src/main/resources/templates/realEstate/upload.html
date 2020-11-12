@@ -16,17 +16,37 @@
                       th:object="${realEstate}"
                       method="post">
 
-                    <div class="form-group">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputPrice">Hirdetés típusa*</label>
+                            <select id="adTypeSelect" class=" browser-default custom-select mb-4 ">
+                                <option value="" selected="" disabled="">Válasz típust</option>
+                                <option value="1" >Eladó</option>
+                                <option value="2">Kiadó</option>
 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Kiadó</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Eladó</label>
+                            </select>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputPrice">Ingatlan típusa*</label>
+                        <select id="estateTypeSelect" class=" browser-default custom-select mb-4 ">
+                            <option value="" selected="" disabled="">Ingatlan típusa</option>
+                            <option value="1" >Ház</option>
+                            <option value="2">Lakás</option>
+                            <option value="3">Telek</option>
+                            <option value="4">Nyaraló</option>
+                            <option value="5">Telek</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputPrice">Ingatlan ára (Ft)</label>
+                            <input type="number" th:field="*{price}"  class="form-control" id="inputPrice" placeholder=1234>
+                        </div>
+                    </div>
+
                     <div class="form-row">
                         <div class="form-group col-md-6"th:classappend="${#fields.hasErrors('name')}? 'has-error':''">
 
@@ -39,21 +59,36 @@
 
                     </div>
 
-
-                    <div class="form-group">
-                        <label for="inputAddress">Address</label>
-                        <input type="text" th:field="*{address}" class="form-control" id="inputAddress" placeholder="1234 City, Jump Street 23.">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputDescription">Description</label>
-                        <input type="text" th:field="*{description}" class="form-control" id="inputDescription" placeholder="Please describe your apartment">
-                    </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputPrice">Price ($)</label>
-                            <input type="number" th:field="*{price}"  class="form-control" id="inputPrice" placeholder=1234>
+                            <label for="inputCity1">Település*</label>
+                            <input type="text" class="form-control" id="inputCity1" placeholder="Budapest">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputState">Megye</label>
+                            <select id="inputState" class="form-control">
+                                <option selected>Valassz</option>
+                                <option>Csongrad</option>
+                                <option>Békés</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputZip">Ir. szám</label>
+                            <input type="text" class="form-control" id="inputZip" placeholder="6600">
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Utca</label>
+                        <input type="text" th:field="*{address}" class="form-control" id="inputAddress" placeholder="1234 City, Jump Street 23.">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="inputDescription">Ingatlan leírás</label>
+                        <textarea type="text" th:field="*{description}" class="form-control" id="inputDescription" placeholder="Please describe your apartment" rows="3"></textarea>
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Upload</button>
                 </form>
             </div>
