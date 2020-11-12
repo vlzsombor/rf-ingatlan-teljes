@@ -14,9 +14,8 @@
             <th>Title</th>
             <th>Street</th>
             <th>Details</th>
+            <th>Update</th>
             <th>Remove</th>
-
-
         </tr>
         <tr th:each="realEstate: ${myRealEstates}">
             <td th:text="${realEstate.getName()}" />
@@ -24,7 +23,9 @@
             <td><a th:href="@{{baseURL}{id}(id=${realEstate.id},baseURL=${T(hu.IB153I16.ingatlan.utils.constant.URLPATH).REALESTATE_ROOT})}"
                    class="btn btn-primary"> <i class="fas fa-angle-double-right"></i>
             </a></td>
-            <td><a th:href="@{/realestates/delete/{id}(id=${realEstate.getId()})}" class="btn btn-danger" ><i class="fas fa-trash"></i></i></a>
+            <td><a th:href="@{/realestates/update/{id}(id=${realEstate.getId()})}" class="btn btn-danger" ><i class="fas fa-wrench"></i></a>
+            </td>
+            <td><a th:href="@{/realestates/delete/{id}(id=${realEstate.getId()})}" class="btn btn-danger" ><i class="fas fa-trash"></i></a>
             </td>
 
         </tr>

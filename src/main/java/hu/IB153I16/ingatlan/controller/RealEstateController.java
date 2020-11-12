@@ -10,10 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLOutput;
 import java.util.stream.Collectors;
@@ -53,7 +50,32 @@ public class RealEstateController {
 
         return "redirect:/";
     }
+    @PostMapping("update/{id}")
+    public String addActorPut(@PathVariable("id") Long id,Model model,RealEstate realEstate) {
 
+        realEstate.setId(id);
+        System.out.println(id + "id");
+
+        model.addAttribute("realEstate", realEstate);
+
+        RealEstate realEstateRep = realEstateRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid movie id:" + id));
+        realEstate.setUser(realEstateRep.getUser());
+        realEstateRepository.save(realEstate);
+        System.out.println(realEstate);
+        return "redirect:/";
+    }
+
+    @GetMapping("update/{id}")
+    public String uploadRealEstate(@PathVariable("id") Long id, Model model) {
+        RealEstate realEstate = realEstateRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid movie id:" + id));
+        model.addAttribute("realEstate", realEstate);
+        System.out.println(id + "id");
+
+
+        return "realEstate/update";
+    }
     @GetMapping("delete/{id}")
     public String deleteRealEstate(@PathVariable("id") long id, Model model) {
 
@@ -61,7 +83,7 @@ public class RealEstateController {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid student Id:" + id));
 
         realEstateRepository.delete(realEstate);
-        model.addAttribute("students", realEstateRepository.findAll());
+        //model.addAttribute("students", realEstateRepository.findAll());
         return "redirect:/profile";
     }
 
