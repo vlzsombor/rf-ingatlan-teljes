@@ -18,7 +18,7 @@
             <th>Remove</th>
         </tr>
         <tr th:each="realEstate: ${myRealEstates}">
-            <td th:text="${realEstate.getName()}" />
+            <td th:text="${realEstate.getCim()}" />
             <td th:text="${realEstate.getAddress()}" />
             <td><a th:href="@{{baseURL}{id}(id=${realEstate.id},baseURL=${T(hu.IB153I16.ingatlan.utils.constant.URLPATH).REALESTATE_ROOT})}"
                    class="btn btn-primary"> <i class="fas fa-angle-double-right"></i>

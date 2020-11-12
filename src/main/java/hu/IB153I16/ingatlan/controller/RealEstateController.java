@@ -10,8 +10,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.sql.SQLOutput;
 import java.util.stream.Collectors;
 
@@ -39,8 +41,28 @@ public class RealEstateController {
         return "realEstate/upload";
     }
 
+//    @PostMapping(URLPATH.REALESTATE_UPLOAD)
+//    public String addActorPost(Model model,RealEstate realEstate) {
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        String currentPrincipalName = auth.getName();
+//
+//        realEstate.setUser(userRepository.findByEmail(currentPrincipalName));
+//
+//        realEstateRepository.save(realEstate);
+//
+//        return "redirect:/";
+//    }
+
+    @ModelAttribute("realEstate")     public RealEstate realEstateModel(){
+        return new RealEstate();
+    }
+
     @PostMapping(URLPATH.REALESTATE_UPLOAD)
-    public String addActorPost(Model model,RealEstate realEstate) {
+    public String addRealEstatePost(@ModelAttribute("realEstate") @Valid RealEstate realEstate, BindingResult result) {
+        if (result.hasErrors()){
+            System.out.println(result);
+            return "realEstate/upload";
+        }
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = auth.getName();
 

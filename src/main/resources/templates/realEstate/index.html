@@ -5,7 +5,7 @@
 <head th:insert="fragments.html :: headerfiles"></head>
 <body>
 <header th:insert="fragments.html :: nav"></header>
-<h2 th:text="${realEstate.getName()}" class="mt-5 ml-3 text-center"></h2>
+<h2 th:text="${realEstate.getCim()}" class="mt-5 ml-3 text-center"></h2>
 <div class="container mt-1 border-top border-bottom border-dark d-flex justify-content-center">
     <div class="col-sm-6 mt-2 mb-2">
         <img class="img-fluid" th:src="@{~/hirdetes.png}" alt="hirdeteskep">
@@ -13,6 +13,18 @@
     <div class="col-sm-6 media-body text-left ml-4 mt-2">
         <p th:text="${realEstate.getDescription()}" style="color:darkslategray" class="mt-4" th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}"></p>
         <p th:text="${realEstate.getPrice()}" style="color:darkslategray" class="mt-5 font-weight-light font-small"></p>
+        <p th:text="${realEstate.getIranyitoSzam()}" style="color:darkslategray" class="mt-5 font-weight-light font-small"></p>
+        <p th:text="${realEstate.getTelepulesNev()}" style="color:darkslategray" class="mt-5 font-weight-light font-small"></p>
+        <p th:text="${realEstate.getCim()}" style="color:darkslategray" class="mt-5 font-weight-light font-small"></p>
+<!--        <p th:text="${realEstate.getHazszam()}" style="color:darkslategray" class="mt-5 font-weight-light font-small"></p>-->
+        <p th:text="${realEstate.getHirdetesTipus()}" style="color:darkslategray" class="mt-5 font-weight-light font-small"></p>
+        <p th:text="${realEstate.getIngatlanTipus()}" style="color:darkslategray" class="mt-5 font-weight-light font-small"></p>
+        <p th:text="${realEstate.getMegye()}" style="color:darkslategray" class="mt-5 font-weight-light font-small"></p>
+        <p th:text="${realEstate.getAddress()}" style="color:darkslategray" class="mt-5 font-weight-light font-small"></p>
+
+
+
+
     </div>
 </div>
 <footer th:insert="fragments.html :: foot"></footer>
