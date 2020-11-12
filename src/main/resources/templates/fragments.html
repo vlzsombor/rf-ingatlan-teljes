@@ -38,7 +38,7 @@
                 </li>
 
                 <li sec:authorize="isAuthenticated()" class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/profile' ? 'active':''}">
-                    <a class="nav-link" href="#" th:href="@{~/profile}">Profil</a>
+                    <a class="nav-link" href="#" th:href="@{~/profile}">My ads</a>
                 </li>
                 <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item" th:classappend="${#httpServletRequest.getRequestURI() == '/admin' ? 'active':''}">
                     <a class="nav-link" href="#" th:href="@{~/admin}" th:utext="#{label.pages.admin}">Admin</a>
