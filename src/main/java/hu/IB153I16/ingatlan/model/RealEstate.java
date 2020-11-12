@@ -1,6 +1,9 @@
 package hu.IB153I16.ingatlan.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class RealEstate {
@@ -10,6 +13,7 @@ public class RealEstate {
     private Long id;
 
     @Column(nullable = false)
+    @NotBlank
     private String name;
 
 
@@ -18,13 +22,18 @@ public class RealEstate {
     private User user;
 
     @Column
+    @NotBlank
     private String address;
 
     @Column
+    @NotBlank
     private String description;
 
     @Column
+    @NotNull
     private Long price;
+
+
 
     public RealEstate() {   }
 
@@ -42,6 +51,7 @@ public class RealEstate {
         this.address = address;
         this.description = description;
         this.price = price;
+
     }
 
     public String getName() {

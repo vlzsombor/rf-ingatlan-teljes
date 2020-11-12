@@ -6,7 +6,9 @@
 <div class="container my-5">
 
     <h3>Upload your ad</h3>
-
+    <p class="error-message" th:if="${#fields.hasGlobalErrors()}"
+       th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation
+        error</p>
 
     <div class="card">
         <div class="card-body">
