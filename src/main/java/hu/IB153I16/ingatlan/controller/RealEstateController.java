@@ -73,15 +73,18 @@ public class RealEstateController {
         return "redirect:/";
     }
     @PostMapping("update/{id}")
-    public String addActorPut(@PathVariable("id") Long id,Model model,RealEstate realEstate) {
-
+    public String addActorPut(@ModelAttribute("id") Long id,@Valid RealEstate realEstate,  BindingResult result) {
+        if (result.hasErrors()){
+            System.out.println(result);
+            return "realEstate/update";
+        }
         realEstate.setId(id);
 
         RealEstate realEstateRep = realEstateRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid movie id:" + id));
         realEstate.setUser(realEstateRep.getUser());
         realEstateRepository.save(realEstate);
-        model.addAttribute("realEstate", realEstate);
+        //model.addAttribute("realEstate", realEstate);
         return "redirect:/";
     }
 

@@ -19,19 +19,22 @@
                       method="post">
 
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputPrice">Hirdetés típusa*</label>
-                            <select id="adTypeSelect" th:field="*{hirdetesTipus}" class=" browser-default custom-select mb-4 ">
+                        <div class="form-group col-md-6" th:classappend="${#fields.hasErrors('hirdetesTipus')}? 'has-error':''">
+                            <label for="hirdetesTipus">Hirdetés típusa*</label>
+                            <select id="hirdetesTipus" th:field="*{hirdetesTipus}" class=" browser-default custom-select mb-4 ">
                                 <option value="" selected="" disabled="">Válasz típust</option>
                                 <option value="Elado">Eladó</option>
                                 <option value="Kiado">Kiadó</option>
                             </select>
+                            <p class="error-message"
+                               th:each="error: ${#fields.errors('hirdetesTipus')}"
+                               th:text="${error}">Validation error</p>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputPrice">Ingatlan típusa*</label>
-                            <select id="estateTypeSelect" th:field="*{ingatlanTipus}" class=" browser-default custom-select mb-4 ">
+                        <div class="form-group col-md-6" th:classappend="${#fields.hasErrors('ingatlanTipus')}? 'has-error':''">
+                            <label for="ingatlanTipus">Ingatlan típusa*</label>
+                            <select id="ingatlanTipus" th:field="*{ingatlanTipus}" class=" browser-default custom-select mb-4 ">
                                 <option value="" selected="" disabled="">Ingatlan típusa</option>
                                 <option value="Haz" >Ház</option>
                                 <option value="Lakas">Lakás</option>
@@ -39,12 +42,18 @@
                                 <option value="4">Nyaraló</option>
                                 <option value="5">Telek</option>
                             </select>
+                            <p class="error-message"
+                               th:each="error: ${#fields.errors('ingatlanTipus')}"
+                               th:text="${error}">Validation error</p>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputPrice">Ingatlan ára (Ft)</label>
-                            <input type="number" th:field="*{price}"  class="form-control" id="inputPrice" placeholder=1234>
+                        <div class="form-group col-md-6" th:classappend="${#fields.hasErrors('price')}? 'has-error':''">
+                            <label for="price">Ingatlan ára (Ft)</label>
+                            <input type="number" th:field="*{price}"  class="form-control" id="price" placeholder=1234>
+                            <p class="error-message"
+                               th:each="error: ${#fields.errors('price')}"
+                               th:text="${error}">Validation error</p>
                         </div>
                     </div>
 
@@ -61,35 +70,53 @@
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputCity1">Település*</label>
-                            <input type="text" class="form-control" id="inputCity1"   th:field="*{telepulesNev}" placeholder="Budapest">
+                        <div class="form-group col-md-6" th:classappend="${#fields.hasErrors('telepulesNev')}? 'has-error':''">
+                            <label for="telepulesNev">Település*</label>
+                            <input type="text" class="form-control" id="telepulesNev"   th:field="*{telepulesNev}" placeholder="Budapest">
+                            <p class="error-message"
+                               th:each="error: ${#fields.errors('telepulesNev')}"
+                               th:text="${error}">Validation error</p>
                         </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputState">Megye</label>
-                            <select id="inputState" class="form-control" th:field="*{megye}">
+
+                        <div class="form-group col-md-4" th:classappend="${#fields.hasErrors('megye')}? 'has-error':''">
+                            <label for="megye">Megye</label>
+                            <select id="megye" class="form-control" th:field="*{megye}">
                                 <option value="Semmi" selected>Valassz</option>
                                 <option value="Csongrad">Csongrad</option>
                                 <option value="Bekes">Békés</option>
 
                             </select>
+                            <p class="error-message"
+                               th:each="error: ${#fields.errors('telepulesNev')}"
+                               th:text="${error}">Validation error</p>
+                            <p class="error-message"
+                               th:each="error: ${#fields.errors('megye')}"
+                               th:text="${error}">Validation error</p>
                         </div>
-                        <div class="form-group col-md-2">
-                            <label for="inputIranyitoSzam">Ir. szám</label>
-                            <input type="text" th:field="*{iranyitoSzam}" class="form-control" id="inputIranyitoSzam" placeholder="6600">
-
+                        <div class="form-group col-md-2" th:classappend="${#fields.hasErrors('iranyitoSzam')}? 'has-error':''">
+                            <label for="iranyitoSzam">Ir. szám</label>
+                            <input type="text" th:field="*{iranyitoSzam}" class="form-control" id="iranyitoSzam" placeholder="6600">
+                            <p class="error-message"
+                               th:each="error: ${#fields.errors('iranyitoSzam')}"
+                               th:text="${error}">Validation error</p>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="inputAddress">Utca</label>
-                        <input type="text" th:field="*{address}" class="form-control" id="inputAddress" placeholder="Csongradi Sugarut">
+                    <div class="form-group" th:classappend="${#fields.hasErrors('address')}? 'has-error':''">
+                        <label for="address">Utca</label>
+                        <input type="text" th:field="*{address}" class="form-control" id="address" placeholder="Csongradi Sugarut">
+                        <p class="error-message"
+                           th:each="error: ${#fields.errors('address')}"
+                           th:text="${error}">Validation error</p>
                     </div>
 
 
-                    <div class="form-group">
-                        <label for="inputDescription">Ingatlan leírás</label>
-                        <textarea type="text" th:field="*{description}" class="form-control" id="inputDescription" placeholder="Please describe your apartment" rows="3"></textarea>
+                    <div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error':''">
+                        <label for="description">Ingatlan leírás</label>
+                        <textarea type="text" th:field="*{description}" class="form-control" id="description" placeholder="Please describe your apartment" rows="3"></textarea>
+                        <p class="error-message"
+                           th:each="error: ${#fields.errors('description')}"
+                           th:text="${error}">Validation error</p>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Upload</button>

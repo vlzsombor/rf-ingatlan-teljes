@@ -13,7 +13,7 @@ public class RealEstate {
     private Long id;
 
     @Column(nullable = false)
-    //@NotBlank
+    @NotBlank
     private String cim;
 
 
@@ -22,38 +22,38 @@ public class RealEstate {
     private User user;
 
     @Column
-    // @NotBlank
+    @NotBlank
     private String address;
 
     @Column
-    // @NotBlank
+    @NotBlank
     private String description;
 
     @Column
-    // @NotNull
+    @NotNull
     private Long price;
 
     @Column
-    // @NotNull
+    //@NotNull
     private Long hazszam;
 
     @Column
-    //@NotBlank
+    @NotBlank
     private String megye;
 
     @Column
-    //@NotBlank
+    @NotBlank
     private String telepulesNev;
 
     @Column
-    //@NotNull
+    @NotNull
     private Long iranyitoSzam;
 
     @Column
-    //@NotBlank
+    @NotBlank
     private String ingatlanTipus;
     @Column
-    //@NotBlank
+    @NotBlank
     private String hirdetesTipus;
 
 
