@@ -48,16 +48,6 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6" th:classappend="${#fields.hasErrors('price')}? 'has-error':''">
-                            <label for="price">Ingatlan ára (Ft)</label>
-                            <input type="number" th:field="*{price}"  class="form-control" id="price" placeholder=1234>
-                            <p class="error-message"
-                               th:each="error: ${#fields.errors('price')}"
-                               th:text="${error}">Validation error</p>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
                         <div class="form-group col-md-6"th:classappend="${#fields.hasErrors('cim')}? 'has-error':''">
 
                             <label for="cim">Hírdetesed címe</label>
@@ -69,6 +59,41 @@
 
                     </div>
 
+                    <div class="form-row">
+                        <div class="form-group col-md-6" th:classappend="${#fields.hasErrors('price')}? 'has-error':''">
+                            <label for="price">Ingatlan ára (Ft)</label>
+                            <input type="number" th:field="*{price}"  class="form-control" id="price" placeholder=1234>
+                            <p class="error-message"
+                               th:each="error: ${#fields.errors('price')}"
+                               th:text="${error}">Validation error</p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-group col-md-6" th:classappend="${#fields.hasErrors('meret')}? 'has-error':''">
+                          <label for="meret">Méret (m<sup>2</sup>)*</label>
+                          <input type="text" class="form-control" id="meret"   th:field="*{meret}" placeholder="55">
+                          <p class="error-message"
+                             th:each="error: ${#fields.errors('meret')}"
+                             th:text="${error}">Validation error</p>
+                      </div>
+                        <div class="form-group col-md-6" th:classappend="${#fields.hasErrors('meret')}? 'has-error':''">
+                            <label for="szobakSzama">Szobak szama*</label>
+                            <select id="szobakSzama" class="form-control" th:field="*{szobakSzama}">
+                                <option value="" selected>Valassz</option>
+                                <option value="1" >1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+
+
+                            </select>
+                            <p class="error-message"
+                               th:each="error: ${#fields.errors('szobakSzama')}"
+                               th:text="${error}">Validation error</p>
+                        </div>
+                    </div>
                     <div class="form-row">
                         <div class="form-group col-md-6" th:classappend="${#fields.hasErrors('telepulesNev')}? 'has-error':''">
                             <label for="telepulesNev">Település*</label>

@@ -50,6 +50,14 @@ public class RealEstate {
     private Long iranyitoSzam;
 
     @Column
+    @NotNull
+    private Long meret;
+
+    @Column
+    @NotNull
+    private Long szobakSzama;
+
+    @Column
     @NotBlank
     private String ingatlanTipus;
     @Column
@@ -67,9 +75,11 @@ public class RealEstate {
         this.user = user;
     }
 
-    public RealEstate(Long id, @NotBlank String cim, User user, @NotBlank String hirdetesTipus, @NotBlank String ingatlanTipus,  @NotNull Long price, @NotBlank String megye,@NotNull Long iranyitoSzam, @NotBlank String telepulesNev, @NotBlank String address, @NotNull Long hazszam, @NotBlank String description) {
+    public RealEstate(Long id, @NotBlank String cim, User user, @NotBlank String hirdetesTipus, @NotBlank String ingatlanTipus,  @NotNull Long price, @NotNull Long meret,  @NotNull Long szobakSzama, @NotBlank String megye,@NotNull Long iranyitoSzam, @NotBlank String telepulesNev, @NotBlank String address, @NotNull Long hazszam, @NotBlank String description) {
         this.id = id;
         this.cim = cim;
+        this.szobakSzama = szobakSzama;
+        this.meret = meret;
         this.ingatlanTipus = ingatlanTipus;
         this.hirdetesTipus = hirdetesTipus;
         this.user = user;
@@ -80,6 +90,22 @@ public class RealEstate {
         this.hazszam = hazszam;
         this.megye = megye;
         this.telepulesNev = telepulesNev;
+    }
+
+    public Long getMeret() {
+        return meret;
+    }
+
+    public void setMeret(Long meret) {
+        this.meret = meret;
+    }
+
+    public Long getSzobakSzama() {
+        return szobakSzama;
+    }
+
+    public void setSzobakSzama(Long szobakSzama) {
+        this.szobakSzama = szobakSzama;
     }
 
     public void setHazszam(Long hazszam) {
@@ -183,6 +209,8 @@ public class RealEstate {
                 ", megye='" + megye + '\'' +
                 ", telepulesNev='" + telepulesNev + '\'' +
                 ", iranyitoSzam=" + iranyitoSzam +
+                ", meret=" + meret +
+                ", szobakSzama=" + szobakSzama +
                 ", ingatlanTipus='" + ingatlanTipus + '\'' +
                 ", hirdetesTipus='" + hirdetesTipus + '\'' +
                 '}';
