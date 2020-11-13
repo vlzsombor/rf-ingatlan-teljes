@@ -27,7 +27,7 @@
             </div>
                 <div class="media-body ">
 
-                <h5 class="mb-1 mt-1"   style="color:darkslategray" th:text="|${realEstate.getPrice()} Ft|">List-based media object</h5>
+                <b></b><h3 class="mb-1 mt-1"   style="color:darkslategray" th:text="|${realEstate.getPrice()} Ft|">List-based media object</h3></b>
 
                 <p  th:text="| ${realEstate.getCim()}|" style="color:darkslategray" class="mt-4" th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}"></p>
 

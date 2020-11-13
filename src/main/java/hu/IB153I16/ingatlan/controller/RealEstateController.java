@@ -95,6 +95,7 @@ public class RealEstateController {
         model.addAttribute("realEstate", realEstate);
         return "realEstate/update";
     }
+
     @GetMapping("delete/{id}")
     public String deleteRealEstate(@PathVariable("id") long id, Model model) {
 
