@@ -58,6 +58,8 @@
             <!--/.Controls-->
         </div>
         <!--/.Carousel Wrapper-->
+
+
     </div>
     <div class="container">
         <div class="row row-1">
@@ -103,34 +105,19 @@
             &nbsp <h5>m<sup>2</sup></h5>
         </div>
     </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-2">Város: </div>
-                <div class="col-sm-2">
-                    <div th:text="${realEstate.getTelepulesNev()}" style="color:darkslategray" class="mt-5 font-weight-light font-small"></div>
-                </div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-2">Ár: </div>
-                <div class="col-sm-2">
-                    <p th:text="${realEstate.getPrice()}" style="color:darkslategray" class="mt-5 font-weight-light font-small"></p>
-                </div>
+<br>
+<h4>Az ingatlan jellemzői:</h4>
+        <div class="row">
+            <div class="col-sm-4">
+                <h5><div th:text="|Város: ${realEstate.getTelepulesNev()}|" style="color:darkslategray" class="mt-5 font-weight-light mb-0"></div>
+                </h5></div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+               <h5> <p th:text="|Ár: ${realEstate.getPrice()} Ft|" style="color:darkslategray" class="mt-5 font-weight-light mb-0"></p></h5>
             </div>
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-2"></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-2"></div>
-            </div>
-        </div>
 
+        </div>
+        <div th:text="|Város: ${realEstate.getTelepulesNev()}|" style="color:darkslategray" class="mt-5 font-weight-light font-small"></div>
 
         <p th:text="${realEstate.getDescription()}" style="color:darkslategray" class="mt-4" th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}"></p>
             <p th:text="${realEstate.getIranyitoSzam()}" style="color:darkslategray" class="mt-5 font-weight-light font-small"></p>
