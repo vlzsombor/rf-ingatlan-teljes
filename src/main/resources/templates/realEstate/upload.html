@@ -77,7 +77,7 @@
                              th:each="error: ${#fields.errors('meret')}"
                              th:text="${error}">Validation error</p>
                       </div>
-                        <div class="form-group col-md-6" th:classappend="${#fields.hasErrors('meret')}? 'has-error':''">
+                        <div class="form-group col-md-3" th:classappend="${#fields.hasErrors('szobakSzama')}? 'has-error':''">
                             <label for="szobakSzama">Szobak szama*</label>
                             <select id="szobakSzama" class="form-control" th:field="*{szobakSzama}">
                                 <option value="" selected>Valassz</option>
@@ -91,6 +91,22 @@
                             </select>
                             <p class="error-message"
                                th:each="error: ${#fields.errors('szobakSzama')}"
+                               th:text="${error}">Validation error</p>
+                        </div>
+                        <div class="form-group col-md-3" th:classappend="${#fields.hasErrors('felszobakSzama')}? 'has-error':''">
+                            <label for="felszobakSzama">Félszobák szama</label>
+                            <select id="felszobakSzama" class="form-control" th:field="*{felszobakSzama}">
+                                <option value="0" selected>0</option>
+                                <option value="1" >1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">több</option>
+
+
+                            </select>
+                            <p class="error-message"
+                               th:each="error: ${#fields.errors('felszobakSzama')}"
                                th:text="${error}">Validation error</p>
                         </div>
                     </div>

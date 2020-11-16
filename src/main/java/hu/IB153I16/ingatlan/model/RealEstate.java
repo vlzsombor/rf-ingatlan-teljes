@@ -64,6 +64,32 @@ public class RealEstate {
     @NotBlank
     private String hirdetesTipus;
 
+    @Column
+    //@NotBlank
+    private Long telekMeret;
+
+    @Column
+    //@NotBlank
+    private String hazTipus;
+
+    @Column
+    //@NotBlank
+    private Long felszobakSzama;
+
+    @Column
+    //@NotBlank
+    private Long lakasTipusa;
+
+    @Column
+    //@NotBlank
+    private Boolean isGepesitett;
+
+    @Column
+    //@NotBlank
+    private Boolean isPanelprogram;
+
+
+
 
     public RealEstate() {   }
 
@@ -75,11 +101,13 @@ public class RealEstate {
         this.user = user;
     }
 
-    public RealEstate(Long id, @NotBlank String cim, User user, @NotBlank String hirdetesTipus, @NotBlank String ingatlanTipus,  @NotNull Long price, @NotNull Long meret,  @NotNull Long szobakSzama, @NotBlank String megye,@NotNull Long iranyitoSzam, @NotBlank String telepulesNev, @NotBlank String address, @NotNull Long hazszam, @NotBlank String description) {
+    public RealEstate(Long id, @NotBlank String cim, User user, @NotBlank String hirdetesTipus, @NotBlank String ingatlanTipus,String hazTipus,  @NotNull Long price, @NotNull Long meret,  @NotNull Long szobakSzama,@NotNull Long felszobakSzama ,@NotBlank String megye,@NotNull Long iranyitoSzam, @NotBlank String telepulesNev, @NotBlank String address, @NotNull Long hazszam, @NotBlank String description) {
         this.id = id;
         this.cim = cim;
         this.szobakSzama = szobakSzama;
         this.meret = meret;
+        this.hazTipus = hazTipus;
+        this.felszobakSzama = felszobakSzama;
         this.ingatlanTipus = ingatlanTipus;
         this.hirdetesTipus = hirdetesTipus;
         this.user = user;
@@ -100,8 +128,56 @@ public class RealEstate {
         this.meret = meret;
     }
 
+    public Long getTelekMeret() {
+        return telekMeret;
+    }
+
+    public void setTelekMeret(Long telekMeret) {
+        this.telekMeret = telekMeret;
+    }
+
     public Long getSzobakSzama() {
         return szobakSzama;
+    }
+
+    public String getHazTipus() {
+        return hazTipus;
+    }
+
+    public void setHazTipus(String hazTipus) {
+        this.hazTipus = hazTipus;
+    }
+
+    public Long getFelszobakSzama() {
+        return felszobakSzama;
+    }
+
+    public void setFelszobakSzama(Long felszobakSzama) {
+        this.felszobakSzama = felszobakSzama;
+    }
+
+    public Long getLakasTipusa() {
+        return lakasTipusa;
+    }
+
+    public void setLakasTipusa(Long lakasTipusa) {
+        this.lakasTipusa = lakasTipusa;
+    }
+
+    public Boolean getGepesitett() {
+        return isGepesitett;
+    }
+
+    public void setGepesitett(Boolean gepesitett) {
+        isGepesitett = gepesitett;
+    }
+
+    public Boolean getPanelprogram() {
+        return isPanelprogram;
+    }
+
+    public void setPanelprogram(Boolean panelprogram) {
+        isPanelprogram = panelprogram;
     }
 
     public void setSzobakSzama(Long szobakSzama) {

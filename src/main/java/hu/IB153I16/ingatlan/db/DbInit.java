@@ -46,9 +46,9 @@ public class DbInit implements CommandLineRunner {
         User admin = new User("admin","admin","admin@a.hu",passwordEncoder.encode("admin123"),Arrays.asList(new Role("ROLE_ADMIN")));
         //public RealEstate(String name, String userName, String address, String description, long price)
         //public RealEstate(String name, User user, String address, String description, Long price) {
-        RealEstate re = new RealEstate(1L,"Jo nyaralo", dan ,"Elado", "Haz",12345L,55L, 2L ,"Csongrad",6600L, "Szentes", "Somogyi Bela u", 12L, "Szep takaros haz");
-        RealEstate re1 = new RealEstate(2L,"Szep nyaralo", dan ,"Kiado", "Telek",12345L,120L,   4L, "Csongrad",6600L, "Szentes", "Somogyi Bela u", 12L, "Szep takaros haz");
-        RealEstate re2 = new RealEstate(2L,"Szep haz", dan ,"Kiado", "Telek",12345L,72L,3L,"Csongrad",6600L, "Szentes", "Somogyi Bela u", 12L, "Szep takaros haz");
+        RealEstate re = new RealEstate(1L,"Jo nyaralo", dan ,"Elado", "Haz","Ikerhaz", 12345L,55L, 2L ,1L,"Csongrad",6600L, "Szentes", "Somogyi Bela u", 12L, "Szep takaros haz");
+        RealEstate re1 = new RealEstate(2L,"Szep nyaralo", dan ,"Kiado", "Telek","Epitesi telek",12345L,120L,   4L,1L, "Csongrad",6600L, "Szentes", "Somogyi Bela u", 12L, "Szep takaros haz");
+        RealEstate re2 = new RealEstate(2L,"Szep haz", dan ,"Kiado", "Telek","Kamion parkolo",12345L,72L,3L,1L,"Csongrad",6600L, "Szentes", "Somogyi Bela u", 12L, "Szep takaros haz");
 
         List<User> users = Arrays.asList(dan,admin,manager);
        List<RealEstate> realEstates = Arrays.asList(re,re1,re2);
