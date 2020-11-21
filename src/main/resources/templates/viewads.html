@@ -21,39 +21,17 @@
 
     <ul class="list-unstyled border border-left-0 border-dark border-top-0 border-bottom-0 hoverable" th:each="realEstate : ${realEstates}">
         <a th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}">
-        <li class="media mt-5 ">
-            <div class="col-sm-4">
-            <img class="img-fluid img-thumbnail content-box " th:src="@{~/hirdetes.png}" th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}"  alt="Generic placeholder image">
+        <li class="media mt-4 ">
+            <div class="col-sm-3">
+            <img class="img-fluid content-box " th:src="@{~/hirdetes.png}" th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}"  alt="Generic placeholder image">
             </div>
                 <div class="media-body ">
 
-                <b></b><h3 class="mb-1 mt-1"   style="color:darkslategray" th:text="|${realEstate.getPrice()} Ft|">List-based media object</h3></b>
+                <h5 class="mb-1 mt-1"   style="color:darkslategray" th:text="|${realEstate.getPrice()} Ft|">List-based media object</h5>
 
-                <p  th:text="| ${realEstate.getCim()}|" style="color:darkslategray" class="mt-4" th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}"></p>
-
-                    <div class="row">
-                        &nbsp&nbsp&nbsp&nbsp <i class="fas fa-bed"></i>
-                        <p class="card-text font-weight-light   "  th:text="|&nbsp ${realEstate.getSzobakSzama()}|"></p>
-                        &nbsp szoba
-                        &nbsp&nbsp&nbsp&nbsp<i class="fas fa-arrows-alt"></i>
-                        <p href="#" ><p class="card-text font-weight-light   "  th:text="|&nbsp ${realEstate.getMeret()}|">Hirdetés leírás példa Hirdetés leírás példa</p>
-                        &nbsp négyzetméter
-                    </div>
-
-                    <div class="col-sm">
-                        <div class="row">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <p class="card-text font-weight-light   " style="color:darkslategray"  th:text="|&nbsp ${realEstate.getTelepulesNev()}|">Hirdetés leírás példa Hirdetés leírás példa</p>
-                        </div>
-
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="row">
-                            <i class="fas fa-envelope-open-text"></i>
-                            <p class="card-text font-weight-light   "  th:text="|&nbsp ${realEstate.getUser().getEmail()}|">Hirdetés leírás példa Hirdetés leírás példa</p>
-                        </div>
-
-                    </div>
+                <p  th:text="${realEstate.getName()}" style="color:darkslategray" class="mt-4" th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}"></p>
+                <p th:text="${realEstate.getDescription()}" style="color:darkslategray" class="mt-5 font-weight-light font-small"></p>
+                <p th:text="${realEstate.getUser().getEmail()}"></p>
 
                 </div>
         </li>
