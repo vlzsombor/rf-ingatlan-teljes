@@ -24,9 +24,11 @@ public class PhotoController {
     private RealEstateRepository realEstateRepository;
 
     @GetMapping("photos")
-    public String index() {
-
-
+    public String index(Model model) {
+        RealEstate asd = new RealEstate();
+        asd.setId(21L);
+        asd.setPhotos("black.jpg");
+        model.addAttribute("realEstate",asd);
 
 
         return "photos/index";
