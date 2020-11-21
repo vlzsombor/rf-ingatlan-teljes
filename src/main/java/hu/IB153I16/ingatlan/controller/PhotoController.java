@@ -24,19 +24,17 @@ public class PhotoController {
     private RealEstateRepository realEstateRepository;
 
     @GetMapping("photos")
-    public String index(Model model) {
-        RealEstate asd = new RealEstate();
-        asd.setId(21L);
-        asd.setPhotos("black.jpg");
-        model.addAttribute("realEstate",asd);
+    public String index(Model model, RealEstate realEstate) {
 
+
+        model.addAttribute("realEstate",realEstate);
 
         return "photos/index";
     }
 
 
     @PostMapping("/photos")
-    public RedirectView savePhoto(RealEstate realEstate, @RequestParam("image") MultipartFile multipartFile) throws IOException {
+    public String savePhoto(RealEstate realEstate, @RequestParam("image") MultipartFile multipartFile) throws IOException {
 
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         realEstate.setPhotos(fileName);
@@ -47,8 +45,9 @@ public class PhotoController {
         //TODO mi a path??
 
         FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+        System.out.println("asd"+realEstate);
 
-        return new RedirectView("/realestate", true);
+        return "redirect:/";
     }
 
 

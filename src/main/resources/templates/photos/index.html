@@ -12,6 +12,106 @@
 itt kéne lennie
 <img th:src="@{${realEstate.photosImagePath}}" />
 
+<div class="container my-5">
+
+    <h3>Upload your ad</h3>
+
+
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-8">
+                <form action="#"
+                      th:action="@{/photos}"
+                      th:object="${realEstate}"
+                      method="post"
+                      enctype="multipart/form-data">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputPrice">Hirdetés típusa*</label>
+                            <select id="adTypeSelect" class=" browser-default custom-select mb-4 ">
+                                <option value="" selected="" disabled="">Válasz típust</option>
+                                <option value="1" >Eladó</option>
+                                <option value="2">Kiadó</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputPrice">Ingatlan típusa*</label>
+                            <select id="estateTypeSelect" class=" browser-default custom-select mb-4 ">
+                                <option value="" selected="" disabled="">Ingatlan típusa</option>
+                                <option value="1" >Ház</option>
+                                <option value="2">Lakás</option>
+                                <option value="3">Telek</option>
+                                <option value="4">Nyaraló</option>
+                                <option value="5">Telek</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputPrice">Ingatlan ára (Ft)</label>
+                            <input type="number" th:field="*{price}"  class="form-control" id="inputPrice" placeholder=1234>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6"th:classappend="${#fields.hasErrors('name')}? 'has-error':''">
+
+                            <label for="name">Name</label>
+                            <input type="text"  th:field="*{name}" class="form-control" id="name" placeholder="Name">
+                            <p class="error-message"
+                               th:each="error: ${#fields.errors('name')}"
+                               th:text="${error}">Validation error</p>
+                        </div>
+
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity1">Település*</label>
+                            <input type="text" class="form-control" id="inputCity1" placeholder="Budapest">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputState">Megye</label>
+                            <select id="inputState" class="form-control">
+                                <option selected>Valassz</option>
+                                <option>Csongrad</option>
+                                <option>Békés</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputZip">Ir. szám</label>
+                            <input type="text" class="form-control" id="inputZip" placeholder="6600">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Utca</label>
+                        <input type="text" th:field="*{address}" class="form-control" id="inputAddress" placeholder="1234 City, Jump Street 23.">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="inputDescription">Ingatlan leírás</label>
+                        <textarea type="text" th:field="*{description}" class="form-control" id="inputDescription" placeholder="Please describe your apartment" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Fotó </label>
+                        <input type="file" name="image" accept="image/png, image/jpeg" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <footer th:insert="fragments.html :: foot"></footer>
 
 </body>
