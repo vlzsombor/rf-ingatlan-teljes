@@ -92,7 +92,7 @@
 
 </div>
 <div class="container ">
-    <div class="col-sm-6 mt-2 mb-2">
+    <div class="col-xl-5 mt-2 mb-2">
 
 
         <div class="container mt-1  ">
@@ -157,22 +157,26 @@
             </div>
 
         </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>
+                    <div class="mt-5 font-weight-light mb-0" style="color:darkslategray"
+                         th:text="|Megye: ${realEstate.getMegye()}|"></div>
+                </h5>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <h5><p class="mt-5 font-weight-light mb-0" style="color:darkslategray"
+                       th:text="|Iranyito szam: ${realEstate.getIranyitoSzam()} Ft|"></p></h5>
+            </div>
 
-        <div class="mt-5 font-weight-light font-small" style="color:darkslategray"
-             th:text="|Város: ${realEstate.getTelepulesNev()}|"></div>
+        </div>
+
+
 
         <p class="mt-4" style="color:darkslategray" th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}"
            th:text="${realEstate.getDescription()}"></p>
-        <p class="mt-5 font-weight-light font-small" style="color:darkslategray"
-           th:text="${realEstate.getIranyitoSzam()}"></p>
-        <p class="mt-5 font-weight-light font-small" style="color:darkslategray" th:text="${realEstate.getCim()}"></p>
-        <p class="mt-5 font-weight-light font-small" style="color:darkslategray"
-           th:text="${realEstate.getHirdetesTipus()}"></p>
-        <p class="mt-5 font-weight-light font-small" style="color:darkslategray"
-           th:text="${realEstate.getIngatlanTipus()}"></p>
-        <p class="mt-5 font-weight-light font-small" style="color:darkslategray" th:text="${realEstate.getMegye()}"></p>
-        <p class="mt-5 font-weight-light font-small" style="color:darkslategray"
-           th:text="${realEstate.getAddress()}"></p>
+
 
 
     </div>
