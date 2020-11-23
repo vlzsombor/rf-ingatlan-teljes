@@ -119,6 +119,20 @@
             <div class="col-sm-4">
                 <h5>
                     <div class="mt-5 font-weight-light mb-0" style="color:darkslategray"
+                         th:text="|Hírdetes tipusa: ${realEstate.getHirdetesTipus()}|"></div>
+                </h5>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <h5><p class="mt-5 font-weight-light mb-0" style="color:darkslategray"
+                       th:text="|Ingatlan típusa: ${realEstate.getIngatlanTipus()} |"></p></h5>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>
+                    <div class="mt-5 font-weight-light mb-0" style="color:darkslategray"
                          th:text="|Város: ${realEstate.getTelepulesNev()}|"></div>
                 </h5>
             </div>
@@ -129,6 +143,21 @@
             </div>
 
         </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>
+                    <div class="mt-5 font-weight-light mb-0" style="color:darkslategray"
+                         th:text="|Szobak szama: ${realEstate.getSzobakSzama()} db|"></div>
+                </h5>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <h5><p class="mt-5 font-weight-light mb-0" style="color:darkslategray"
+                       th:text="|Felszobak szama: ${realEstate.getFelszobakSzama()} db|"></p></h5>
+            </div>
+
+        </div>
+
         <div class="mt-5 font-weight-light font-small" style="color:darkslategray"
              th:text="|Város: ${realEstate.getTelepulesNev()}|"></div>
 
