@@ -79,7 +79,7 @@
                            th:each="error : ${#fields.errors('confirmPassword')}"
                            th:text="${error}">Validation error</p>
                     </div>
-                    <div class="md-form"
+                    <div class="form-group"
                          th:classappend="${#fields.hasErrors('terms')}? 'has-error':''">
                         <input id="terms" th:field="*{terms}" type="checkbox"/>   <label
                             class="control-label" for="terms"> I agree with the <a
@@ -102,5 +102,21 @@
 
 
 </div>
+
+<footer class="page-footer fixed-bottom font-small teal  pt-2" th:fragment="foot">
+
+    <div class="container">
+
+        <ul class="list-unstyled list-inline text-center py-2">
+
+            <li class="list-inline-item" >
+                <h5 class="mb-1">ringatlan.com</h5>
+            </li>
+        </ul>
+    </div>
+
+
+</footer>
+
 </body>
 </html>
