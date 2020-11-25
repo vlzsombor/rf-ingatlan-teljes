@@ -79,19 +79,20 @@
 
     <div class="bg-info d-flex justify-content-center clearfix">
 
-        <div class="p-2 py-2">
-            <div class="custom-control custom-radio">
-                <input class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios" type="radio">
-                <label class="custom-control-label" for="defaultUnchecked">Kiadó</label>
-            </div>
-
-            <div class="custom-control custom-radio">
-                <input checked class="custom-control-input" id="defaultChecked" name="defaultExampleRadios"
-                       type="radio">
-                <label class="custom-control-label" for="defaultChecked">Eladó</label>
-            </div>
-        </div>
         <form action="" class="form-inline" th:action="@{/}" method="get">
+            <div class="p-2 py-2">
+                <div class="custom-control custom-radio">
+                    <input checked class="custom-control-input" id="defaultChecked" name="elado"
+                           type="checkbox">
+                    <label class="custom-control-label" for="defaultChecked">Eladó</label>
+                </div>
+
+                <div class="custom-control custom-radio">
+                    <input checked class="custom-control-input" id="defaultUnchecked" name="kiado" type="checkbox">
+                    <label class="custom-control-label" for="defaultUnchecked">Kiadó</label>
+                </div>
+
+            </div>
             <div class="form-group">
                 <div class="input-group">
 

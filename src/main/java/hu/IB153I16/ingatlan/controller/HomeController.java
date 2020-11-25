@@ -23,7 +23,7 @@ public class HomeController {
 
 
     @GetMapping("/")
-    public String index(Model model, String keyword){
+    public String index(Model model, String elado, String kiado, String keyword){
 
         if(keyword != null){
             model.addAttribute("realEstates",realEstateService.findByKeyWord(keyword));
