@@ -4,6 +4,7 @@ import hu.IB153I16.ingatlan.repository.RealEstateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,9 +19,16 @@ public class HomeController {
 
 
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model, String keyword){
 
-        model.addAttribute("realEstates",realEstateRepository.findAll());
+        if(keyword != null){
+            model.addAttribute("realEstates",realEstateRepository.findByKeyWord(StringUtils.capitalize(keyword)));
+        }
+        else
+        {
+            model.addAttribute("realEstates",realEstateRepository.findAll());
+        }
+
         return "index";
     }
 
@@ -32,6 +40,18 @@ public class HomeController {
         model.addAttribute("realEstates",realEstateRepository.findAll());
         return "viewads";
 
+    }
+    @GetMapping("test")
+    public String testSearch(Model model, String keyword){
+
+        if(keyword != null){
+            model.addAttribute("realEstates",realEstateRepository.findByKeyWord(StringUtils.capitalize(keyword)));
+        }
+        else
+        {
+            model.addAttribute("realEstates",realEstateRepository.findAll());
+        }
+        return "index";
     }
 
 }

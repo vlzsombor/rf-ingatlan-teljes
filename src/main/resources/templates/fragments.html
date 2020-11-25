@@ -91,7 +91,7 @@
                 <label class="custom-control-label" for="defaultChecked">Eladó</label>
             </div>
         </div>
-        <form action="" class="form-inline">
+        <form action="" class="form-inline" th:action="@{/}" method="get">
             <div class="form-group">
                 <div class="input-group">
 
@@ -105,11 +105,10 @@
             </div>
             <div class="form-group">
                 <div class="input-group">
-                    <input class="form-control" placeholder="Város" type="text">
+                    <input id = "txtSearch" class="form-control" name="keyword" placeholder="Város" type="text">
                 </div>
-
                 <div class="input-group-append">
-                    <button class="btn btn-primary"><i class="fa fa-search"></i>
+                    <button type = "submit" class="btn btn-primary"><i class="fa fa-search"></i>
                     </button>
                     </button>
                 </div>
