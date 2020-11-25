@@ -51,7 +51,7 @@ public class DbInit implements CommandLineRunner {
         RealEstate re2 = new RealEstate(2L,"Szep haz", dan ,"Kiado", "Telek","Kamion parkolo",12345L,72L,3L,1L,"Csongrad",6600L, "Szentes", "Somogyi Bela u", 12L, "Szep takaros haz");
 
         List<User> users = Arrays.asList(dan,admin,manager);
-       List<RealEstate> realEstates = Arrays.asList(re,re1,re2);
+        List<RealEstate> realEstates = Arrays.asList(re,re1,re2);
 
         // Save to db
         this.userRepository.saveAll(users);
