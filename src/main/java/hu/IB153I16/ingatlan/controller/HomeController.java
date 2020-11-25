@@ -1,6 +1,7 @@
 package hu.IB153I16.ingatlan.controller;
 
 import hu.IB153I16.ingatlan.repository.RealEstateRepository;
+import hu.IB153I16.ingatlan.service.RealEstateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,12 +18,15 @@ public class HomeController {
     @Autowired
     private RealEstateRepository realEstateRepository;
 
+    @Autowired
+    private RealEstateService realEstateService;
+
 
     @GetMapping("/")
     public String index(Model model, String keyword){
 
         if(keyword != null){
-            model.addAttribute("realEstates",realEstateRepository.findByKeyWord(StringUtils.capitalize(keyword)));
+            model.addAttribute("realEstates",realEstateService.findByKeyWord(keyword));
         }
         else
         {
@@ -41,17 +45,4 @@ public class HomeController {
         return "viewads";
 
     }
-    @GetMapping("test")
-    public String testSearch(Model model, String keyword){
-
-        if(keyword != null){
-            model.addAttribute("realEstates",realEstateRepository.findByKeyWord(StringUtils.capitalize(keyword)));
-        }
-        else
-        {
-            model.addAttribute("realEstates",realEstateRepository.findAll());
-        }
-        return "index";
-    }
-
 }
