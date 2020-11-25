@@ -93,8 +93,8 @@
         background-color: #fefefe;
         margin: auto;
         padding: 0;
-        width: 90%;
-        max-width: 1200px;
+        width: 80%;
+        max-width: 80%;
     }
 
     /* The Close Button */
@@ -192,7 +192,39 @@
 <body>
 <header th:insert="fragments.html :: nav"></header>
 <h2 class="mt-5 ml-3 text-center" th:text="${realEstate.getCim()}"></h2>
+<div id="myModal" class="modal">
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
 
+        <div class="mySlides">
+            <div class="numbertext">1 / 4</div>
+            <img th:src="@{~/hirdetes.png}" style="width:60%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 4</div>
+            <img th:src="@{~/hirdetes.png}" style="width:60%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 4</div>
+            <img th:src="@{~/hirdetes.png}" style="width:60%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">4 / 4</div>
+            <img th:src="@{~/hirdetes.png}" style="width:60%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+    </div>
+</div>
 <div class="container mt-1 border-top border-bottom border-dark d-flex justify-content-center">
     <div class="col-sm-6 mt-2 mb-2">
 
@@ -240,40 +272,8 @@
         </div>
     </div>
 
-    <div id="myModal" class="modal">
-        <span class="close cursor" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
 
-            <div class="mySlides">
-                <div class="numbertext">1 / 4</div>
-                <img th:src="@{~/hirdetes.png}" style="width:100%">
-            </div>
-
-            <div class="mySlides">
-                <div class="numbertext">2 / 4</div>
-                <img th:src="@{~/hirdetes.png}" style="width:100%">
-            </div>
-
-            <div class="mySlides">
-                <div class="numbertext">3 / 4</div>
-                <img th:src="@{~/hirdetes.png}" style="width:100%">
-            </div>
-
-            <div class="mySlides">
-                <div class="numbertext">4 / 4</div>
-                <img th:src="@{~/hirdetes.png}" style="width:100%">
-            </div>
-
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-            <div class="caption-container">
-                <p id="caption"></p>
-            </div>
-
-        </div>
-    </div>
-        </div>
+</div>
 <div class="container ">
     <div class="col-xl-5 mt-2 mb-2">
 
