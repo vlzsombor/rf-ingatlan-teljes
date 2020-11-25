@@ -54,7 +54,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6" th:classappend="${#fields.hasErrors('cim')}? 'has-error':''">
 
-                            <label for="cim">Hirdetesed címe</label>
+                            <label for="cim">Hirdetesed címe*</label>
                             <input class="form-control" id="cim" placeholder="Adja meg a címet" th:field="*{cim}" type="text">
                             <p class="error-message"
                                th:each="error: ${#fields.errors('cim')}"
@@ -65,7 +65,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-6" th:classappend="${#fields.hasErrors('price')}? 'has-error':''">
-                            <label for="price">Ingatlan ára (Ft)</label>
+                            <label for="price">Ingatlan ára (Ft)*</label>
                             <input class="form-control" id="price" placeholder=1234 th:field="*{price}" type="number">
                             <p class="error-message"
                                th:each="error: ${#fields.errors('price')}"
@@ -85,7 +85,7 @@
                              th:classappend="${#fields.hasErrors('szobakSzama')}? 'has-error':''">
                             <label for="szobakSzama">Szobák száma*</label>
                             <select class="form-control" id="szobakSzama" th:field="*{szobakSzama}">
-                                <option selected value="">Valassz</option>
+                                <option selected value="">Válassz</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -130,41 +130,39 @@
                         </div>
 
                         <div class="form-group col-md-4" th:classappend="${#fields.hasErrors('megye')}? 'has-error':''">
-                            <label for="megye">Megye</label>
+                            <label for="megye">Megye*</label>
                             <select class="form-control" id="megye" th:field="*{megye}">
-                                <option selected value="semmi">Válassz</option>
-                                <option value="Csongrad">Csongrád-Csanád</option>
-                                <option value="Bekes">Békés</option>
-                                <option value="BacsKiskun">Bács-Kiskun</option>
+                                <option selected value="">Válassz</option>
+                                <option value="Csongrád-Csanád">Csongrád-Csanád</option>
+                                <option value="Békés">Békés</option>
+                                <option value="Bács-Kiskun">Bács-Kiskun</option>
                                 <option value="Baranya">Baranya</option>
-                                <option value="Borsod">Borsod-Abaúj-Zemplén</option>
-                                <option value="Fejer">Fejér</option>
-                                <option value="Gyor">Győr-Moson-Sopron</option>
-                                <option value="HajduBihar">Hajdú-Bihar</option>
+                                <option value="Borsod-Abaúj-Zemplén">Borsod-Abaúj-Zemplén</option>
+                                <option value="Fejér">Fejér</option>
+                                <option value="Győr-Moson-Sopron">Győr-Moson-Sopron</option>
+                                <option value="Hajdú-Bihar">Hajdú-Bihar</option>
                                 <option value="Heves">Heves</option>
-                                <option value="Szolnok">Jász-Nagykun-Szolnok</option>
-                                <option value="Komarom">Komárom-Esztergom</option>
-                                <option value="Nograd">Nógrád</option>
+                                <option value="Jász-Nagykun-Szolnok">Jász-Nagykun-Szolnok</option>
+                                <option value="Komárom-Esztergom">Komárom-Esztergom</option>
+                                <option value="Nógrád">Nógrád</option>
                                 <option value="Pest">Pest</option>
                                 <option value="Somogy">Somogy</option>
-                                <option value="Szatmar">Szabolcs-Szatmár-Bereg</option>
+                                <option value="Szabolcs-Szatmár-Bereg">Szabolcs-Szatmár-Bereg</option>
                                 <option value="Tolna">Tolna</option>
                                 <option value="Vas">Vas</option>
-                                <option value="Veszprem">Veszprém</option>
+                                <option value="Veszprém">Veszprém</option>
                                 <option value="Zala">Zala</option>
+                                <option value="Külfödi ingatlan">Külfödi ingatlan</option>
 
 
                             </select>
-                            <p class="error-message"
-                               th:each="error: ${#fields.errors('telepulesNev')}"
-                               th:text="${error}">Validation error</p>
                             <p class="error-message"
                                th:each="error: ${#fields.errors('megye')}"
                                th:text="${error}">Validation error</p>
                         </div>
                         <div class="form-group col-md-2"
                              th:classappend="${#fields.hasErrors('iranyitoSzam')}? 'has-error':''">
-                            <label for="iranyitoSzam">Ir. szám</label>
+                            <label for="iranyitoSzam">Ir. szám*</label>
                             <input class="form-control" id="iranyitoSzam" placeholder="6600" th:field="*{iranyitoSzam}"
                                    type="text">
                             <p class="error-message"
