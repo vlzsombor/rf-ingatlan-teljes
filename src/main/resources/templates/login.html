@@ -14,8 +14,8 @@
         </div>
 
         <div class="card">
-            <div class="card-header">
-                <i class="fa fa-user"></i> Please Login
+            <div class="card-header indigo white-text text-center py-4">
+                <i class="fa fa-user"></i> <strong> Please Login</strong>
             </div>
             <div class="card-block" style="padding: 24px;">
                 <form method="post" name="f" th:action="@{/login}">
@@ -27,14 +27,16 @@
                         <div class="alert alert-success" th:if="${param.logout}">
                             You have been logged out.
                         </div>
-                        <div class="form-group">
-                            <label for="username">Username</label>
+                        <div class="md-form">
+                            <label for="username"></label>
+                            <i class="fas fa-user prefix"></i>
                             <input class="form-control" id="username" name="username" placeholder="Username"
                                    type="text">
                         </div>
 
-                        <div class="form-group">
-                            <label for="password">Password</label>
+                        <div class="md-form">
+                            <label for="password"></label>
+                            <i class="fas fa-lock prefix"></i>
                             <input class="form-control" id="password" name="password" placeholder="Password"
                                    type="password">
                         </div>
@@ -44,8 +46,8 @@
                             <label class="form-check-label" for="checkRememberMe">Remember me?</label>
                         </div>
 
-                        <div class="form-actions" style="margin-top: 12px;">
-                            <button class="btn btn-success" type="submit">Log in</button>
+                        <div class="form-actions " style="margin-top: 12px;">
+                            <button class="btn aqua-gradient btn-rounded" type="submit">Log in</button>
                         </div>
                     </fieldset>
                 </form>
