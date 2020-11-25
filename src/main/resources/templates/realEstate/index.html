@@ -14,54 +14,67 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
+<script type="text/javascript" th:src="@{~/lightbox.js}"> </script>
 <head th:insert="fragments.html :: headerfiles"></head>
+<style>
+
+</style>
 <body>
 <header th:insert="fragments.html :: nav"></header>
 <h2 class="mt-5 ml-3 text-center" th:text="${realEstate.getCim()}"></h2>
+<div id="myModal" class="modal">
+    <span class="close cursor" th:onclick="closeModal()">&times;</span>
+    <div class="modal-content">
 
+        <div class="mySlides">
+            <div class="numbertext">1 / 4</div>
+            <img th:src="@{~/hirdetes.png}" style="width:60%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 4</div>
+            <img th:src="@{~/hirdetes.png}" style="width:60%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 4</div>
+            <img th:src="@{~/hirdetes.png}" style="width:60%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">4 / 4</div>
+            <img th:src="@{~/hirdetes.png}" style="width:60%">
+        </div>
+
+        <a class="prev" th:onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" th:onclick="plusSlides(1)">&#10095;</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+    </div>
+</div>
 <div class="container mt-1 border-top border-bottom border-dark d-flex justify-content-center">
     <div class="col-sm-6 mt-2 mb-2">
 
         <!--Carousel Wrapper-->
         <div class="carousel slide carousel-fade" data-ride="carousel" id="carousel-example-1z">
             <!--Indicators-->
-            <ol class="carousel-indicators">
-                <li class="active" data-slide-to="0" data-target="#carousel-example-1z"></li>
-                <li data-slide-to="1" data-target="#carousel-example-1z"></li>
-                <li data-slide-to="2" data-target="#carousel-example-1z"></li>
-            </ol>
-            <!--/.Indicators-->
+
             <!--Slides-->
             <div class="carousel-inner" role="listbox">
                 <!--First slide-->
                 <div class="carousel-item active">
-                    <img alt="First slide" class="d-block w-100"
+                    <img alt="First slide" class="d-block w-100" th:onclick="openModal();currentSlide(1)"
                          th:src="@{~/hirdetes.png}">
                 </div>
-                <!--/First slide-->
-                <!--Second slide-->
-                <div class="carousel-item">
-                    <img alt="Second slide" class="d-block w-100"
-                         th:src="@{~/hirdetes.png}">
-                </div>
-                <!--/Second slide-->
-                <!--Third slide-->
-                <div class="carousel-item">
-                    <img alt="Third slide" class="d-block w-100"
-                         th:src="@{~/hirdetes.png}">
-                </div>
+
                 <!--/Third slide-->
             </div>
             <!--/.Slides-->
             <!--Controls-->
-            <a class="carousel-control-prev" data-slide="prev" href="#carousel-example-1z" role="button">
-                <span aria-hidden="true" class="carousel-control-prev-icon"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" data-slide="next" href="#carousel-example-1z" role="button">
-                <span aria-hidden="true" class="carousel-control-next-icon"></span>
-                <span class="sr-only">Next</span>
-            </a>
+
             <!--/.Controls-->
         </div>
         <!--/.Carousel Wrapper-->
@@ -70,15 +83,15 @@
     </div>
     <div class="container ">
         <div class="row row-1">
-            <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}">
+            <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" th:onclick="openModal();currentSlide(1)">
             </div>
-            <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}">
+            <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" th:onclick="openModal();currentSlide(2)">
             </div>
         </div>
         <div class="row mt-1">
-            <div class="col-sm-4 mt-1"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}">
+            <div class="col-sm-4 mt-1"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" th:onclick="openModal();currentSlide(3)">
             </div>
-            <div class="col-sm-4 mt-1"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}">
+            <div class="col-sm-4 mt-1"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" th:onclick="openModal();currentSlide(4)">
             </div>
         </div>
         <div class="row mt-1">
