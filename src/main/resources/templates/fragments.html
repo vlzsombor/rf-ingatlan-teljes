@@ -31,11 +31,11 @@
                     <a class="nav-link" href="#" th:href="@{~/}" th:utext="#{label.pages.home.title}"></a>
                 </li>
                 <li class="nav-item"
-                    th:classappend="${#httpServletRequest.getRequestURI() == '/viewads' ? '-active':''}">
+                    th:classappend="${#httpServletRequest.getRequestURI() == '/viewads' ? 'active':''}">
                     <a class="nav-link" href="#" th:href="@{~/viewads}" th:utext="#{label.pages.home.viewads}"></a>
                 </li>
                 <li class="nav-item" sec:authorize="isAnonymous( )"
-                    th:classappend="${#httpServletRequest.getRequestURI() == '/registration' ? '-active':''}">
+                    th:classappend="${#httpServletRequest.getRequestURI() == '/registration' ? 'active':''}">
                     <a class="nav-link" href="#" th:href="@{~/registration}"
                        th:utext="#{label.pages.home.register}"></a>
                 </li>
