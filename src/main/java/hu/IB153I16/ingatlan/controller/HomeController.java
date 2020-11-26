@@ -22,17 +22,28 @@ public class HomeController {
     private RealEstateService realEstateService;
 
 
-    @GetMapping("/")
-    public String index(Model model, String elado, String kiado, String keyword){
+    String ingatlanTipusArray[]={
+            "Lakas",
+            "Haz",
+            "Ikerhaz",
+            "Nyaralo"
+    };
 
-        if(keyword != null){
-            model.addAttribute("realEstates",realEstateService.findByKeyWord(keyword));
+    @GetMapping("/")
+    public String index(Model model, Integer ingatlanTipus, String telepulesNev){
+        //System.out.println("0");
+
+        if(telepulesNev != null && ingatlanTipus != null){
+            model.addAttribute("realEstates",realEstateRepository.findByTelepulesNevAndLakasOption(telepulesNev,ingatlanTipusArray[ingatlanTipus]));
+            //System.out.println("telepules ingatlan "+ telepulesNev + " " + ingatlanTipus + " " +ingatlanTipusArray[ingatlanTipus]);
         }
-        else
+        else if(telepulesNev != null)
         {
+            model.addAttribute("realEstates",realEstateService.findByTelepulesNev(telepulesNev));
+        }
+        else{
             model.addAttribute("realEstates",realEstateRepository.findAll());
         }
-
         return "index";
     }
 

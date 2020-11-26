@@ -13,7 +13,7 @@ public class RealEstateService {
     @Autowired
     private RealEstateRepository realEstateRepository;
 
-    public List<RealEstate> findByKeyWord(String keyword){
-        return realEstateRepository.findByKeyWord(StringUtils.capitalize(keyword));
+    public List<RealEstate> findByTelepulesNev(String keyword){
+        return realEstateRepository.findByTelepulesNev(StringUtils.capitalize(keyword));
     }
 }
