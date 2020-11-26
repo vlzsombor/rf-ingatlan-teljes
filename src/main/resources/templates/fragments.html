@@ -80,59 +80,59 @@
     <div class="bg-info d-flex justify-content-center clearfix">
 
         <form action="" class="form-inline" th:action="@{/}" method="get" name="elado">
-            <div class="p-2 py-2">
-                <div class="custom-control custom-radio">
-                    <input checked class="custom-control-input" id="defaultChecked"
-                           type="checkbox">
-                    <label class="custom-control-label" for="defaultChecked">Eladó</label>
-                </div>
+            <!--    <div class="p-2 py-2">
+                   <div class="custom-control custom-radio">
+                       <input checked class="custom-control-input" id="defaultChecked"
+                              type="checkbox">
+                       <label class="custom-control-label" for="defaultChecked">Eladó</label>
+                   </div>
 
-                <div class="custom-control custom-radio">
-                    <input checked class="custom-control-input" id="defaultUnchecked" type="checkbox">
-                    <label class="custom-control-label" for="defaultUnchecked">Kiadó</label>
-                </div>
+                   <div class="custom-control custom-radio">
+                       <input checked class="custom-control-input" id="defaultUnchecked" type="checkbox">
+                       <label class="custom-control-label" for="defaultUnchecked">Kiadó</label>
+                   </div>
 
-            </div>
-            <div class="form-group">
-                <div class="input-group">
+               </div>         -->
+               <div class="form-group">
+                   <div class="input-group">
 
-                    <select class="form-control" id="defaultSelect" name="ingatlanTipus">
-                        <option selected="" value="0">Lakás</option>
-                        <option value="1">Ház</option>
-                        <option value="2">Ikerház</option>
-                        <option value="3">Nyaraló</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="input-group">
-                    <input id = "txtSearch" class="form-control" name="telepulesNev" placeholder="Város" type="text">
-                </div>
-                <div class="input-group-append">
-                    <button type = "submit" class="btn btn-primary"><i class="fa fa-search"></i>
-                    </button>
-                    </button>
-                </div>
+                       <select class="form-control" id="defaultSelect" name="ingatlanTipus">
+                           <option selected="" value="0">Lakás</option>
+                           <option value="1">Ház</option>
+                           <option value="2">Ikerház</option>
+                           <option value="3">Nyaraló</option>
+                       </select>
+                   </div>
+               </div>
+               <div class="form-group">
+                   <div class="input-group">
+                       <input id = "txtSearch" class="form-control" name="telepulesNev" placeholder="Város" type="text">
+                   </div>
+                   <div class="input-group-append">
+                       <button type = "submit" class="btn btn-primary"><i class="fa fa-search"></i>
+                       </button>
+                       </button>
+                   </div>
 
-            </div>
-        </form>
+               </div>
+           </form>
 
-    </div>
-</div>
-<div th:fragment="premium">
+       </div>
+   </div>
+   <div th:fragment="premium">
 
 
-    <div class="container mt-5">
-        <div class="row row-cols-3">
-            <div class="col" th:each="realEstate : ${realEstates}" th:if="${realEstate.id} <10">
-                <a th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}">
+       <div class="container mt-5">
+           <div class="row row-cols-3">
+               <div class="col" th:each="realEstate : ${realEstates}" th:if="${realEstate.id} <10">
+                   <a th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}">
 
-                    <div class="card hoverable">
-                        <img alt="Generic placeholder image" class="card-img-top w-100 h-25 img-thumbnail"
-                             th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}" th:src="@{~/hirdetes.png}">
-                        <div class="card-body">
+                       <div class="card hoverable">
+                           <img alt="Generic placeholder image" class="card-img-top w-100 h-25 img-thumbnail"
+                                th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}" th:src="@{~/hirdetes.png}">
+                           <div class="card-body">
 
-                            <!-- Title -->
+                               <!-- Title -->
                             <h4 class="card-title" th:text="|${realEstate.getPrice()} M Ft|"><a>Hirdetes</a></h4>
                             <!-- Text -->
                             <div class="row">
