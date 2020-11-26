@@ -31,12 +31,10 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Model model, Integer ingatlanTipus, String telepulesNev){
-        //System.out.println("0");
 
         if(telepulesNev != null && ingatlanTipus != null){
             model.addAttribute("realEstates",realEstateRepository.findByTelepulesNevAndLakasOption(telepulesNev,ingatlanTipusArray[ingatlanTipus]));
-            //System.out.println("telepules ingatlan "+ telepulesNev + " " + ingatlanTipus + " " +ingatlanTipusArray[ingatlanTipus]);
-        }
+         }
         else if(telepulesNev != null)
         {
             model.addAttribute("realEstates",realEstateService.findByTelepulesNev(telepulesNev));

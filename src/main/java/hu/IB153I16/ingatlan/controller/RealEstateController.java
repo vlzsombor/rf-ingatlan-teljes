@@ -53,7 +53,8 @@ public class RealEstateController {
 //        return "redirect:/";
 //    }
 
-    @ModelAttribute("realEstate")     public RealEstate realEstateModel(){
+    @ModelAttribute("realEstate")
+    public RealEstate realEstateModel(){
         return new RealEstate();
     }
 

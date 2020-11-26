@@ -79,34 +79,34 @@
 
     <div class="bg-info d-flex justify-content-center clearfix">
 
-        <form action="" class="form-inline" th:action="@{/}" method="get">
-<!--            <div class="p-2 py-2">-->
-<!--                <div class="custom-control custom-radio">-->
-<!--                    <input checked class="custom-control-input" id="defaultChecked" name="elado"-->
-<!--                           type="checkbox">-->
-<!--                    <label class="custom-control-label" for="defaultChecked">Eladó</label>-->
-<!--                </div>-->
+        <form action="" class="form-inline" th:action="@{/}" method="get" name="elado">
+            <div class="p-2 py-2">
+                <div class="custom-control custom-radio">
+                    <input checked class="custom-control-input" id="defaultChecked"
+                           type="checkbox">
+                    <label class="custom-control-label" for="defaultChecked">Eladó</label>
+                </div>
 
-<!--                <div class="custom-control custom-radio">-->
-<!--                    <input checked class="custom-control-input" id="defaultUnchecked" name="kiado" type="checkbox">-->
-<!--                    <label class="custom-control-label" for="defaultUnchecked">Kiadó</label>-->
-<!--                </div>-->
+                <div class="custom-control custom-radio">
+                    <input checked class="custom-control-input" id="defaultUnchecked" type="checkbox">
+                    <label class="custom-control-label" for="defaultUnchecked">Kiadó</label>
+                </div>
 
-<!--            </div>-->
+            </div>
             <div class="form-group">
                 <div class="input-group">
 
-                    <select class="form-control" id="defaultSelect">
-                        <option selected="" value="Lakas">Lakás</option>
+                    <select class="form-control" id="defaultSelect" name="ingatlanTipus">
+                        <option selected="" value="0">Lakás</option>
                         <option value="1">Ház</option>
-                        <option value="3">Ikerház</option>
-                        <option value="4">Nyaraló</option>
+                        <option value="2">Ikerház</option>
+                        <option value="3">Nyaraló</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
                 <div class="input-group">
-                    <input id = "txtSearch" class="form-control" name="keyword" placeholder="Város" type="text">
+                    <input id = "txtSearch" class="form-control" name="telepulesNev" placeholder="Város" type="text">
                 </div>
                 <div class="input-group-append">
                     <button type = "submit" class="btn btn-primary"><i class="fa fa-search"></i>
