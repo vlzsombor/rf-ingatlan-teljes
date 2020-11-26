@@ -138,7 +138,7 @@
                 <h5>
                     <div class="mt-3 font-weight-light mb-0" ><strong>Hírdetés tipusa:</strong> </div>
                     <div class="mt-3 font-weight-light mb-0" ><strong>Város:</strong> </div>
-                    <div class="mt-3 font-weight-light mb-0" ><strong>Cím:</strong> </div>
+                    <div class="mt-3 font-weight-light mb-0" ><strong>Utca:</strong> </div>
                     <div class="mt-3 font-weight-light mb-0" ><strong>Megye:</strong> </div>
                     <div class="mt-3 font-weight-light mb-0" ><strong>Ir. szám:</strong> </div>
                 </h5>
@@ -153,7 +153,7 @@
                        th:text="|${realEstate.getTelepulesNev()}|"></p></h5>
 
                 <h5><p class="mt-3 font-weight-light mb-0" style="color:darkslategray"
-                       th:text="|${realEstate.getCim()}|"></p></h5>
+                       th:text="|${realEstate.getAddress()}|"></p></h5>
 
                 <h5><p class="mt-3 font-weight-light mb-0" style="color:darkslategray"
                        th:text="|${realEstate.getMegye()}|"></p></h5>
@@ -197,6 +197,17 @@
 
 </div>
 
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm">
+    <h5><div class="mt-5 font-weight-light mb-0" ><strong>Ingatlan leírása:</strong> </div></h5>
+            <h5><p class="mt-3 font-weight-light mb-0" style="color:darkslategray"
+                   th:text="|${realEstate.getDescription()} db|"></p></h5>
+
+        </div>
+    </div>
+</div>
 
 <footer th:insert="fragments.html :: foot"></footer>
 </body>
