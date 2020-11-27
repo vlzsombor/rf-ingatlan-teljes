@@ -79,8 +79,41 @@
         </div>
         <!--/.Carousel Wrapper-->
 
+    </div>
+   <!-- <div class="container ">
+        <div class="row row-1">
+            <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" th:onclick="openModal();currentSlide(1)">
+            </div>
+            <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" th:onclick="openModal();currentSlide(2)">
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-sm-4 mt-1"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" th:onclick="openModal();currentSlide(3)">
+            </div>
+            <div class="col-sm-4 mt-1"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" th:onclick="openModal();currentSlide(4)">
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-sm-4 mt-1"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}">
+            </div>
+            <div class="col-sm-4 mt-1"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}">
+            </div>
+        </div>
+    </div>-->
+    <div class="container ">
+
+        <div th:each="realEstatePhoto : ${realEstatePhotos}">
+            <div class="row row-1">
+                <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{${realEstatePhoto}}" th:onclick="openModal();currentSlide(1)">
+                </div>
+                <div th:text="${realEstatePhoto}"></div>
+                <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" th:onclick="openModal();currentSlide(2)">
+                </div>
+            </div>
+        </div>
 
     </div>
+
     <div class="container ">
         <div class="row row-1">
             <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" th:onclick="openModal();currentSlide(1)">
@@ -101,7 +134,6 @@
             </div>
         </div>
     </div>
-
 
 </div>
 <div class="container ">
@@ -142,7 +174,7 @@
                     <div class="mt-3 font-weight-light mb-0" ><strong>Utca:</strong> </div>
                     <div class="mt-3 font-weight-light mb-0" ><strong>Megye:</strong> </div>
                     <div class="mt-3 font-weight-light mb-0" ><strong>Ir. szám:</strong> </div>
-                    <div class="mt-3 font-weight-light mb-0" ><strong>Hírdető neve:</strong> </div>
+                    <div class="mt-3 font-weight-light mb-0" ><strong>Hirdető neve:</strong> </div>
                 </h5>
             </div>
 

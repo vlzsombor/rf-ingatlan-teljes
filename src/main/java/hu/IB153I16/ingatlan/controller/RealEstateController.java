@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
@@ -32,24 +33,16 @@ public class RealEstateController {
     UserRepository userRepository;
 
     @GetMapping("{id}")
-    public String index(@PathVariable("id") Long id, Model model) {
+    public String index(@PathVariable("id") Long id, Model model) throws IOException {
         RealEstate realEstate = realEstateRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid real estate id:" + id));
         model.addAttribute("realEstate", realEstate);
 
-
+        model.addAttribute("realEstatePhotos", FileUploadUtil.getAllImages(new File(realEstate.getPhotos())));
+        model.addAttribute("1realEstatePhotos", FileUploadUtil.getAllImages(new File(realEstate.getPhotos())).get(0));
+        System.out.println(FileUploadUtil.getAllImages(new File(realEstate.getPhotos())));
         return "realEstate/index";
     }
-
-
-
-
-
-
-
-
-
-
 
 
     @GetMapping(URLPATH.REALESTATE_UPLOAD)
@@ -77,11 +70,6 @@ public class RealEstateController {
 
 
 
-
-
-
-
-
     @PostMapping(URLPATH.REALESTATE_UPLOAD)
     public String addRealEstatePost(@ModelAttribute("realEstate") @Valid RealEstate realEstate, BindingResult result, @RequestParam("image") MultipartFile[] multipartFile) throws IOException {
         if (result.hasErrors()){
@@ -98,17 +86,14 @@ public class RealEstateController {
         realEstate.setPhotos(fileName2);*/
 
         realEstate.setUser(userRepository.findByEmail(currentPrincipalName));
-
         String fileName;
         List<String> fileNames = new ArrayList<>();
 
+
         realEstateRepository.save(realEstate);
-
-
-
-        String uploadDir = "realestate-photos/" + realEstate.getId();
-
+        String uploadDir = URLPATH.PHOTOS_RELATIVE_PATH + realEstate.getId();
         realEstate.setPhotos(uploadDir);
+
         for (var x: multipartFile) {
             fileName = StringUtils.cleanPath(x.getOriginalFilename());
 
@@ -116,17 +101,9 @@ public class RealEstateController {
             FileUploadUtil.saveFile(uploadDir, fileName, x);
         }
 
-
-
-
-
-
-
         /*FileUploadUtil.saveFile(uploadDir, fileName1, multipartFile[1]);
         FileUploadUtil.saveFile(uploadDir, fileName2, multipartFile[0]);*/
-
-
-
+        realEstateRepository.save(realEstate);
         return "redirect:/";
     }
 

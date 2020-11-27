@@ -1,9 +1,12 @@
 package hu.IB153I16.ingatlan.model;
 
+import hu.IB153I16.ingatlan.utils.constant.URLPATH;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 public class RealEstate {
@@ -90,9 +93,6 @@ public class RealEstate {
 
     @Column(nullable = true, length = 64)
     private String photos;
-
-
-
 
     public RealEstate() {   }
 
@@ -288,7 +288,7 @@ public class RealEstate {
     public String getPhotosImagePath() {
         if (photos == null || id == null) return null;
 
-        return "/realestate-photos/" + id + "/" + photos;
+        return "/" + URLPATH.PHOTOS_RELATIVE_PATH + id + "/" + photos;
     }
 
     @Override

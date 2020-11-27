@@ -1,5 +1,6 @@
 package hu.IB153I16.ingatlan.security;
 
+import hu.IB153I16.ingatlan.utils.constant.URLPATH;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -13,7 +14,7 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        exposeDirectory("realestate-photos", registry);
+        exposeDirectory(URLPATH.PHOTOS_RELATIVE_PATH, registry);
     }
 
     private void exposeDirectory(String dirName, ResourceHandlerRegistry registry) {

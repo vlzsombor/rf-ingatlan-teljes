@@ -77,7 +77,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6" th:classappend="${#fields.hasErrors('meret')}? 'has-error':''">
                             <label for="meret">Méret (m<sup>2</sup>)*</label>
-                            <input class="form-control" id="meret" placeholder="Ingatlan mérete" th:field="*{meret}" type="text">
+                            <input class="form-control" id="meret" placeholder="Ingatlan mérete" th:field="*{meret}" type="number">
                             <p class="error-message"
                                th:each="error: ${#fields.errors('meret')}"
                                th:text="${error}">Validation error</p>
@@ -165,7 +165,7 @@
                              th:classappend="${#fields.hasErrors('iranyitoSzam')}? 'has-error':''">
                             <label for="iranyitoSzam">Ir. szám*</label>
                             <input class="form-control" id="iranyitoSzam" placeholder="6600" th:field="*{iranyitoSzam}"
-                                   type="text">
+                                   type="number">
                             <p class="error-message"
                                th:each="error: ${#fields.errors('iranyitoSzam')}"
                                th:text="${error}">Validation error</p>

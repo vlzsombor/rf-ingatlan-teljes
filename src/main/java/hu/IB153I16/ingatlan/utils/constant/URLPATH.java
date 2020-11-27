@@ -12,4 +12,10 @@ public class URLPATH {
     //KONVENCIO: / jellel kezdjuk, de a vegsot nem rakjuk ki
     public final static String REALESTATE_ROOT = "/realestates/";
     public final static String REALESTATE_UPLOAD = "upload";
+
+    //ossztartoznak
+    public final static String PHOTOS_RELATIVE_PATH = "src/main/resources/static/realEstatePhotos/";
+
+
+
 }
