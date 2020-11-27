@@ -33,14 +33,19 @@ public class RealEstateController {
     UserRepository userRepository;
 
     @GetMapping("{id}")
-    public String index(@PathVariable("id") Long id, Model model) throws IOException {
+    public String index(@PathVariable("id") Long id, Model model) {
         RealEstate realEstate = realEstateRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid real estate id:" + id));
         model.addAttribute("realEstate", realEstate);
+        model.addAttribute("realEstatePhotos",null);
+        try {
+            if(realEstate.getPhotos() != null){
+                model.addAttribute("realEstatePhotos", FileUploadUtil.getAllImages(new File(realEstate.getPhotos())));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        model.addAttribute("realEstatePhotos", FileUploadUtil.getAllImages(new File(realEstate.getPhotos())));
-        model.addAttribute("1realEstatePhotos", FileUploadUtil.getAllImages(new File(realEstate.getPhotos())).get(0));
-        System.out.println(FileUploadUtil.getAllImages(new File(realEstate.getPhotos())));
         return "realEstate/index";
     }
 
