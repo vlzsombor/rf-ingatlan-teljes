@@ -4,29 +4,39 @@
 <body>
 <header th:insert="fragments.html :: nav"></header>
 <!-- Page content goes here -->
+<!--<div class="container">-->
+<!--    <p>This is Admin\Index. Only people with role_admin can see this.</p>-->
+<!--</div>-->
+
+
+
+    <div class="bg-info d-flex justify-content-center clearfix text-xl-center">
+    <h1 >Felhasználók</h1>
+</div>
 <div class="container">
-    <p>This is Admin\Index. Only people with role_admin can see this.</p>
+  <br><br>
 </div>
 
 <div class="container">
-    <h1>Felhasználók:</h1>
-
-
-    <table style="width:100%">
-        <tr>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>Email</th>
-            <th>Update</th>
-
+    <table class="table table-bordered table-responsive-md table-striped text-center" style="width:100%">
+        <tr class="default-color-dark" >
+           <h3>
+            <th class="text-center"><strong>ID</strong></th>
+            <th class="text-center"><strong>Vezetéknév</strong></th>
+            <th class="text-center"><strong>Keresztnév</strong></th>
+            <th class="text-center"><strong>Email</strong></th>
+            <th class="text-center"><strong>Frissités</strong></th>
+           </h3>
         </tr>
-
-        <tr th:each="user: ${users}">
-            <td th:text="${user.getFirstName()}"/>
-            <td th:text="${user.getLastName()}"/>
-            <td th:text="${user.getEmail()}"/>
+        <tr class=" blue lighten-5" th:each="user: ${users}">
+           <h2>
+            <td class="text-center" th:text="|${user.getId()}.|"/>
+            <td class="text-center" th:text="${user.getFirstName()}"/>
+            <td class="text-center" th:text="${user.getLastName()}"/>
+            <td class="text-center" th:text="${user.getEmail()}"/>
+           </h2>
             <td>
-                <div class="btn btn-danger"><i class="fas fa-wrench"></i></div>
+              <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Frissít</button></span>
             </td>
             <!--        <td><a th:href="@{{baseURL}{id}(id=${user.id},baseURL=${T(hu.IB153I16.ingatlan.utils.constant.URLPATH).REALESTATE_ROOT})}"-->
             <!--               class="btn btn-primary"> <i class="fas fa-angle-double-right"></i>-->
