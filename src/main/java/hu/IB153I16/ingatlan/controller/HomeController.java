@@ -31,18 +31,18 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Model model, Integer ingatlanTipus, String telepulesNev){
-
         if(telepulesNev != null && ingatlanTipus != null){
             model.addAttribute("realEstates",realEstateRepository.findByTelepulesNevAndLakasOption(telepulesNev,ingatlanTipusArray[ingatlanTipus]));
-         }
+        }
         else if(telepulesNev != null)
         {
             model.addAttribute("realEstates",realEstateService.findByTelepulesNev(telepulesNev));
         }
         else{
             model.addAttribute("realEstates",realEstateRepository.findAll());
+            return "index";
         }
-        return "index";
+        return "viewads";
     }
 
     @GetMapping("login")
