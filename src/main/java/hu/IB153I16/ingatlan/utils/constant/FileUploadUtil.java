@@ -37,7 +37,7 @@ public class FileUploadUtil {
             if (file != null && file.getName().toLowerCase().endsWith(".jpg") && !file.getName().startsWith("tn_")
             ||
                     file != null && file.getName().toLowerCase().endsWith(".png") && !file.getName().startsWith("tn_")) {
-                resultList.add("/" + file.getParent() + "/" + file.getName());
+                resultList.add(file.getParent() + "/" + file.getName());
             }
         }
         if (resultList.size() > 0)
