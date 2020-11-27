@@ -103,10 +103,15 @@ public class RealEstateController {
         List<String> fileNames = new ArrayList<>();
 
         realEstateRepository.save(realEstate);
+
+
+
         String uploadDir = "realestate-photos/" + realEstate.getId();
+
+        realEstate.setPhotos(uploadDir);
         for (var x: multipartFile) {
             fileName = StringUtils.cleanPath(x.getOriginalFilename());
-            realEstate.setPhotos(fileName);
+
             fileNames.add(fileName);
             FileUploadUtil.saveFile(uploadDir, fileName, x);
         }
