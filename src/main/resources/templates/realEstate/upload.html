@@ -16,7 +16,8 @@
                 <form action="#"
                       method="post"
                       th:action="@{{baseURL}{upload}(upload=${T(hu.IB153I16.ingatlan.utils.constant.URLPATH).REALESTATE_UPLOAD},baseURL=${T(hu.IB153I16.ingatlan.utils.constant.URLPATH).REALESTATE_ROOT})}"
-                      th:object="${realEstate}">
+                      th:object="${realEstate}"
+                      enctype="multipart/form-data">
 
                     <div class="form-row">
                         <div class="form-group col-md-6"
@@ -181,6 +182,7 @@
                     </div>
 
 
+
                     <div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error':''">
                         <label for="description">Ingatlan leírás</label>
                         <textarea class="form-control" id="description" placeholder="Please describe your apartment"
@@ -190,6 +192,12 @@
                            th:each="error: ${#fields.errors('description')}"
                            th:text="${error}">Validation error</p>
                     </div>
+
+                    <div class="form-group">
+                        <label>Fotó</label>
+                        <input type="file" name="image" accept="image/png, image/jpeg" multiple />
+                    </div>
+
 
                     <button class="btn btn-primary" type="submit">Upload</button>
                 </form>

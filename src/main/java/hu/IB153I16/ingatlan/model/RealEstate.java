@@ -88,6 +88,9 @@ public class RealEstate {
     //@NotBlank
     private Boolean isPanelprogram;
 
+    @Column(nullable = true, length = 64)
+    private String photos;
+
 
 
 
@@ -118,6 +121,7 @@ public class RealEstate {
         this.hazszam = hazszam;
         this.megye = megye;
         this.telepulesNev = telepulesNev;
+
     }
 
     public Long getMeret() {
@@ -272,6 +276,21 @@ public class RealEstate {
         this.id = id;
     }
 
+    public String getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(String photos) {
+        this.photos = photos;
+    }
+
+    @Transient
+    public String getPhotosImagePath() {
+        if (photos == null || id == null) return null;
+
+        return "/realestate-photos/" + id + "/" + photos;
+    }
+
     @Override
     public String toString() {
         return "RealEstate{" +
@@ -289,6 +308,13 @@ public class RealEstate {
                 ", szobakSzama=" + szobakSzama +
                 ", ingatlanTipus='" + ingatlanTipus + '\'' +
                 ", hirdetesTipus='" + hirdetesTipus + '\'' +
+                ", telekMeret=" + telekMeret +
+                ", hazTipus='" + hazTipus + '\'' +
+                ", felszobakSzama=" + felszobakSzama +
+                ", lakasTipusa=" + lakasTipusa +
+                ", isGepesitett=" + isGepesitett +
+                ", isPanelprogram=" + isPanelprogram +
+                ", photos='" + photos + '\'' +
                 '}';
     }
 }

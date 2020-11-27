@@ -4,17 +4,23 @@ import hu.IB153I16.ingatlan.model.User;
 import hu.IB153I16.ingatlan.repository.RealEstateRepository;
 import hu.IB153I16.ingatlan.model.RealEstate;
 import hu.IB153I16.ingatlan.repository.UserRepository;
+import hu.IB153I16.ingatlan.utils.constant.FileUploadUtil;
 import hu.IB153I16.ingatlan.utils.constant.URLPATH;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
@@ -34,6 +40,17 @@ public class RealEstateController {
 
         return "realEstate/index";
     }
+
+
+
+
+
+
+
+
+
+
+
 
     @GetMapping(URLPATH.REALESTATE_UPLOAD)
     public String upload(Model model,RealEstate realEstate) {
@@ -58,8 +75,15 @@ public class RealEstateController {
         return new RealEstate();
     }
 
+
+
+
+
+
+
+
     @PostMapping(URLPATH.REALESTATE_UPLOAD)
-    public String addRealEstatePost(@ModelAttribute("realEstate") @Valid RealEstate realEstate, BindingResult result) {
+    public String addRealEstatePost(@ModelAttribute("realEstate") @Valid RealEstate realEstate, BindingResult result, @RequestParam("image") MultipartFile[] multipartFile) throws IOException {
         if (result.hasErrors()){
             System.out.println(result);
             return "realEstate/upload";
@@ -67,12 +91,40 @@ public class RealEstateController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = auth.getName();
 
+        /*
+        String fileName1 = StringUtils.cleanPath(multipartFile[1].getOriginalFilename());
+        String fileName2 = StringUtils.cleanPath(multipartFile[0].getOriginalFilename());
+        realEstate.setPhotos(fileName1);
+        realEstate.setPhotos(fileName2);*/
+
         realEstate.setUser(userRepository.findByEmail(currentPrincipalName));
 
+        String fileName;
+        List<String> fileNames = new ArrayList<>();
+
         realEstateRepository.save(realEstate);
+        String uploadDir = "realestate-photos/" + realEstate.getId();
+        for (var x: multipartFile) {
+            fileName = StringUtils.cleanPath(x.getOriginalFilename());
+            realEstate.setPhotos(fileName);
+            fileNames.add(fileName);
+            FileUploadUtil.saveFile(uploadDir, fileName, x);
+        }
+
+
+
+
+
+
+
+        /*FileUploadUtil.saveFile(uploadDir, fileName1, multipartFile[1]);
+        FileUploadUtil.saveFile(uploadDir, fileName2, multipartFile[0]);*/
+
+
 
         return "redirect:/";
     }
+
     @PostMapping("update/{id}")
     public String addActorPut(@ModelAttribute("id") Long id,@Valid RealEstate realEstate,  BindingResult result) {
         if (result.hasErrors()){
