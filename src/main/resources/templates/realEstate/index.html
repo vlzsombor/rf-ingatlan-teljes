@@ -80,26 +80,7 @@
         <!--/.Carousel Wrapper-->
 
     </div>
-   <!-- <div class="container ">
-        <div class="row row-1">
-            <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" th:onclick="openModal();currentSlide(1)">
-            </div>
-            <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" th:onclick="openModal();currentSlide(2)">
-            </div>
-        </div>
-        <div class="row mt-1">
-            <div class="col-sm-4 mt-1"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" th:onclick="openModal();currentSlide(3)">
-            </div>
-            <div class="col-sm-4 mt-1"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" th:onclick="openModal();currentSlide(4)">
-            </div>
-        </div>
-        <div class="row mt-1">
-            <div class="col-sm-4 mt-1"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}">
-            </div>
-            <div class="col-sm-4 mt-1"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}">
-            </div>
-        </div>
-    </div>-->
+
     <div class="container ">
         <div th:if= "${realEstatePhotos != null}">
             <div th:each="realEstatePhoto : ${realEstatePhotos}">
