@@ -22,29 +22,22 @@
 <body>
 <header th:insert="fragments.html :: nav"></header>
 <h2 class="mt-5 ml-3 text-center" th:text="${realEstate.getCim()}"></h2>
+
+
 <div id="myModal" class="modal">
     <span class="close cursor" th:onclick="closeModal()">&times;</span>
     <div class="modal-content">
+        <div th:if= "${realEstatePhotos != null}">
+            <div th:each="realEstatePhoto : ${realEstatePhotos}">
+        <div class="mySlides" th:each="i: ${#numbers.sequence(1, 1)}">
+<!--            <th:block th:each="i: ${#numbers.sequence(1, 6)}"></th:block>-->
 
-        <div class="mySlides">
-            <div class="numbertext">1 / 4</div>
-            <img th:src="@{~/hirdetes.png}" style="width:60%">
+            <div class="numbertext">i / 6</div>
+            <img  th:src="@{${realEstatePhoto}}" style="width:60%">
+        </div>
+            </div>
         </div>
 
-        <div class="mySlides">
-            <div class="numbertext">2 / 4</div>
-            <img th:src="@{~/hirdetes.png}" style="width:60%">
-        </div>
-
-        <div class="mySlides">
-            <div class="numbertext">3 / 4</div>
-            <img th:src="@{~/hirdetes.png}" style="width:60%">
-        </div>
-
-        <div class="mySlides">
-            <div class="numbertext">4 / 4</div>
-            <img th:src="@{~/hirdetes.png}" style="width:60%">
-        </div>
 
         <a class="prev" th:onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" th:onclick="plusSlides(1)">&#10095;</a>
@@ -64,12 +57,13 @@
 
             <!--Slides-->
             <div class="carousel-inner" role="listbox">
-                <!--First slide-->
-                <div class="carousel-item active">
-                    <img alt="First slide" class="d-block w-100" th:onclick="openModal();currentSlide(1)"
-                         th:src="@{~/hirdetes.png}">
+                <div th:if= "${realEstatePhotos != null}">
+                    <div th:each="realEstatePhoto : ${realEstatePhotos}"> </div>
+                        <div class="carousel-item active">
+                    <img alt="First slide" class="d-block w-100" th:onclick="openModal();currentSlide(1)" th:src="@{${realEstatePhotos.get(2)}}">
                 </div>
 
+                </div>
                 <!--/Third slide-->
             </div>
             <!--/.Slides-->
@@ -84,11 +78,13 @@
     <div class="container ">
         <div th:if= "${realEstatePhotos != null}">
             <div th:each="realEstatePhoto : ${realEstatePhotos}">
+                <th:block th:each="i: ${#numbers.sequence(1, 6)}"></th:block>
+
                 <div class="row row-1">
-                    <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{${realEstatePhoto}}" th:onclick="openModal();currentSlide(1)">
+                    <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" style="width:190px;height:120px;"th:src="@{${realEstatePhoto}}" th:onclick="openModal();currentSlide(1)">
                     </div>
-                    <div th:text="${realEstatePhoto}"></div>
-                    <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" th:onclick="openModal();currentSlide(2)">
+<!--                    <div th:text="${realEstatePhoto}"></div>-->
+                    <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" style="width:190px;height:120px;" >
                     </div>
                 </div>
             </div>
