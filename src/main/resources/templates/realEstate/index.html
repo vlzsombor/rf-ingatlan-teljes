@@ -78,18 +78,21 @@
     <div class="container ">
         <div th:if= "${realEstatePhotos != null}">
             <div th:each="realEstatePhoto : ${realEstatePhotos}">
-
-                <img alt="hirdeteskep" class="img-fluid"
-                     th:src="@{/realEstatePhotos/{id}/{fileName}(id=${realEstate.getId()},fileName=${realEstatePhoto})}"
-                     th:onclick="openModal();currentSlide(1)"
-                >
-
                 <th:block th:each="i: ${#numbers.sequence(1, 6)}"></th:block>
 
-
+                <div class="row row-1">
+                    <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" style="width:190px;height:120px;"th:src="@{${realEstatePhoto}}" th:onclick="openModal();currentSlide(1)">
+                    </div>
+<!--                    <div th:text="${realEstatePhoto}"></div>-->
+                    <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" style="width:190px;height:120px;" >
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <img alt="hirdeteskep" class="img-fluid" th:src="@{/src/main/resources/static/realEstatePhotos/15/amongus.png}" th:onclick="openModal();currentSlide(1)">
+    <img alt="hirdeteskep" class="img-fluid" th:src="@{src/main/resources/static/realEstatePhotos/15/amongus.png}" th:onclick="openModal();currentSlide(1)">
 
     <div class="container ">
         <div class="row row-1">
