@@ -7,6 +7,8 @@ import hu.IB153I16.ingatlan.repository.UserRepository;
 import hu.IB153I16.ingatlan.utils.constant.FileUploadUtil;
 import hu.IB153I16.ingatlan.utils.constant.URLPATH;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +52,17 @@ public class RealEstateController {
         return "realEstate/photoVieweTest";
     }
 
+
+    @RequestMapping(value = "image/{id}/{imageName}",produces = "image/jpeg")
+    @ResponseBody
+    public byte[] getImage(@PathVariable(value = "id") String id,@PathVariable(value = "imageName") String imageName) throws IOException {
+        Resource resource = new ClassPathResource("");
+        File resourcesDirectory = new File(URLPATH.PHOTOS_RELATIVE_PATH + id + "/" + imageName);
+
+        File serverFile = resourcesDirectory;
+        System.out.println(serverFile);
+        return Files.readAllBytes(serverFile.toPath());
+    }
 
     @GetMapping(URLPATH.REALESTATE_UPLOAD)
     public String upload(Model model,RealEstate realEstate) {

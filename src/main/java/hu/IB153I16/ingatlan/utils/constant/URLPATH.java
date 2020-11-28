@@ -14,7 +14,7 @@ public class URLPATH {
     public final static String REALESTATE_UPLOAD = "upload";
 
     //ossztartoznak
-    public final static String PHOTOS_RELATIVE_PATH = "src/main/resources/static/realEstatePhotos/";
+    public final static String PHOTOS_RELATIVE_PATH = "src/main/resources/static/realestates/";
 
 
 

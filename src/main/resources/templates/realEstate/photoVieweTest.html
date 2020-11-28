@@ -9,12 +9,24 @@
 itt xxdxdd
 <div th:each="realEstatePhoto : ${realEstatePhotos}">
 
-<img alt="hirdeteskep" class="img-fluid"
-     th:src="@{~/realEstatePhotos/{id}/{fileName}(id=${realEstate.getId()},fileName=${realEstatePhoto})}">
-<div th:text="${realEstatePhotos}"></div>
-<div th:text="${realEstatePhoto}"></div>
+    <a th:href="@{/realestates/image/{id}/{fileName}((fileName = ${realEstatePhoto},id = ${realEstate.getId()}))}" class="btn btn-danger" ><i class="fas fa-wrench"></i></a>
 
-<img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" style="width:190px;height:120px;" >
+
+
+    <img th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstatePhoto},id = ${realEstate.getId()}))}" width="120"/>
+
+
 </div>
+
+<img alt="hirdeteskep" class="img-fluid" src="/realEstatePhotos/17/amongus.png" style="width:190px;height:120px;" />
+<img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" style="width:190px;height:120px;" />
+
+zzzzzzzzzzzzzzzzzzzzzzzzz
+@{~/realestates/{id}/(id=${realEstate.getId()})}
+<img alt="Image" th:src="@{/realestates/image/adf}" width="250" height="250"/>
+
+
+share  edit  follow
+
 </body>
 </html>
