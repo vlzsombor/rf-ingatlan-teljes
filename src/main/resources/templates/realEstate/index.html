@@ -78,6 +78,12 @@
     <div class="container ">
         <div th:if= "${realEstatePhotos != null}">
             <div th:each="realEstatePhoto : ${realEstatePhotos}">
+
+                <img alt="hirdeteskep" class="img-fluid"
+                     th:src="@{/realEstatePhotos/{id}/{fileName}(id=${realEstate.getId()},fileName=${realEstatePhoto})}"
+                     th:onclick="openModal();currentSlide(1)"
+                >
+
                 <th:block th:each="i: ${#numbers.sequence(1, 6)}"></th:block>
 
                 <div class="row row-1">
