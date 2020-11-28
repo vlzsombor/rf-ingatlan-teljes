@@ -41,10 +41,12 @@ public class RealEstateController {
         try {
             if(realEstate.getPhotos() != null){
                 model.addAttribute("realEstatePhotos", FileUploadUtil.getAllImages(new File(realEstate.getPhotos())));
+                System.out.println(FileUploadUtil.getAllImages(new File(realEstate.getPhotos())));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
         return "realEstate/index";
     }

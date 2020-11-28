@@ -104,15 +104,22 @@
         <div th:if= "${realEstatePhotos != null}">
             <div th:each="realEstatePhoto : ${realEstatePhotos}">
                 <div class="row row-1">
-                    <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{${realEstatePhoto}}" th:onclick="openModal();currentSlide(1)">
+                    <div class="col-sm-4 mt-3">
+                        <img alt="hirdeteskep" class="img-fluid"
+                             th:src="@{/realEstatePhotos/{id}/{fileName}(id=${realEstate.getId()},fileName=${realEstatePhoto})}"
+                             th:onclick="openModal();currentSlide(1)"
+                    >
                     </div>
-                    <div th:text="${realEstatePhoto}"></div>
+
                     <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" th:onclick="openModal();currentSlide(2)">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+
 
     <div class="container ">
         <div class="row row-1">
