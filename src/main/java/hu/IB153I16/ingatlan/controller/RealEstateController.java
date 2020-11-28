@@ -46,7 +46,7 @@ public class RealEstateController {
             e.printStackTrace();
         }
 
-        return "realEstate/index";
+        return "realEstate/photoVieweTest";
     }
 
 

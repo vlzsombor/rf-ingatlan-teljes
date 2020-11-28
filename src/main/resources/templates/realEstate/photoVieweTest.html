@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+
+
+itt xxdxdd
+<div th:each="realEstatePhoto : ${realEstatePhotos}">
+
+<img alt="hirdeteskep" class="img-fluid"
+     th:src="@{~/realEstatePhotos/{id}/{fileName}(id=${realEstate.getId()},fileName=${realEstatePhoto})}">
+<div th:text="${realEstatePhotos}"></div>
+<div th:text="${realEstatePhoto}"></div>
+
+<img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" style="width:190px;height:120px;" >
+</div>
+</body>
+</html>
