@@ -57,13 +57,10 @@
 
             <!--Slides-->
             <div class="carousel-inner" role="listbox">
-                <div th:if= "${realEstatePhotos != null}">
-                    <div th:each="realEstatePhoto : ${realEstatePhotos}"> </div>
-                        <div class="carousel-item active">
-                    <img alt="First slide" class="d-block w-100" th:onclick="openModal();currentSlide(1)" th:src="@{${realEstatePhotos.get(2)}}">
+                <div th:each="realEstatePhoto : ${realEstatePhotos}">
+                    <img th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstatePhoto},id = ${realEstate.getId()}))}" width="120"/>
                 </div>
 
-                </div>
                 <!--/Third slide-->
             </div>
             <!--/.Slides-->

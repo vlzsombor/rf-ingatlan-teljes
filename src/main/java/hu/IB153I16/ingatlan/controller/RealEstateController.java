@@ -49,7 +49,7 @@ public class RealEstateController {
             e.printStackTrace();
         }
 
-        return "realEstate/photoVieweTest";
+        return "realEstate/index";
     }
 
 
