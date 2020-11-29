@@ -91,7 +91,8 @@ public class RealEstateController {
 
     @PostMapping(URLPATH.REALESTATE_UPLOAD)
     public String addRealEstatePost(@ModelAttribute("realEstate") @Valid RealEstate realEstate, BindingResult result, @RequestParam("image") MultipartFile[] multipartFile) throws IOException {
-        if (result.hasErrors()){
+
+        if (result.hasErrors() || multipartFile.length != 6){
             System.out.println(result);
             return "realEstate/upload";
         }
@@ -112,6 +113,7 @@ public class RealEstateController {
         realEstateRepository.save(realEstate);
         String uploadDir = URLPATH.PHOTOS_RELATIVE_PATH + realEstate.getId();
         realEstate.setPhotos(uploadDir);
+
 
         for (var x: multipartFile) {
             fileName = StringUtils.cleanPath(x.getOriginalFilename());
