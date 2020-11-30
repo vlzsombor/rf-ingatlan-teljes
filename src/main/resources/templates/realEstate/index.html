@@ -56,10 +56,8 @@
             <div class="carousel-inner" role="listbox">
                 <div th:each="realEstatePhoto : ${realEstatePhotos}">
                 </div>
-                    <img class="d-block w-100"  th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstatePhotos.get(2)},id = ${realEstate.getId()}))}"  th:onclick="openModal();currentSlide(1)" />
+                    <img class="d-block w-100"  th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstatePhotos.get(0)},id = ${realEstate.getId()}))}" style="width:270px;height:290px;" th:onclick="openModal();currentSlide(1)" />
                 </div>
-
-                <!--/Third slide-->
             </div>
             <!--/.Slides-->
             <!--Controls-->

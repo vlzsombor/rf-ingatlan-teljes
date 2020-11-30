@@ -65,8 +65,8 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-6" th:classappend="${#fields.hasErrors('price')}? 'has-error':''">
-                            <label for="price">Ingatlan ára (Ft)*</label>
-                            <input class="form-control" id="price" placeholder=1234 th:field="*{price}" type="number">
+                            <label for="price">Ingatlan ára *</label>
+                            <input class="form-control" id="price" placeholder="8450000 Ft" th:field="*{price}" type="number">
                             <p class="error-message"
                                th:each="error: ${#fields.errors('price')}"
                                th:text="${error}">Validation error</p>
@@ -76,14 +76,14 @@
                     <div class="form-row">
                         <div class="form-group col-md-6" th:classappend="${#fields.hasErrors('meret')}? 'has-error':''">
                             <label for="meret">Méret (m<sup>2</sup>)*</label>
-                            <input class="form-control" id="meret" placeholder="Ingatlan mérete" th:field="*{meret}" type="text">
+                            <input class="form-control" id="meret" placeholder="Ingatlan mérete" th:field="*{meret}" type="number">
                             <p class="error-message"
                                th:each="error: ${#fields.errors('meret')}"
                                th:text="${error}">Validation error</p>
                         </div>
                         <div class="form-group col-md-3"
                              th:classappend="${#fields.hasErrors('szobakSzama')}? 'has-error':''">
-                            <label for="szobakSzama">Szobak szama*</label>
+                            <label for="szobakSzama">Szobák száma*</label>
                             <select class="form-control" id="szobakSzama" th:field="*{szobakSzama}">
                                 <option selected value="">Válassz</option>
                                 <option value="1">1</option>
@@ -121,7 +121,8 @@
                         <div class="form-group col-md-6"
                              th:classappend="${#fields.hasErrors('telepulesNev')}? 'has-error':''">
                             <label for="telepulesNev">Település*</label>
-                            <input class="form-control" id="telepulesNev" placeholder="Település neve" th:field="*{telepulesNev}"
+                            <input class="form-control" id="telepulesNev" placeholder="Település neve"
+                                   th:field="*{telepulesNev}"
                                    type="text">
                             <p class="error-message"
                                th:each="error: ${#fields.errors('telepulesNev')}"
@@ -153,6 +154,7 @@
                                 <option value="Zala">Zala</option>
                                 <option value="Külfödi ingatlan">Külfödi ingatlan</option>
 
+
                             </select>
                             <p class="error-message"
                                th:each="error: ${#fields.errors('megye')}"
@@ -162,7 +164,7 @@
                              th:classappend="${#fields.hasErrors('iranyitoSzam')}? 'has-error':''">
                             <label for="iranyitoSzam">Ir. szám*</label>
                             <input class="form-control" id="iranyitoSzam" placeholder="6600" th:field="*{iranyitoSzam}"
-                                   type="text">
+                                   type="number">
                             <p class="error-message"
                                th:each="error: ${#fields.errors('iranyitoSzam')}"
                                th:text="${error}">Validation error</p>
@@ -179,14 +181,17 @@
                     </div>
 
 
+
                     <div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error':''">
-                        <label for="description">Ingatlan leírása</label>
-                        <textarea class="form-control" id="description" placeholder="Please describe your apartment" rows="3"
+                        <label for="description">Ingatlan leírás</label>
+                        <textarea class="form-control" id="description" placeholder="Please describe your apartment"
+                                  rows="3"
                                   th:field="*{description}" type="text"></textarea>
                         <p class="error-message"
                            th:each="error: ${#fields.errors('description')}"
                            th:text="${error}">Validation error</p>
                     </div>
+
 
                     <button class="btn btn-primary" type="submit">Upload</button>
                 </form>
