@@ -92,8 +92,7 @@ public class RealEstateController {
     @PostMapping(URLPATH.REALESTATE_UPLOAD)
     public String addRealEstatePost(@ModelAttribute("realEstate") @Valid RealEstate realEstate, BindingResult result, @RequestParam("image") MultipartFile[] multipartFile) throws IOException {
 
-        if (result.hasErrors() || multipartFile.length != 6){
-            System.out.println(result);
+        if (result.hasErrors() || multipartFile.length <= 6){
             return "realEstate/upload";
         }
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
