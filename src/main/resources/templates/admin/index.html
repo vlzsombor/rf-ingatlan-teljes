@@ -25,7 +25,9 @@
             <th class="text-center"><strong>Vezetéknév</strong></th>
             <th class="text-center"><strong>Keresztnév</strong></th>
             <th class="text-center"><strong>Email</strong></th>
-            <th class="text-center"><strong>Frissités</strong></th>
+            <th class="text-center"><strong>Jogosultság</strong></th>
+            <th class="text-center"><strong>Jogosultság frissítése</strong></th>
+            <th class="text-center"><strong>Törlése</strong></th>
            </h3>
         </tr>
         <tr class=" blue lighten-5" th:each="user: ${users}">
@@ -34,14 +36,25 @@
             <td class="text-center" th:text="${user.getFirstName()}"/>
             <td class="text-center" th:text="${user.getLastName()}"/>
             <td class="text-center" th:text="${user.getEmail()}"/>
+            <td class="text-center" th:text="${user.getRoles().iterator().next().getName()}"/>
+               <td><a th:href="@{/admin/delete/{id}(id=${user.getId()})}" class="btn btn-danger" ><i class="fas fa-trash"></i></a></td>
+               <td>
+               <!--        <td><a th:href="@{{baseURL}{id}(id=${user.id},baseURL=${T(hu.IB153I16.ingatlan.utils.constant.URLPATH).REALESTATE_ROOT})}"-->
+               <!--               class="btn btn-primary"> <i class="fas fa-angle-double-right"></i>-->
+               <!--        </a></td>-->
+               <!--        </td>-->
+               <form th:action="@{/admin/update/{id}(id=${user.getId()})}">
+                   <select name="role">
+                       <option th:value="'R'" th:text="RegularUser"></option>
+                       <option th:value="'A'" th:text="Admin"></option>
+                   </select>
+                   <button type = "submit" class="btn btn-primary"><i class="fas fa-user-edit"></i></button>
+               </form>
+
+               </td>
            </h2>
-            <td>
-              <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Frissít</button></span>
-            </td>
-            <!--        <td><a th:href="@{{baseURL}{id}(id=${user.id},baseURL=${T(hu.IB153I16.ingatlan.utils.constant.URLPATH).REALESTATE_ROOT})}"-->
-            <!--               class="btn btn-primary"> <i class="fas fa-angle-double-right"></i>-->
-            <!--        </a></td>-->
-            <!--        </td>-->
+
+
         </tr>
     </table>
 </div>
