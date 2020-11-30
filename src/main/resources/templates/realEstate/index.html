@@ -30,11 +30,8 @@
         <div th:if= "${realEstatePhotos != null}">
             <div th:each="realEstatePhoto : ${realEstatePhotos}">
                 <div class="mySlides" th:each="i: ${#numbers.sequence(1, 1)}">
-<!--            <th:block th:each="i: ${#numbers.sequence(1, 6)}"></th:block>-->
-
-            <div class="numbertext">i / 6</div>
-                    <img th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstatePhoto},id = ${realEstate.getId()}))}"  width="60%" />
-        </div>
+                            <img th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstatePhoto},id = ${realEstate.getId()}))}"  width="60%" />
+                </div>
             </div>
         </div>
 
@@ -43,7 +40,7 @@
         <a class="next" th:onclick="plusSlides(1)">&#10095;</a>
 
         <div class="caption-container">
-            <p id="caption"></p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <p id="caption"></p>
         </div>
 
     </div>
@@ -75,25 +72,30 @@
 
     <div class="container ">
         <div th:if= "${realEstatePhotos != null}">
-            <div th:each="realEstatePhoto : ${realEstatePhotos}">
-                <th:block th:each="i: ${#numbers.sequence(1, 6)}"></th:block>
+            <div th:each="realEstatePhoto : ${realEstatePhotos}"></div>
+                <th:block th:each="i: ${#numbers.sequence(1, 1)}"></th:block>
 
                 <div class="row row-1">
 
-                    <div class="col-sm-4 mt-3"><img  class="img-fluid"  th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstatePhoto},id = ${realEstate.getId()}))}" style="width:190px;height:115px;" th:onclick="openModal();currentSlide(1)" />
+                    <div class="col-sm-4 mt-3"><img  class="img-fluid"  th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstatePhotos.get(0)},id = ${realEstate.getId()}))}" style="width:190px;height:115px;" th:onclick="openModal();currentSlide(0)" /></div>
+                    <div class="col-sm-4 mt-3"><img  class="img-fluid"  th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstatePhotos.get(1)},id = ${realEstate.getId()}))}" style="width:190px;height:115px;" th:onclick="openModal();currentSlide(1)" /></div>
+                    <div class="col-sm-4 mt-3"><img  class="img-fluid"  th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstatePhotos.get(2)},id = ${realEstate.getId()}))}" style="width:190px;height:115px;" th:onclick="openModal();currentSlide(2)" /></div>
 
-                    <!--                    <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" style="width:190px;height:120px;"th:src="@{${realEstatePhoto}}" th:onclick="openModal();currentSlide(1)">-->
-                    </div>
-<!--                    <div th:text="${realEstatePhoto}"></div>-->
-<!--                  <div class="col-sm-4 mt-3"><img alt="hirdeteskep" class="img-fluid" th:src="@{~/hirdetes.png}" style="width:190px;height:120px;" >-->
-                    </div>
+
+            <div class="col-sm-4 mt-3"><img  class="img-fluid"  th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstatePhotos.get(3)},id = ${realEstate.getId()}))}" style="width:190px;height:115px;" th:onclick="openModal();currentSlide(3)" ></div>
+                    <div class="col-sm-4 mt-3"><img  class="img-fluid"  th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstatePhotos.get(4)},id = ${realEstate.getId()}))}" style="width:190px;height:115px;" th:onclick="openModal();currentSlide(4)" ></div>
+                    <div class="col-sm-4 mt-3"><img  class="img-fluid"  th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstatePhotos.get(5)},id = ${realEstate.getId()}))}" style="width:190px;height:115px;" th:onclick="openModal();currentSlide(5)" ></div>
+
+            </div>
+
+
+                            </div>
                 </div>
             </div>
         </div>
     </div>
 
 
-</div>
 <div class="container ">
     <div class="col-xl-5 mt-2 mb-2">
 
