@@ -11,7 +11,7 @@
         <a th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}">
             <li class="media mt-5 ">
                 <div class="col-sm-4">
-                    <div class="col-sm-4 mt-3"><img  class="img-fluid"  th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstatePhotos.get(0)},id = ${realEstate.getId()}))}" style="width:190px;height:115px;" th:onclick="openModal();currentSlide(0)" /></div>
+                    <div class="col-sm-4 mt-3"><img  class="img-fluid"  th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstate.getMainPhotoName()},id = ${realEstate.getId()}))}" style="width:190px;height:115px;" th:onclick="openModal();currentSlide(0)" /></div>
 <!--                    IDE JON MAJD A PROFILKEP-->
 <!--                    <div th:each="realEstatePhoto : ${realEstatePhotos}"></div>-->
 <!--                    <img class="img-fluid img-thumbnail content-box "  th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstatePhotos.get(0)},id = ${realEstate.getId()}))}" style="width:270px;height:290px;" th:onclick="openModal();currentSlide(1)" />-->

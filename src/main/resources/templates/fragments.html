@@ -120,16 +120,14 @@
        </div>
    </div>
    <div th:fragment="premium">
-
-
        <div class="container mt-5">
            <div class="row row-cols-3">
-               <div class="col" th:each="realEstate : ${realEstates}" th:if="${realEstate.id} <10">
+               <div class="col" th:each="realEstate : ${realEstates}" th:if="${realEstateStat.index} < 3">
                    <a th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}">
 
                        <div class="card hoverable">
                            <img alt="Generic placeholder image" class="card-img-top w-100 h-25 img-thumbnail"
-                                th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}" th:src="@{~/hirdetes.png}">
+                                th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}" th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstate.getMainPhotoName()},id = ${realEstate.getId()}))}">
                            <div class="card-body">
 
                                <!-- Title -->

@@ -94,7 +94,45 @@ public class RealEstate {
     @Column(nullable = true, length = 64)
     private String photos;
 
+    private String mainPhotoName;
+
     public RealEstate() {   }
+
+    @Override
+    public String toString() {
+        return "RealEstate{" +
+                "id=" + id +
+                ", cim='" + cim + '\'' +
+                ", user=" + user +
+                ", address='" + address + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", hazszam=" + hazszam +
+                ", megye='" + megye + '\'' +
+                ", telepulesNev='" + telepulesNev + '\'' +
+                ", iranyitoSzam=" + iranyitoSzam +
+                ", meret=" + meret +
+                ", szobakSzama=" + szobakSzama +
+                ", ingatlanTipus='" + ingatlanTipus + '\'' +
+                ", hirdetesTipus='" + hirdetesTipus + '\'' +
+                ", telekMeret=" + telekMeret +
+                ", hazTipus='" + hazTipus + '\'' +
+                ", felszobakSzama=" + felszobakSzama +
+                ", lakasTipusa=" + lakasTipusa +
+                ", isGepesitett=" + isGepesitett +
+                ", isPanelprogram=" + isPanelprogram +
+                ", photos='" + photos + '\'' +
+                ", mainPhotoName='" + mainPhotoName + '\'' +
+                '}';
+    }
+
+    public String getMainPhotoName() {
+        return mainPhotoName;
+    }
+
+    public void setMainPhotoName(String mainPhotoName) {
+        this.mainPhotoName = mainPhotoName;
+    }
 
     public User getUser() {
         return user;
@@ -291,30 +329,4 @@ public class RealEstate {
         return "/" + URLPATH.PHOTOS_RELATIVE_PATH + id + "/" + photos;
     }
 
-    @Override
-    public String toString() {
-        return "RealEstate{" +
-                "id=" + id +
-                ", cim='" + cim + '\'' +
-                ", user=" + user +
-                ", address='" + address + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", hazszam=" + hazszam +
-                ", megye='" + megye + '\'' +
-                ", telepulesNev='" + telepulesNev + '\'' +
-                ", iranyitoSzam=" + iranyitoSzam +
-                ", meret=" + meret +
-                ", szobakSzama=" + szobakSzama +
-                ", ingatlanTipus='" + ingatlanTipus + '\'' +
-                ", hirdetesTipus='" + hirdetesTipus + '\'' +
-                ", telekMeret=" + telekMeret +
-                ", hazTipus='" + hazTipus + '\'' +
-                ", felszobakSzama=" + felszobakSzama +
-                ", lakasTipusa=" + lakasTipusa +
-                ", isGepesitett=" + isGepesitett +
-                ", isPanelprogram=" + isPanelprogram +
-                ", photos='" + photos + '\'' +
-                '}';
-    }
 }

@@ -50,6 +50,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/index.html").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
+                .antMatchers("/realestates/image/**").permitAll()
                 .antMatchers("/profile/**").authenticated()
                 .antMatchers("/realestates/**").authenticated()
                 .antMatchers("/admin/**").hasRole("ADMIN")

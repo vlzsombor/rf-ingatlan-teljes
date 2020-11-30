@@ -106,15 +106,14 @@ public class RealEstateController {
         realEstateRepository.save(realEstate);
         String uploadDir = URLPATH.PHOTOS_RELATIVE_PATH + realEstate.getId();
         realEstate.setPhotos(uploadDir);
-
-        savePhoto(multipartFile,uploadDir);
+        savePhoto(multipartFile,uploadDir,realEstate);
 
 
         realEstateRepository.save(realEstate);
         return "redirect:/";
     }
 
-    private void savePhoto(MultipartFile[] multipartFile, String uploadDir) throws IOException {
+    private void savePhoto(MultipartFile[] multipartFile, String uploadDir,RealEstate realEstate) throws IOException {
         List<String> fileNames = new ArrayList<>();
 
         if(Files.exists(Paths.get(uploadDir))) {
@@ -126,13 +125,14 @@ public class RealEstateController {
             fileNames.add(fileName);
             FileUploadUtil.saveFile(uploadDir, fileName, x);
         }
+        realEstate.setMainPhotoName(FileUploadUtil.getAllImages(new File(realEstate.getPhotos())).get(0));
+        System.out.println(realEstate.getMainPhotoName());
     }
 
     @PostMapping("update/{id}")
     public String addRealEstate(@ModelAttribute("id") Long id,@Valid RealEstate realEstate,  BindingResult result,@RequestParam("image") MultipartFile[] multipartFile) throws IOException {
-        if (result.hasErrors()){
-            System.out.println(result);
-            return "realEstate/update";
+        if (result.hasErrors() || multipartFile.length < 6){
+            return "realEstate/upload";
         }
         realEstate.setId(id);
 
@@ -141,7 +141,7 @@ public class RealEstateController {
         realEstate.setUser(realEstateRep.getUser());
         realEstate.setPhotos(realEstateRep.getPhotos());
 
-        savePhoto(multipartFile,realEstateRep.getPhotos());
+        savePhoto(multipartFile,realEstateRep.getPhotos(),realEstate);
 
 
         realEstateRepository.save(realEstate);
