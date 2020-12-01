@@ -99,8 +99,10 @@
                        <select class="form-control" id="defaultSelect" name="ingatlanTipus">
                            <option selected="" value="0">Lakás</option>
                            <option value="1">Ház</option>
-                           <option value="2">Ikerház</option>
+                           <option value="2">Telek</option>
                            <option value="3">Nyaraló</option>
+                           <option value="3">Egyéb</option>
+
                        </select>
                    </div>
                </div>
@@ -131,13 +133,12 @@
                            <div class="card-body">
 
                                <!-- Title -->
-                            <h4 class="card-title" th:text="|${realEstate.getPrice()} M Ft|"><a>Hirdetes</a></h4>
+                            <h4 class="card-title" th:text="|${realEstate.getPrice()} Ft|"><a>Hirdetes</a></h4>
                             <!-- Text -->
                             <div class="row">
                                 <div class="col-sm">
-                                    <a href="#"><p class="card-text font-weight-light   " style="color:darkslategray"
-                                                   th:text="${realEstate.getDescription()}">Hirdetés leírás példa
-                                        Hirdetés leírás példa</p></a>
+                                    <p class="card-text font-weight-light" style="color:darkslategray" th:text="|&nbsp ${realEstate.getSzobakSzama()} szoba|"></p>
+
                                 </div>
 
                                 <div class="col-sm">
