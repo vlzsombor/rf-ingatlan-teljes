@@ -31,8 +31,10 @@ public class HomeController {
     String ingatlanTipusArray[]={
             "Lakas",
             "Haz",
-            "Ikerhaz",
-            "Nyaralo"
+            "Telek",
+            "Nyaralo",
+            "Egyeb"
+
     };
 
     @GetMapping("/")

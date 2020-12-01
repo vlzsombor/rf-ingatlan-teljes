@@ -41,6 +41,7 @@ public class DbInit implements CommandLineRunner {
 
         // public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
         //
+        /*
         User dan = new User("dan","dan","dan@a.hu",passwordEncoder.encode("dan123"),Arrays.asList(new Role("ROLE_USER")));
         //User manager = new User("manager","manager","manager@a.hu",passwordEncoder.encode("manager123"),Arrays.asList(new Role("ROLE_MANAGER")));
         User admin = new User("admin","admin","admin@a.hu",passwordEncoder.encode("admin123"),Arrays.asList(new Role("ROLE_ADMIN")));
@@ -55,6 +56,6 @@ public class DbInit implements CommandLineRunner {
 
         // Save to db
         this.userRepository.saveAll(users);
-//        this.realEstateRepository.saveAll(realEstates);
+        this.realEstateRepository.saveAll(realEstates);*/
     }
 }
