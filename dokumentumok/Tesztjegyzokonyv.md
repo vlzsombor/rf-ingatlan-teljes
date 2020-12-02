@@ -77,9 +77,38 @@
 - Azonosító: TP-06
 - Tesztesetek: TC-01
 - Leírás: A felhasználó által feltöltött ingatlan részleteinek megtekintése
-  0. lépés: Nyissuk meg az alkalmazást, jelentkezzünk be a Log in felületen,  és 
+  0. lépés: Nyissuk meg az alkalmazást, jelentkezzünk be a Log in felületen
   1. lépés: válasszuk ki a hirdetéseket tartalmazó felületet a `My ads` gombra kattintva
   2. lépés: indítsuk el a `Jó kis ház` ingatlan részletei funkciót az `Details` oszlopban elhelyezkedő gombot megnyomva
+
+### 1.7. Már meglévő hirdetés részleteinek változtatása funkció tesztelése
+
+- Azonosító: TP-07
+- Tesztesetek: TC-01, TC-02
+- Leírás: A felhasználó által már feltöltött ingatlan részleteinek változtatása
+  0. lépés: Nyissuk meg az alkalmazást, jelentkezzünk be a Log in felületen
+  1. lépés: válasszuk ki a hirdetéseket tartalmazó felületet a `My ads` gombra kattintva
+  2. lépés: indítsuk el a `Jó kis ház` ingatlan részleteinek változtatása funkciót az `Update` oszlopban elhelyezkedő gombot megnyomva
+  3. lépés: a `Hirdetesed címe*`-nek megváltoztatása
+
+### 1.8. Ingatlan törlése funkció tesztelése
+
+- Azonosító: TP-08
+- Tesztesetek: TC-01
+- Leírás: A felhasználó által feltöltött ingatlan törlése
+  0. lépés: Nyissuk meg az alkalmazást, jelentkezzünk be a Log in felületen
+  1. lépés: válasszuk ki a hirdetéseket tartalmazó felületet a `My ads` gombra kattintva
+  2. lépés: indítsuk el a `Jó kis ház` ingatlan törlése funkciót a `Remove` oszlopban elhelyezkedő gombot megnyomva
+
+### 1.9. Adminisztrátor funkció tesztelése
+
+- Azonosító: TP-09
+- Tesztesetek: TC-01, TC-02
+- Leírás: Az admin szerepkörrel rendelkező felhasználó funkcióinak tesztelése (felhasználó törlése, szerepkör változtatása)
+  0. lépés: Nyissuk meg az alkalmazást, jelentkezzünk be a Log in felületen adminként
+  1. lépés: válasszuk ki a felhasználókat tartalmazó felületet az `Administrator` gombra kattintva
+  2. lépés: indítsuk el a felhasználó törlése, szerepkör változtatása funkciók valamelyikét
+  3. lépés: megváltozott szerepkörű/törölt felhasználóként bejelentkezni 
 
 ## 2. Tesztesetek (TC)
 
@@ -243,6 +272,52 @@
 - Bemenet: - 
 - Művelet: nyomjuk meg a Jó kis ház nevű ingatlanhoz tartozó `details` gombot 
 - Elvárt kimenet: az ingatlan ID-jéhez tartozó oldal megjelenítése, melyen az ingatlanhoz tartozó részletek találhatók: `Hirdetés típusa*` `Ingatlan típusa*` `Hirdetesed címe*` `Ingatlan ára *` `Méret (m2)*` `Szobák száma*` `Félszobák szama` `Település*` `Megye*` `Ir. szám*` `Utca` `Ingatlan leírás` `Fotó`
+
+### 2.7. Már meglévő hirdetés részleteinek változtatása funkció tesztesetei
+
+#### 2.7.1. TC-01
+
+- TP: TP-07
+- Leírás: változtatás funkció tesztelése 
+- Bemenet: `Hirdetesed címe*` = Aránylag jó kis ház ;
+- Művelet: nyomjuk meg az `Upload` gombot 
+- Elvárt kimenet: A Jó kis ház nevű rekordban a Jó kis ház nevének megváltozása Aránylag jó kis ház-ra
+
+#### 2.7.2. TC-02
+
+- TP: TP-07
+- Leírás: változtatás funkció tesztelése hibás bemenettel 
+- Bemenet: `Hirdetesed címe*` = "" ;
+- Művelet: nyomjuk meg az `Upload` gombot 
+- Elvárt kimenet: Hibaüzenet (a hirdetés címe nem lehet üres)
+
+### 2.8. Ingatlan törlése funkció tesztesetei
+
+#### 2.8.1. TC-01
+
+- TP: TP-08
+- Leírás: törlés funkció tesztelése 
+- Bemenet: - 
+- Művelet: nyomjuk meg a Jó kis ház nevű rekordhoz tartozó `Remove` gombot 
+- Elvárt kimenet: A Jó kis ház nevű rekord eltűnése, törlődése
+
+### 2.9. Már meglévő hirdetés részleteinek változtatása funkció tesztesetei
+
+#### 2.9.1. TC-01
+
+- TP: TP-09
+- Leírás: admin szerepkör adása laszlo@gmail.com e-mail című felhasználónak
+- Bemenet: `Jogosultság frissítése` = Admin ;
+- Művelet: nyomjuk meg az `Jogosultság frissítése` alatt található kék gombot 
+- Elvárt kimenet: laszlo@gmail.com e-mail című felhasználónak bejelentkezve látnia kell az admin szerepkörhöz tartozó funkciókat és a jogosultság oszlopban a szerepkör ROLE_USER-ről ROLE_ADMIN-ra történő változása.
+
+#### 2.9.2. TC-02
+
+- TP: TP-09
+- Leírás: hegi@gmail.com e-mail című felhasználó törlése
+- Bemenet: -
+- Művelet: hegi@gmail.com sorában nyomjuk meg az `Törlése` alatt található piros gombot 
+- Elvárt kimenet:  hegi@gmail.com e-mail című felhasználó nem tud bejelentkezni
 
 ## 3. Tesztriportok (TR)
 
@@ -484,12 +559,56 @@
 #### 3.6.1. TR-01 (TC-01)
 
 - TP: TP-06
-
   1. lépés: Jó kis ház nevű ingatlanhoz tartozó `details` oszlopban lévő gombra egyszer rákattintottam
-
   2. lépés: helyes eredményt kaptam: új oldalra kerültem, ahol a kiválasztott ingatlan részletei találhatóak.
 
-     
+### 3.7. Már meglévő hirdetés részleteinek változtatása funkció tesztriportjai
+
+#### 3.7.1. TR-01 (TC-01)
+
+- TP: TP-07
+  1. lépés: Jó kis ház nevű ingatlanhoz tartozó `Update` oszlopban lévő gombra egyszer rákattintottam
+  2. lépés: Aránylag jó kis ház-t beírtam
+  3. lépés: Megnyomtam az `Upload` gombot
+  4. lépés: helytelen végeredményt kaptam: új rekord jött létre új ID-vel az Aránylag jó kis ház névvel, a Jó kis ház adataival.
+
+#### 3.7.2. TR-02 (TC-02)
+
+- TP: TP-07
+  1. lépés: Jó kis ház nevű ingatlanhoz tartozó `Update` oszlopban lévő gombra egyszer rákattintottam
+  2. lépés: `Hirdetesed címe*`-t üresen hagytam
+  3. lépés: Megnyomtam az `Upload` gombot
+  4. lépés: helyes végeredményt kaptam: hibaüzenetet kaptam a `Hirdetesed címe*` bemenete alatt: `nem lehet üres`
+
+### 3.8. Hirdetés részleteinek megtekintése funkció tesztriportjai
+
+#### 3.8.1. TR-01 (TC-01)
+
+- TP: TP-08
+  1. lépés: Jó kis ház nevű ingatlanhoz tartozó `Remove` oszlopban lévő gombra egyszer rákattintottam
+  2. lépés: helyes eredményt kaptam: a felület frissült, a Jó kis ház nevű rekord törlődött.
+
+### 3.9.   Adminisztrátor funkció tesztriportjai
+
+#### 3.9.1. TR-01 (TC-01)
+
+- TP: TP-09
+  1. lépés: laszlo@gmail.com e-mail című felhasználóhoz tartozó `Jogosultság frissítése` oszlopban lévő legördülő menüre rákattintottam
+  2. lépés: Admin-t kiválasztottam
+  3. lépés: Megnyomtam a kék gombot
+  4. lépés: helyes végeredményt kaptam: a jogosultsága USER_ADMIN-ra változott, és bejelentkezéskor látja az admin szerepkörhöz tartozó funkciókat
+
+#### 3.9.2. TR-02 (TC-02)
+
+- TP: TP-09
+  1. lépés: hegi@gmail.com e-mail című felhasználóhoz tartozó `Törlése` oszlopban lévő piros gombra rákattintottam
+  2. lépés: helytelen végeredményt kaptam: hibaüzenetet kapok, nem tudom törölni a felhasználót, továbbra is be tud jelentkezni
+
+
+
+
+
+
 
 
 ​    
