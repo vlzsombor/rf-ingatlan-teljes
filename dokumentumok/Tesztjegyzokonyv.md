@@ -21,16 +21,17 @@
   1. lépés: Ellenőrizzük az eredményt. Elvárt eredmény: A felhasználó kijelentkeztetése, visszakerülés a Log in felületre.
 
 ### 1.3. Ingatlanhozzáadás funkció tesztelése
+
 - Azonosító: TP-03
 - Tesztesetek: TC-01, TC-02, TC-03
-- Leírás: ingatlanhozzáadás funkció tesztelése
-    0. lépés: Nyissuk meg az alkalmazást, jelentkezzünk be a Log in felületen és indítsuk el az ingatlanhozzáadás funkciót az `Upload your own ad` gombot megnyomva
-    1. lépés: Az `Name` szövegbeviteli mezőbe írjuk be az `name` karakterláncot
-    3. lépés: Az `Address` szövegbeviteli mezőbe írjuk be az `address` karakterláncot
-    4. lépés: Az `Description` szövegbeviteli mezőbe írjuk be az `description` karakterláncot
-    7. lépés: A `Price ($)` szövegbeviteli mezőbe írjuk be az `price` számokból álló karakterláncot
-    8. lépés: Nyomjuk meg az `Upload` gombot 
-    9. lépés: Ellenőrizzük az eredményt. Elvárt eredmény: Egy újabb sor a Home felületen: `name` `address` `details`
+- Leírás: Az ingatlanhozzáadás funkció tesztelése
+  0. lépés: Nyissuk meg az alkalmazást, jelentkezzünk be a Log in felületen és indítsuk el az ingatlanhozzáadás funkciót az `Upload your own ad` gombot megnyomva
+  1. lépés: Az `Name` szövegbeviteli mezőbe írjuk be az `name` karakterláncot
+  2. lépés: Az `Address` szövegbeviteli mezőbe írjuk be az `address` karakterláncot
+  3. lépés: Az `Description` szövegbeviteli mezőbe írjuk be az `description` karakterláncot
+  4. lépés: A `Price ($)` szövegbeviteli mezőbe írjuk be az `price` számokból álló karakterláncot
+  5. lépés: Nyomjuk meg az `Upload` gombot 
+  6. lépés: Ellenőrizzük az eredményt. Elvárt eredmény: Egy újabb sor a Home felületen: `name` `address` `details`
 
 ### 1.4. Regisztráció funkció tesztelése
 
@@ -48,6 +49,37 @@
   8. lépés: Fogadjuk el a felhasználási feltételeket a `I agree with the [terms and conditions](http://localhost:8080/registration#) for Registration.` checkboxra kattintva
   9. lépés: Nyomjuk meg a `Register` gombot 
   10. lépés: Ellenőrizzük az eredményt. Elvárt eredmény: sikeres bejelentkezés a Login felületen a megadott e-mail címmel és jelszóval
+
+### 1.5. Az újabb mezőkkel ellátott ingatlanhozzáadás funkció tesztelése
+
+- Azonosító: TP-05
+- Tesztesetek: TC-01, TC-02, TC-03
+- Leírás: újabb mezőkkel ellátott ingatlanhozzáadás funkció tesztelése
+  0. lépés: Nyissuk meg az alkalmazást, jelentkezzünk be a Log in felületen és indítsuk el az ingatlanhozzáadás funkciót az `Hirdetés feltöltése` gombot megnyomva
+  1. lépés: A `Hirdetés típusa*` legördülő menüben válasszuk ki az `ad_type` karakterláncot
+  2. lépés: Az `Ingatlan típusa*` legördülő menüben válasszuk ki a `house_type` karakterláncot
+  3. lépés: Az `Hirdetesed címe*` szövegbeviteli mezőbe írjuk be az `title` karakterláncot
+  4. lépés: A `Ingatlan ára *` szövegbeviteli mezőbe írjuk be az `price` számokból álló karakterláncot
+  5. lépés: A `Méret (m2)*` szövegbeviteli mezőbe írjuk be az `size` számokból álló karakterláncot
+  6. lépés: Az `Szobák száma*` legördülő menüben válasszuk ki a `room_number` karakterláncot
+  7. lépés: Az `Félszobák szama` legördülő menüben válasszuk ki a `halfroom_number` karakterláncot
+  8. lépés: A `Település*` szövegbeviteli mezőbe írjuk be az `city` számokból álló karakterláncot
+  9. lépés: Az `Megye*` legördülő menüben válasszuk ki a `state` karakterláncot
+  10. lépés: Az `Ir. szám*` szövegbeviteli mezőbe írjuk be az `zip` számokból álló karakterláncot
+  11. lépés: Az `Utca` szövegbeviteli mezőbe írjuk be az `street` számokból álló karakterláncot
+  12. lépés: Az `Ingatlan leírás` szövegbeviteli mezőbe írjuk be az `description` számokból álló karakterláncot
+  13. lépés: A `Fotó` fájlfeltöltés gomb megnyomása után kiválasztjuk a feltöltendő fényképeket
+  14. lépés: Nyomjuk meg az `Upload` gombot 
+  15. lépés: Ellenőrizzük az eredményt. Elvárt eredmény: Egy újabb rekord a My ads felületen.
+
+### 1.6. Hirdetés részleteinek megtekintése funkció tesztelése
+
+- Azonosító: TP-06
+- Tesztesetek: TC-01
+- Leírás: A felhasználó által feltöltött ingatlan részleteinek megtekintése
+  0. lépés: Nyissuk meg az alkalmazást, jelentkezzünk be a Log in felületen,  és 
+  1. lépés: válasszuk ki a hirdetéseket tartalmazó felületet a `My ads` gombra kattintva
+  2. lépés: indítsuk el a `Jó kis ház` ingatlan részletei funkciót az `Details` oszlopban elhelyezkedő gombot megnyomva
 
 ## 2. Tesztesetek (TC)
 
@@ -168,6 +200,50 @@
 - Művelet: nyomjuk meg az `Register` gombot 
 - Elvárt kimenet: HIBA: sikertelen regisztráció (nincs jelszó megadva)
 
+### 2.5. Ingatlanhozzáadás újabb beviteli mezőkkel  funkció tesztesetei
+
+#### 2.5.1. TC-01
+
+- TP: TP-05
+- Leírás: ingatlanhozzáadás funkció tesztelése
+- Bemenet: `Hirdetés típusa*` = Eladó ; `Ingatlan típusa*` = Lakás ; `Hirdetesed címe*` = Jó kis ház ; `Ingatlan ára *` = 750000;  `Méret (m2)*` = 16 ; `Szobák száma*` = 4 ; `Félszobák szama` = 1 ; `Település*` = Békéscsaba;  `Megye*` = Békés ; `Ir. szám*` = 5600 ; `Utca` = Orosházi utca 13. ; `Ingatlan leírás` = Ez a legjobb ház;  `Fotó` = "bekescsaba1.jpg", "bekescsaba2.jpg", "bekescsaba3.jpg", "bekescsaba4.jpg", "bekescsaba5.jpg", "bekescsaba6.jpg" ; 
+- Művelet: nyomjuk meg az `Upload` gombot 
+- Elvárt kimenet: újabb rekord a My ads felületen.
+
+#### 2.5.2. TC-02
+
+- TP: TP-05
+- Leírás: ingatlanhozzáadás funkció tesztelése
+- Bemenet: `Hirdetés típusa*` = Eladó ; `Ingatlan típusa*` = Lakás ; `Hirdetesed címe*` ="" `Ingatlan ára *` = 450000;  `Méret (m2)*` = 126 ; `Szobák száma*` = 2 ; `Félszobák szama` = 1 ; `Település*` = Békés;  `Megye*` = Békés ; `Ir. szám*` = 5600 ; `Utca` = Orosházi utca 11. ; `Ingatlan leírás` = Ez a legjobb ház;  `Fotó` = "bekescsaba1.jpg", "bekescsaba2.jpg", "bekescsaba3.jpg", "bekescsaba4.jpg", "bekescsaba5.jpg", "bekescsaba6.jpg" ; 
+- Művelet: nyomjuk meg az `Upload` gombot 
+- Elvárt kimenet: HIBA (nincs megadva cím)
+
+#### 2.5.3. TC-03
+
+- TP: TP-05
+- Leírás: ingatlanhozzáadás funkció tesztelése
+- Bemenet: `Hirdetés típusa*` = Kiadó ; `Ingatlan típusa*` = Telek ; `Hirdetesed címe*` = Félegyházi csodavilla ; `Ingatlan ára *` = "alma" `Méret (m2)*` = 191 ; `Szobák száma*` = 3 ; `Félszobák szama` = 2 ; `Település*` = Kiskunfélegyháza;  `Megye*` = Bács-Kiskun ; `Ir. szám*` = 6610 ; `Utca` = Petőfi utca 33. ; `Ingatlan leírás` = Keresve se találsz jobbat!;  `Fotó` = "bekescsaba1.jpg", "bekescsaba2.jpg", "bekescsaba3.jpg", "bekescsaba4.jpg", "bekescsaba5.jpg", "bekescsaba6.jpg" ; 
+- Művelet: nyomjuk meg az `Upload` gombot 
+- Elvárt kimenet: HIBA (`Ingatlan ára*`-nak számot kell megadni)
+
+#### 2.5.4. TC-04
+
+- TP: TP-05
+- Leírás: ingatlanhozzáadás funkció tesztelése
+- Bemenet: `Hirdetés típusa*` = Eladó ; `Ingatlan típusa*` = Lakás ; `Hirdetesed címe*` = Jó kis ház 2.0 ; `Ingatlan ára *` = 850000;  `Méret (m2)*` = 26 ; `Szobák száma*` = 4 ; `Félszobák szama` = 1 ; `Település*` = Békéscsaba;  `Megye*` = Békés ; `Ir. szám*` = 5600 ; `Utca` = Orosházi utca 43. ; `Ingatlan leírás` = Ez a legjobb ház a környéken!;  `Fotó` = "bekescsaba1.jpg", "bekescsaba2.jpg", "bekescsaba3.jpg" ; 
+- Művelet: nyomjuk meg az `Upload` gombot 
+- Elvárt kimenet: HIBA (legalább 6 db képet kell feltölteni)
+
+### 2.6. Hirdetés részleteinek megtekintése  funkció tesztesetei
+
+#### 2.6.1. TC-01
+
+- TP: TP-06
+- Leírás: hirdetés részleteinek megtekintése funkció tesztelése
+- Bemenet: - 
+- Művelet: nyomjuk meg a Jó kis ház nevű ingatlanhoz tartozó `details` gombot 
+- Elvárt kimenet: az ingatlan ID-jéhez tartozó oldal megjelenítése, melyen az ingatlanhoz tartozó részletek találhatók: `Hirdetés típusa*` `Ingatlan típusa*` `Hirdetesed címe*` `Ingatlan ára *` `Méret (m2)*` `Szobák száma*` `Félszobák szama` `Település*` `Megye*` `Ir. szám*` `Utca` `Ingatlan leírás` `Fotó`
+
 ## 3. Tesztriportok (TR)
 
 ### 3.1. Bejelentkezés funkció tesztriportjai
@@ -227,7 +303,7 @@
     1. lépés: `Logout` gombot megnyomtam egyszer
     2. lépés: helyes eredményt kaptam (Visszairányított a Login felületre és nem voltam bejelentkezve)
 
-### 3.3. Ingatlanhozzáadás funkció tesztriportjai
+### 3.3. Ingatlanhozzáadás  funkció tesztriportjai
 
 #### 3.3.1. TR-01 (TC-01)
 
@@ -319,6 +395,101 @@
   8. lépés: Elfogadtam a felhasználási feltételeket
   9. lépés: Megnyomtam egyszer a `Register` gombot 
   10. lépés: helytelen végeredményt kaptam: sikeres volt a regisztráció
+
+### 3.5. Ingatlanhozzáadás újabb beviteli mezőkkel funkció tesztriportjai
+
+#### 3.5.1. TR-01 (TC-01)
+
+- TP: TP-05
+  1. lépés: Megnyitottam az alkalmazást, bejelentkeztem a Log in felületen és elindítottam az ingatlanhozzáadás funkciót az `Hirdetés feltöltése` gombot megnyomva
+  2. lépés: Eladó-t beírtam
+  3. lépés: Lakás-t beírtam
+  4. lépés: Jó kis ház-t beírtam
+  5. lépés: 750000-t beírtam
+  6. lépés: 16-t beírtam
+  7. lépés: 4-t beírtam
+  8. lépés: 1-t beírtam
+  9. lépés: Békéscsaba-t beírtam
+  10. lépés: Békés-t beírtam
+  11. lépés: 5600-t beírtam
+  12. lépés: Orosházi utca 13.-t beírtam
+  13. lépés: Ez a legjobb ház-t beírtam
+  14. lépés: "bekescsaba1.jpg", "bekescsaba2.jpg", "bekescsaba3.jpg", "bekescsaba4.jpg", "bekescsaba5.jpg", "bekescsaba6.jpg" képeket kiválasztottam
+  15. lépés: Megnyomtam az `Upload` gombot
+  16. lépés: helyes eredményt kaptam: megjelent egy újabb rekord a My ads felületen  `Jó kis ház` `		Orosházi utca 13.` `details` `update` `remove` sorrendben
+
+
+#### 3.5.2. TR-02 (TC-02)
+
+- TP: TP-05
+  1. lépés: Megnyitottam az alkalmazást, bejelentkeztem a Log in felületen és elindítottam az ingatlanhozzáadás funkciót az `Hirdetés feltöltése` gombot megnyomva
+  2. lépés: Eladó-t beírtam
+  3. lépés: Lakás-t beírtam
+  4. lépés: Hirdetés címét üresen hagytam
+  5. lépés: 450000-t beírtam
+  6. lépés: 126-t beírtam
+  7. lépés: 2-t beírtam
+  8. lépés: 1-t beírtam
+  9. lépés: Békés-t beírtam
+  10. lépés: Békés-t beírtam
+  11. lépés: 5600-t beírtam
+  12. lépés: Orosházi utca 11.-t beírtam
+  13. lépés: Ez a legjobb ház-t beírtam
+  14. lépés: "bekescsaba1.jpg", "bekescsaba2.jpg", "bekescsaba3.jpg", "bekescsaba4.jpg", "bekescsaba5.jpg", "bekescsaba6.jpg" képeket kiválasztottam
+  15. lépés: Megnyomtam az `Upload` gombot
+  16. lépés: helyes eredményt kaptam: hibaüzenetet kaptam a `Hirdetesed címe*` bemenete alatt: `nem lehet üres`
+
+#### 3.5.3. TR-03 (TC-03)
+
+- TP: TP-05
+  1. lépés: Megnyitottam az alkalmazást, bejelentkeztem a Log in felületen és elindítottam az ingatlanhozzáadás funkciót az `Hirdetés feltöltése` gombot megnyomva
+  2. lépés: Kiadó-t beírtam
+  3. lépés: Telek-t beírtam
+  4. lépés: Félegyházi csodavilla-t beírtam
+  5. lépés: alma-t megpróbáltam beírni
+  6. lépés: 191-t beírtam
+  7. lépés: 3-t beírtam
+  8. lépés: 2-t beírtam
+  9. lépés: Kiskunfélegyháza-t beírtam
+  10. lépés: Bács-Kiskun-t beírtam
+  11. lépés: 6610-t beírtam
+  12. lépés: Petőfi utca 33.-t beírtam
+  13. lépés: Keresve se találsz jobbat!-t beírtam
+  14. lépés: "bekescsaba1.jpg", "bekescsaba2.jpg", "bekescsaba3.jpg", "bekescsaba4.jpg", "bekescsaba5.jpg", "bekescsaba6.jpg" képeket kiválasztottam
+  15. lépés: Megnyomtam az `Upload` gombot
+  16. lépés: helyes eredményt kaptam: az `Ingatlan ára *` bemeneti mezője nem engedett beírni más karaktert számokon kívül
+
+#### 3.5.4. TR-04 (TC-04)
+
+- TP: TP-05
+  1. lépés: Megnyitottam az alkalmazást, bejelentkeztem a Log in felületen és elindítottam az ingatlanhozzáadás funkciót az `Hirdetés feltöltése` gombot megnyomva
+  2. lépés: Eladó-t beírtam
+  3. lépés: Lakás-t beírtam
+  4. lépés: Jó kis ház 2.0-t beírtam
+  5. lépés: 850000-t beírtam
+  6. lépés: 26-t beírtam
+  7. lépés: 4-t beírtam
+  8. lépés: 1-t beírtam
+  9. lépés: Békéscsaba-t beírtam
+  10. lépés: Békés-t beírtam
+  11. lépés: 5600-t beírtam
+  12. lépés: Orosházi utca 43. -t beírtam
+  13. lépés: Ez a legjobb ház a környéken!-t beírtam
+  14. lépés: "bekescsaba1.jpg", "bekescsaba2.jpg", "bekescsaba3.jpg" képeket kiválasztottam
+  15. lépés: Megnyomtam az `Upload` gombot
+  16. lépés: helyes eredményt kaptam: az `Upload` gomb megnyomása után is az ingatlanhozzáadás felületen maradtam, illetve nem jelent meg egy újabb rekord a `My ads` felületen
+
+### 3.6. Hirdetés részleteinek megtekintése funkció tesztriportjai
+
+#### 3.6.1. TR-01 (TC-01)
+
+- TP: TP-06
+
+  1. lépés: Jó kis ház nevű ingatlanhoz tartozó `details` oszlopban lévő gombra egyszer rákattintottam
+
+  2. lépés: helyes eredményt kaptam: új oldalra kerültem, ahol a kiválasztott ingatlan részletei találhatóak.
+
+     
 
 
 ​    
