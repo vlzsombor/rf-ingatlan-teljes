@@ -13,6 +13,12 @@
     <link rel="stylesheet" th:href="@{~/google.fonts.css}">
     <link rel="stylesheet" th:href="@{~/mdb.min.css}">
     <link th:href="@{~/lightyboxy.css}" rel="stylesheet">
+    <style>
+        .logo {
+            width: 355px;
+            height: 250px;
+        }
+    </style>
 </head>
 <body>
 <div th:fragment="nav">
@@ -93,65 +99,62 @@
                    </div>
 
                </div>         -->
-               <div class="form-group">
-                   <div class="input-group">
+            <div class="form-group">
+                <div class="input-group">
 
-                       <select class="form-control" id="defaultSelect" name="ingatlanTipus">
-                           <option selected="" value="0">Lakás</option>
-                           <option value="1">Ház</option>
-                           <option value="2">Telek</option>
-                           <option value="3">Nyaraló</option>
-                           <option value="3">Egyéb</option>
+                    <select class="form-control" id="defaultSelect" name="ingatlanTipus">
+                        <option selected="" value="0">Lakás</option>
+                        <option value="1">Ház</option>
+                        <option value="2">Telek</option>
+                        <option value="3">Nyaraló</option>
+                        <option value="3">Egyéb</option>
 
-                       </select>
-                   </div>
-               </div>
-               <div class="form-group">
-                   <div class="input-group">
-                       <input id = "txtSearch" class="form-control" name="telepulesNev" placeholder="Város" type="text">
-                   </div>
-                   <div class="input-group-append">
-                       <button type = "submit" class="btn btn-primary"><i class="fa fa-search"></i>
-                       </button>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <input id = "txtSearch" class="form-control" name="telepulesNev" placeholder="Város" type="text">
+                </div>
+                <div class="input-group-append">
+                    <button type = "submit" class="btn btn-primary"><i class="fa fa-search"></i>
+                    </button>
 
-                   </div>
+                </div>
 
-               </div>
-           </form>
+            </div>
+        </form>
 
-       </div>
-   </div>
-   <div th:fragment="premium">
-       <div class="container mt-5">
-           <div class="row row-cols-3">
-               <div class="col" th:each="realEstate : ${realEstates}" th:if="${realEstateStat.index} < 3">
-                   <a th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}">
+    </div>
+</div>
+<div th:fragment="premium">
+    <div class="container mt-5">
+        <div class="row row-cols-3">
+            <div class="col" th:each="realEstate : ${realEstates}" th:if="${realEstateStat.index} < 3">
+                <a th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}">
 
-                       <div class="card hoverable">
-                           <img alt="Generic placeholder image" class="card-img-top w-100 h-25 img-thumbnail"
-                                th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}" th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstate.getMainPhotoName()},id = ${realEstate.getId()}))}">
-                           <div class="card-body">
+                    <div class="card hoverable">
+                        <img alt="Generic placeholder image" class="img-fluid logo"
+                             th:href="@{~/realestates/{id}/(id=${realEstate.getId()})}" th:src="@{/realestates/image/{id}/{fileName}((fileName = ${realEstate.getMainPhotoName()},id = ${realEstate.getId()}))}">
+                        <div class="card-body">
 
-                               <!-- Title -->
+                            <!-- Title -->
                             <h4 class="card-title" th:text="|${realEstate.getPrice()} Ft|"><a>Hirdetes</a></h4>
                             <!-- Text -->
                             <div class="row">
                                 <div class="col-sm">
                                     <i class="fas fa-bed"></i>
-                                    <p class="card-text font-weight-light" style="color:darkslategray" th:text="|&nbsp ${realEstate.getSzobakSzama()} szoba|"></p>
+                                    <i class="card-text font-weight-light" style="color:darkslategray" th:text="|&nbsp ${realEstate.getSzobakSzama()} szoba|"></i>
 
                                 </div>
 
                                 <div class="col-sm">
-                                    <div class="row">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <a href="#"><p class="card-text font-weight-light   "
-                                                       style="color:darkslategray"
-                                                       th:text="|&nbsp ${realEstate.getTelepulesNev()}|">Hirdetés leírás
-                                            példa Hirdetés leírás példa</p></a>
-                                    </div>
-
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <a href="#"><i class="card-text font-weight-light   "
+                                                   style="color:darkslategray"
+                                                   th:text="|&nbsp ${realEstate.getTelepulesNev()}|"></i></a>
                                 </div>
+
                             </div>
                         </div>
 
@@ -183,9 +186,9 @@
             </li>
         </ul>
     </div>
-<!--    <div class="footer-copyright text-center py-3">-->
+    <!--    <div class="footer-copyright text-center py-3">-->
 
-<!--    </div>-->
+    <!--    </div>-->
 
 </footer>
 </body>
