@@ -110,6 +110,26 @@
   2. lépés: indítsuk el a felhasználó törlése, szerepkör változtatása funkciók valamelyikét
   3. lépés: megváltozott szerepkörű/törölt felhasználóként bejelentkezni 
 
+### 1.10. Menedzser funkció tesztelése
+
+- Azonosító: TP-10
+- Tesztesetek: TC-01, TC-02
+- Leírás: Az manager (és admin) szerepkörrel rendelkező felhasználó funkcióinak tesztelése (hirdetés törlése, változtatása)
+  0. lépés: Nyissuk meg az alkalmazást, jelentkezzünk be a Log in felületen managerként
+  1. lépés: válasszuk ki az összes hirdetést tartalmazó felületet a `Management` gombra kattintva
+  2. lépés: indítsuk el az ingatlan törlése, változtatása funkciók valamelyikét
+  3. lépés: a `Management` felületet megnyitva megnézni, hogy változott/törlődött-e az adott ingatlan
+
+### 1.11. Képnézegető funkció tesztelése
+
+- Azonosító: TP-11
+- Tesztesetek: TC-01
+- Leírás: Adott hirdetéshez tartozó képek megtekintése képnézegetővel
+  0. lépés: Nyissuk meg az alkalmazást, jelentkezzünk be a Log in felületen
+  1. lépés: válasszuk ki az egyik megjelenő hirdetést és kattintsunk rá egyszer
+  2. lépés: indítsuk el a képnézegetés funkciót az egyik képre kattintva
+  3. lépés: a bal és jobb oldalon megjelenő nyilak segítségével navigáljunk a többi kép között
+
 ## 2. Tesztesetek (TC)
 
 ### 2.1. Bejelentkezés funkció tesztesetei
@@ -301,7 +321,7 @@
 - Művelet: nyomjuk meg a Jó kis ház nevű rekordhoz tartozó `Remove` gombot 
 - Elvárt kimenet: A Jó kis ház nevű rekord eltűnése, törlődése
 
-### 2.9. Már meglévő hirdetés részleteinek változtatása funkció tesztesetei
+### 2.9. Adminisztrátor funkció tesztesetei
 
 #### 2.9.1. TC-01
 
@@ -318,6 +338,34 @@
 - Bemenet: -
 - Művelet: hegi@gmail.com sorában nyomjuk meg az `Törlése` alatt található piros gombot 
 - Elvárt kimenet:  hegi@gmail.com e-mail című felhasználó nem tud bejelentkezni
+
+### 2.10. Menedzser  funkció tesztesetei
+
+#### 2.10.1. TC-01
+
+- TP: TP-10
+- Leírás: Aránylag jó kis ház című ingatlan adatainak változtatása
+- Bemenet: `Méret (m2)*` = 17 ;
+- Művelet: nyomjuk meg az `Upload` gombot
+- Elvárt kimenet: Aránylag jó kis ház című ingatlan `Méret (m2)*` tulajdonságának megváltozása 16-ról 17-re.
+
+#### 2.10.2. TC-02
+
+- TP: TP-10
+- Leírás: Aránylag jó kis ház című ingatlan törlése
+- Bemenet: -
+- Művelet: Aránylag jó kis ház című ingatlan alatt lévő piros gombra kattintás
+- Elvárt kimenet: Aránylag jó kis ház című ingatlan eltűnése, törlődése a menedzser oldalról és a felhasználónál is
+
+### 2.11. Képnézegető  funkció tesztesetei
+
+#### 2.11.1. TC-01
+
+- TP: TP-11
+- Leírás: Belváros, Szombathely, ingatlan eladó! című ingatlan képeinek megtekintése
+- Bemenet: - 
+- Művelet: kattintsunk a második képre, és jobbra haladva léptessük a további képeket
+- Elvárt kimenet: A második képtől elindulva a nyilak megnyomásával egyesével megjelennek a további képek is.
 
 ## 3. Tesztriportok (TR)
 
@@ -418,7 +466,7 @@
 #### 3.4.1. TR-01 (TC-01)
 
 - TP: TP-04
-  1. lépés: Megnyitottam az alkalmazást, beléptem a Log in felületre és rákattintottam a `Registration` gombra
+  1. lépés: Megnyitottam az alkalmazást, beléptem a Log in felületre és rákattintottam a `Register` gombra
   2. lépés: Márton-t beírtam
   3. lépés: Kovács-ot beírtam
   4. lépés: k.marci@gmail.com-ot beírtam
@@ -432,7 +480,7 @@
 #### 3.4.2. TR-02 (TC-02)
 
 - TP: TP-04
-  1. lépés: Megnyitottam az alkalmazást, beléptem a Log in felületre és rákattintottam a `Registration` gombra
+  1. lépés: Megnyitottam az alkalmazást, beléptem a Log in felületre és rákattintottam a `Register` gombra
   2. lépés: Marcell-t beírtam
   3. lépés: Nagy-ot beírtam
   4. lépés: n.marci@gmail.com-ot beírtam
@@ -441,13 +489,13 @@
   7. lépés: korte123-at beírtam
   8. lépés: Nem fogadtam el a felhasználási feltételeket
   9. lépés: Megnyomtam egyszer a `Register` gombot 
-  10. lépés: helytelen végeredményt kaptam: sikeres volt a regisztráció, a megadott adatokkal be tudtam jelentkezni a Log in felületen
+  10. lépés: helyes végeredményt kaptam: hibaüzenetet kaptam (igaz értékűnek kell lennie) és nem tudtam bejelentkezni a megadott adatokkal
 
 #### 3.4.3. TR-03 (TC-03)
 
 - TP: TP-04
-  1. lépés: Megnyitottam az alkalmazást, beléptem a Log in felületre és rákattintottam a `Registration` gombra
-  2. lépés: Gábort-t beírtam
+  1. lépés: Megnyitottam az alkalmazást, beléptem a Log in felületre és rákattintottam a `Register` gombra
+  2. lépés: Gábor-t beírtam
   3. lépés: Nagy-ot beírtam
   4. lépés: `E-mail` mezőt üresen hagytam
   5. lépés:  `Confirm e-mail` mezőt üresen hagytam
@@ -455,12 +503,12 @@
   7. lépés: barack123-at beírtam
   8. lépés: Elfogadtam a felhasználási feltételeket
   9. lépés: Megnyomtam egyszer a `Register` gombot 
-  10. lépés: helytelen végeredményt kaptam: sikeres volt a regisztráció
+  10. lépés: helyes végeredményt kaptam: hibaüzenetet kaptam (nem lehet üres) és nem tudtam bejelentkezni a megadott adatokkal
 
 #### 3.4.4. TR-04 (TC-04)
 
 - TP: TP-04
-  1. lépés: Megnyitottam az alkalmazást, beléptem a Log in felületre és rákattintottam a `Registration` gombra
+  1. lépés: Megnyitottam az alkalmazást, beléptem a Log in felületre és rákattintottam a `Register` gombra
   2. lépés: Gábort-t beírtam
   3. lépés: Kovács-ot beírtam
   4. lépés: k.gabi@gmail.com-ot beírtam
@@ -469,7 +517,7 @@
   7. lépés: `Confirm password` mezőt üresen hagytam
   8. lépés: Elfogadtam a felhasználási feltételeket
   9. lépés: Megnyomtam egyszer a `Register` gombot 
-  10. lépés: helytelen végeredményt kaptam: sikeres volt a regisztráció
+  10. lépés: helyes végeredményt kaptam: hibaüzenetet kaptam (nem lehet üres) és nem tudtam bejelentkezni a megadott adatokkal
 
 ### 3.5. Ingatlanhozzáadás újabb beviteli mezőkkel funkció tesztriportjai
 
@@ -603,6 +651,32 @@
 - TP: TP-09
   1. lépés: hegi@gmail.com e-mail című felhasználóhoz tartozó `Törlése` oszlopban lévő piros gombra rákattintottam
   2. lépés: helytelen végeredményt kaptam: hibaüzenetet kapok, nem tudom törölni a felhasználót, továbbra is be tud jelentkezni
+
+### 3.10.   Menedzser funkció tesztriportjai
+
+#### 3.10.1. TR-01 (TC-01)
+
+- TP: TP-10
+  1. lépés: A Management felületen az Aránylag jó kis ház című ingatlanhoz tartozó kék gombra rákattintottam
+  2. lépés: 17-et beírtam
+  3. lépés: Megnyomtam az `Upload` gombot
+  4. lépés: helyes végeredményt kaptam: a Management felületen az Aránylag jó kis ház című ingatlan `Méret (m2)*` tulajdonsága 17-re változott.
+
+#### 3.10.2. TR-02 (TC-02)
+
+- TP: TP-10
+  1. lépés: A Management felületen az Aránylag jó kis ház című ingatlanhoz tartozó piros gombra rákattintottam
+  2. lépés: helyes végeredményt kaptam: a Management felületen és a létrehozó felhasználó (dan@a.hu) My ads felületén az Aránylag jó kis ház című ingatlan eltűnt, törlődött.
+
+### 3.11.   Képnézegető funkció tesztriportjai
+
+#### 3.11.1. TR-01 (TC-01)
+
+- TP: TP-11
+  1. lépés: A főoldalon megjelenő Belváros, Szombathely, ingatlan eladó! című ingatlanra rákattintottam egyszer
+  2. lépés: Egyszer rákattintottam a második képre
+  3. lépés: Megnyomtam a jobb oldalon megjelenő nyilat a képek léptetésekor
+  4. lépés: helyes végeredményt kaptam: az ingatlanhoz tartozó képeket lehetett egyesével léptetni és közben megtekinteni.
 
 
 
